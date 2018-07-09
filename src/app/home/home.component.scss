@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Averia+Libre|Prosto+One|Stardos+Stencil|Vast+Shadow");
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+
+#tile1 {
+  background-color: black;
+}
+
+
+
+
+h1 {
+  font-family: Stardos Stencil;
+  font-weight: 300;
+}
+
+
+mat-toolbar {
+  background-color: transparent;
+}
+
+#skateSlide {
+  width: 100px;
+  height:100px;
+  background-color: blue;
+background-image: url("../../assets/img/skate1.png");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,19 @@
+<p>
+  animation works!
+</p>
+
+
+<div class="video">
+
+</div>
+
+
+<mat-grid-list   cols="1" rowHeight="2:1">
+  <mat-grid-tile *ngFor='let item of videoList' >
+
+    <iframe width="560" height="315"  [src]='getEmbedUrl(item) | safeLink' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  </mat-grid-tile>
+
+
+</mat-grid-list>

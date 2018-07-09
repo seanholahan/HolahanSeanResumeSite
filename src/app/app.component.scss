@@ -2,6 +2,27 @@ mat-sidenav-container.m2app-dark {
   background: black;
 }
 
+mat-toolbar {
+  .mat-primary{
+  background: transparent;
+  }
+}
+
+router-outlet {
+  background: #CAE1EF;
+}
+
+button {
+  background : transparent;
+}
+
+mat-toolbar {
+  img {
+    height: 80%;
+    width: auto;
+  }
+}
+
 .app-content {
   padding: 5px;
 }
