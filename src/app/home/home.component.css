@@ -1,35 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Averia+Libre|Prosto+One|Stardos+Stencil|Vast+Shadow");
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import url(~@angular/material/prebuilt-themes/indigo-pink.css);
 .box {
   width: 100%;
   height: 100%;
   position: fixed;
   /* z-index: -1; */
   top: 0px;
-  background: transparent;
-
-}
-
+  background: transparent; }
 
 #tile1 {
-  background-color: black;
-}
-
+  background-color: black; }
 
 p {
   position: absolute;
   top: 50%;
   margin: 20px;
-  left: 50%;
-}
+  left: 50%; }
 
 .imageContainer {
   width: 100%;
-  height:100%;
-  background-color: red;
-}
-
+  height: 100%;
+  background-color: red; }
 
 .skate2 {
   position: absolute;
@@ -40,9 +31,7 @@ p {
   width: auto;
   right: 35%;
   z-index: 12;
-  transition: opacity .3s;
-
-}
+  transition: opacity .3s; }
 
 .skate3 {
   position: absolute;
@@ -53,64 +42,47 @@ p {
   height: 62%;
   width: auto;
   right: 7%;
-  transition: opacity .3s;
-
-}
-
+  transition: opacity .3s; }
 
 h1 {
   font-family: Stardos Stencil;
   font-weight: 300;
   position: absolute;
   width: 100%;
-  text-align: center;
-}
-
+  text-align: center; }
 
 mat-toolbar {
-  background-color: transparent;
-}
-
+  background-color: transparent; }
 
 #skateSlide {
   width: 100px;
-  height:100px;
+  height: 100px;
   background-color: blue;
-background-image: url("../../assets/img/skate1.png");
+  background-image: url("../../assets/img/skate1.png");
   background-position: top left;
   background-size: contain;
-  background-repeat: no-repeat;
-}
-
+  background-repeat: no-repeat; }
 
 .profile-image {
-
-  height:61%;
+  height: 61%;
   width: 61%;
-background-position: center;
+  background-position: center;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  position: absolute;
-
-}
-
+  position: absolute; }
 
 .backgroundImage {
   width: 100%;
   height: auto;
-  position: absolute;
-}
+  position: absolute; }
 
 .backgroundImager {
   position: absolute;
   top: 100px;
   vertical-align: middle;
-
   width: 70%;
-
-  max-width: 700px;
-}
+  max-width: 700px; }
 
 .background {
   position: absolute;
@@ -119,18 +91,6 @@ background-position: center;
   margin-left: 15%;
   margin-right: 15%;
   width: 70%;
+  max-width: 700px; }
 
-  max-width: 700px;
-}
-
-
-mat-grid-list {
-
-
-}
-mat-grid-tile {
-
-
-}
-
-
+/*# sourceMappingURL=home.component.css.map */
