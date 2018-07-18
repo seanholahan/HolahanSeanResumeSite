@@ -1,19 +1,45 @@
-<p>
-  animation works!
-</p>
+
+<mat-tab-group [disableRipple]="true">
+
+  <mat-tab label="MODELING">
 
 
-<div class="video">
-
-</div>
 
 
-<mat-grid-list   cols="1" rowHeight="2:1">
-  <mat-grid-tile *ngFor='let item of videoList' >
+    <!--<p class="type">Type: {{event?.type}}</p>-->
+    <p>x: {{clientX}}, y: {{clientY}}</p>
+    <!--<p>x: {{movementX}}, y: {{movementY}}</p>-->
+    <!--<p>x: {{movementX}}</p>-->
+    <!--<p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>-->
 
-    <iframe width="560" height="315"  [src]='getEmbedUrl(item) | safeLink' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-  </mat-grid-tile>
+    <div class='spriteslider' (mousedown)="down($event)" (mouseup)="up($event)" id='spriteslider'  (mouseenter)="onJamSeshHover($event)" (mousemove)="coordinates($event)"(mouseleave)="onJamSeshHover($event)">
+      <div id='spritetarget' (dragstart)="down($event)"  [ngStyle]="{'background' : 'url(../../assets/img/pantView/pantSprite.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '600vh 600vh'}"  ></div>
+    </div>
+    <!--<div id="pantViewContainer" [ngStyle]="{'background': ' url(../../assets/img/pantView/' + article +'.png) no-repeat 0 0'}" (dragover)="mouseDrag($event)" (mouseenter)="onJamSeshHover($event)" (mousemove)="coordinates($event)"(mouseleave)="onJamSeshHover($event)" ></div>-->
+    <!--"{'background': ' url(../../assets/img/pantView/pantSprite.png) no-repeat' + left + top}"    ''+top+' px '+left+'px'-->
 
 
-</mat-grid-list>
+
+
+  </mat-tab>
+
+  <mat-tab label="ANIMATION">
+    <mat-grid-list   cols="1" rowHeight="2:1">
+      <mat-grid-tile *ngFor='let item of videoList' >
+        <iframe   [src]='getEmbedUrl(item) | safeLink' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </mat-grid-tile>
+      <!--width="560" height="315"-->
+    </mat-grid-list>
+    allo
+
+  </mat-tab>
+
+</mat-tab-group>
+
+
+
+
+
+
+

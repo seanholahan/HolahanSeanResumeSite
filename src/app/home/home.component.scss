@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Averia+Libre|Prosto+One|Stardos+Stencil|Vast+Shadow");
+@import url("https://fonts.googleapis.com/css?family=Teko");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 .box {
@@ -7,8 +8,7 @@
   position: fixed;
   /* z-index: -1; */
   top: 0px;
-  background: transparent;
-
+  background-color: red;
 }
 
 
@@ -33,37 +33,41 @@ p {
 
 .skate2 {
   position: absolute;
-  top: 100px;
+  top: 0px;
   vertical-align: middle;
   max-width: 700px;
-  height: 63%;
+  height: 83%;
   width: auto;
-  right: 35%;
+  right: 33%;
   z-index: 12;
   transition: opacity .3s;
+  max-height: 327px;
 
 }
 
 .skate3 {
   position: absolute;
-  top: 100px;
+  top: 0px;
   vertical-align: middle;
   /* width: 70%; */
   max-width: 700px;
-  height: 62%;
+  height: 82%;
   width: auto;
-  right: 7%;
+  right: 0%;
   transition: opacity .3s;
+  max-height: 327px;
 
 }
 
+#skateButton {
+  overflow: visible;
+}
 
-h1 {
-  font-family: Stardos Stencil;
-  font-weight: 300;
-  position: absolute;
-  width: 100%;
-  text-align: center;
+
+
+.mat-stroked-button {
+  font-family: 'Teko', sans-serif;
+  font-weight: 500;
 }
 
 
@@ -104,17 +108,17 @@ background-position: center;
 
 .backgroundImager {
   position: absolute;
-  top: 100px;
+  top: 0px;
   vertical-align: middle;
 
-  width: 70%;
-
+  height: 100%;
+  width: auto;
   max-width: 700px;
 }
 
 .background {
   position: absolute;
-  top: 100px;
+  top: 0px;
   vertical-align: middle;
   margin-left: 15%;
   margin-right: 15%;
@@ -125,12 +129,52 @@ background-position: center;
 
 
 mat-grid-list {
-
+  bottom: 9vh;
+  width: 100%;
+  display: block;
+  position: absolute;
 
 }
 mat-grid-tile {
 
+  cursor: pointer;
 
 }
 
+
+.instrument {
+  height:30%;
+  width:auto;
+  position:absolute;
+  vertical-align: center;
+
+}
+
+#synth {
+  top: 34%;
+  right: 92%;
+  transition: .3s;
+}
+
+#keyboard {
+  vertical-align: middle;
+  top: 34%;
+  right: 4%;
+  transition: .3s;
+}
+
+#drum {
+  top: 34%;
+  right: -62%;
+  transition: .3s;
+}
+
+
+#instrumentContain {
+  z-index: 11;
+  width: 80%;
+  height: 100%;
+  overflow:hidden;
+  position: relative;
+}
 

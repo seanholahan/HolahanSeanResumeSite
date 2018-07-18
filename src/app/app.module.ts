@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app.material.module';
 import { AppComponent, DialogContentComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { DataScienceComponent } from './data-science/data-science.component';
 import { AnimationComponent } from './animation/animation.component';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     FormsModule,
     AppMaterialModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

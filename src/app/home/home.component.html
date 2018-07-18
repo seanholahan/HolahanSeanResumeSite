@@ -8,12 +8,7 @@
 
 
 
-<div class="box" class="flexbox-parent" (mouseenter)="onEvent($event)"
-     (mouseleave)="onEvent($event)"
-     (mousemove)="coordinates($event)"
-     on-click="onEvent($event)"
-     on-dblclick="onEvent($event)"
-     on-contextmenu="onEvent($event)">
+
   <p class="type">Type: {{event?.type}}</p>
   <p>x: {{clientX}}, y: {{clientY}}</p>
   <p>x: {{movementX}}, y: {{movementY}}</p>
@@ -24,28 +19,45 @@
   <!--<p>x: {{movementX}}, y: {{movementY}}</p>-->
   <!--<p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>-->
 
-  <h1>SEAN HOLAHAN</h1>
 
-  <mat-grid-list   cols="1" rowHeight="2:1">
-    <mat-grid-tile  >
+
+  <mat-grid-list   cols="2" rowHeight="2:1" gutterSize="10px" >
+    <mat-grid-tile [routerLink]="['/animation']"  class="box" class="flexbox-parent" (mouseenter)="onAnimationhover($event)"
+                    (mouseleave)="onAnimationhover($event)"
+                    (mousemove)="coordinates($event)"
+                    on-click="onEvent($event)"
+                    on-dblclick="onEvent($event)"
+                    on-contextmenu="onEvent($event)">
 
 
       <!--<div class = "imageContainer">-->
 
 
-      <img class="backgroundImager"   src="../../assets/img/background.jpg"/>
-      <img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity }" src="../../assets/img/skate2.png"/>
-      <img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity }"   src="../../assets/img/skate3.png"/>
+      <img class="backgroundImager"  id="skateButton"  src="../../assets/img/animationCropped.png"/>
+      <img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity,'transition-delay': skate2Delay  }" src="../../assets/img/skate2.png"/>
+      <img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity, 'transition-delay': skate3Delay }"   src="../../assets/img/skate3.png"/>
 
+      <h3>Animation</h3>
       <!--<div class="profile-image"-->
              <!--[ngStyle]="{ 'background-image': 'url(' + image + ')'}"></div>-->
       <!--</div>-->
 
 
     </mat-grid-tile>
+    <mat-grid-tile [routerLink]="['/jamsesh']"  (mouseenter)="onJamSeshHover($event)" (mouseleave)="onJamSeshHover($event)">
+      <img class="backgroundImager" [ngStyle]="{ }"  src="../../assets/img/jamseshCropped.png"/>
+      <div id="instrumentContain">
+      <img [ngStyle]="{ right: drumPosition, transition: drumTransition}" class="instrument" id="drum"  src="../../assets/img/drum.png"/>
+      <img [ngStyle]="{ right: synthPosition, transition: synthTransition  }"  class="instrument"  id="synth" src="../../assets/img/synth.png"/>
+      <img [ngStyle]="{ right: keyboardPosition, transition: keyboardTransition  }" class="instrument" id="keyboard"  src="../../assets/img/keyboard.png"/>
+      </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
 
 
   </mat-grid-list>
 
-</div>
+
 

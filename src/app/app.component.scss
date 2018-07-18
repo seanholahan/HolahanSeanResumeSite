@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Teko");
+
 mat-sidenav-container.m2app-dark {
-  background: black;
+background: black;
 }
 
 mat-toolbar {
   .mat-primary{
-  background: transparent;
+    background: transparent;
   }
 }
 
@@ -21,6 +23,13 @@ mat-toolbar {
     height: 80%;
     width: auto;
   }
+}
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  font-weight: 300;
+
+  text-align: center;
 }
 
 .app-content {
@@ -101,9 +110,7 @@ mat-toolbar {
   height: 300px;
 }
 
-mat-chip {
-  max-width: 200px;
-}
+
 
 .app-sidebar-button {
   width: inherit;
