@@ -48,6 +48,8 @@ export class AnimationComponent implements OnInit {
   article = 1;
   pant:any;
   isDown = false;
+  initialX = 0;
+  positionFromDown = 0;
 
   ngOnInit() {
     // console.log("hi", this.top);
@@ -81,10 +83,13 @@ export class AnimationComponent implements OnInit {
     }
 
     getPantView(pantPos:number ) {
-
-
       if (pantPos > 112) {
         return pantPos - (112 * Math.floor(pantPos/112));
+      } else if (pantPos < 0) {
+        console.log(pantPos - (112 * Math.floor(pantPos/112)));
+        return pantPos - (112 * Math.floor(pantPos/112));
+
+
       } else {
         // console.log("pant pos", pantPos);
         return pantPos;
@@ -94,7 +99,8 @@ export class AnimationComponent implements OnInit {
 
     down(event: MouseEvent)  {
       this.isDown = true;
-      console.log("down");
+      this.initialX = event.clientX;
+
 }
 
     up(event: MouseEvent) {
@@ -103,12 +109,21 @@ export class AnimationComponent implements OnInit {
     }
 
   coordinates(event: MouseEvent): void {
-    this.pantViewPosition = event.clientX-7;
-    this.positionValue = event.clientX-7;
+     this.pantViewPosition = event.clientX-7;
+     this.positionValue = event.clientX-7;
+
+
+    if (this.isDown == true) {
+
+      this.positionFromDown = this.getPantView(this.initialX - event.clientX);
+
+    }
+
+    this.pantViewPosition = this.positionFromDown;
 
 
 
-    this.pantViewPosition = this.getPantView(this.positionValue);
+
     // console.log("pant pos", this.pantViewPosition);
 
     // this.clientX = event.clientX;

@@ -37,10 +37,11 @@ export class HomeComponent implements OnInit {
     this.innerWidth = (window.screen.width) + "px";
     console.log(innerHeight, innerWidth);
   }
+  movementX = 0;
 
   event: MouseEvent;
   clientX = 0;
-  clientY = 0;
+  clienmovementXtY = 0;
 
 
 
@@ -136,7 +137,7 @@ export class HomeComponent implements OnInit {
 
   coordinates(event: MouseEvent): void {
   this.clientX = event.clientX;
-  this.clientY = event.clientY;
+
 
     if(this.clientX / innerWidth < .33) {
       this.image ="../../assets/img/skate2.png";
