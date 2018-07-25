@@ -1,55 +1,55 @@
+<div id="landingContain">
+  <h1>SEAN HOLAHAN</h1>
+  <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
+<div id="homeLanding">
+  <!--<video   src="../../assets/img/PantDance.mov" allow="autoplay; encrypted-media" allowfullscreen></video>-->
+  <!--<video-background source="{ nov: '../../assets/img/PantDance.mov' }"></video-background>-->
+  <video class="videoBackground" autoplay id="video-background" #videoplayer muted plays-inline>
+    <source src='../../assets/img/OnloadAnimation.webm'>
+    </video>
+</div>
+  </div>
+<mat-grid-list   cols="2" rowHeight="2:1" gutterSize="10px" >
 
-
-
-
-
-
-
-
-
-
-  <p class="type">Type: {{event?.type}}</p>
-  <p>x: {{clientX}}</p>
-  <p>x: {{movementX}}, y: </p>
-  <p>x: {{movementX}}, y:</p>
-  <p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>
-
-  <!--<p class="type">Type: {{event?.type}}</p>-->
-  <!--<p>x: {{clientX}}, y: {{clientY}}</p>-->
-  <!--<p>x: {{movementX}}, y: {{movementY}}</p>-->
-  <!--<p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>-->
-
-
-
-  <mat-grid-list   cols="2" rowHeight="2:1" gutterSize="10px" >
     <mat-grid-tile [routerLink]="['/animation']"  class="box flexbox-parent" (mouseenter)="onAnimationhover($event)"
                     (mouseleave)="onAnimationhover($event)"
                     (mousemove)="coordinates($event)" >
 
 
-      <img class="backgroundImager"  id="skateButton"  src="../../assets/img/animationCropped.png"/>
+
+
+       <img class="backgroundImage"  id="skateButton"  src="../../assets/img/animationCropped.png"/>
       <img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity,'transition-delay': skate2Delay  }" src="../../assets/img/skate2.png"/>
       <img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity, 'transition-delay': skate3Delay }"   src="../../assets/img/skate3.png"/>
-
+      <h4 class="footer">ANIMATION</h4>
 </mat-grid-tile>
 
 
 
     <!--</mat-grid-tile>-->
     <mat-grid-tile [routerLink]="['/jamsesh']"  (mouseenter)="onJamSeshHover($event)" (mouseleave)="onJamSeshHover($event)">
-      <img class="backgroundImager" src="../../assets/img/jamseshCropped.png"/>
+      <img class="backgroundImage" src="../../assets/img/jamseshCropped.png"/>
       <div id="instrumentContain">
       <img [ngStyle]="{ right: drumPosition, transition: drumTransition}" class="instrument" id="drum"  src="../../assets/img/drum.png"/>
       <img [ngStyle]="{ right: synthPosition, transition: synthTransition  }"  class="instrument"  id="synth" src="../../assets/img/synth.png"/>
       <img [ngStyle]="{ right: keyboardPosition, transition: keyboardTransition  }" class="instrument" id="keyboard"  src="../../assets/img/keyboard.png"/>
       </div>
-
+      <h4 class="footer">JAMSESH</h4>
     </mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
+    <mat-grid-tile>
+      <!--<img class="backgroundImager" src="../../assets/img/stitchophrenicSprite.png"/>
+
+      -->
+      <div class="backgroundImage" id="stitchButton" (mouseenter)="onStitchHover($event)" (mouseleave)="onStitchHover($event)" [ngStyle]="{'background' : 'url(../../assets/img/stitchSprite2.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '500%'}"  ></div>
+      <h4 class="footer">STITCHOPHRENIC</h4>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <h4 class="footer">DATA SCIENCE</h4>
+    </mat-grid-tile>
 
 
   </mat-grid-list>
 
 
 
+<!--<div class="tester" (mousedown)="s()" > </div>-->

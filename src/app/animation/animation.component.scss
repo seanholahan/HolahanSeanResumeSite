@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Teko");
+
 mat-grid-tile {
   video {
     width: 100%;
@@ -24,6 +26,13 @@ iframe {
   height: 90vh;
 
 
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  font-weight: 200;
 }
 
 p {

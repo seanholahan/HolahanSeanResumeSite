@@ -2,6 +2,68 @@
 @import url("https://fonts.googleapis.com/css?family=Teko");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.tester {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  z-index: 13;
+  bottom: 0;
+  position:fixed;
+}
+
+video {
+  height: auto;
+  width: 100%;
+  max-width: 1280px;
+}
+
+@media only screen and (max-width: 700px) {
+  video {
+    width:100%;
+    height: auto;
+  }
+  #headerHide {
+    width: 100vw;
+  }
+
+}
+
+
+.video-background {
+  /*  making the video fullscreen  */
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  z-index: 100;
+
+}
+
+
+
+#landingContain {
+  width: 100vw;
+  height:100vh;
+  text-align:center;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+}
+
+#homeLanding {
+
+  display:inline-block;
+  height: 100%;
+  width: auto;
+  bottom: 0px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right:auto;
+  z-index: 100;
+}
+
+
 .box {
   //width: 100%;
   //height: 100%;
@@ -10,6 +72,7 @@
   //top: 0px;
   //background-color: red;
 }
+
 
 
 #tile1 {
@@ -36,7 +99,7 @@ p {
   top: 0px;
   vertical-align: middle;
   max-width: 700px;
-  height: 83%;
+  height: 72%;
   width: auto;
   right: 33%;
   z-index: 12;
@@ -51,7 +114,7 @@ p {
   vertical-align: middle;
   /* width: 70%; */
   max-width: 700px;
-  height: 82%;
+  height: 71%;
   width: auto;
   right: 0%;
   transition: opacity .3s;
@@ -63,11 +126,46 @@ p {
 
 }
 
+#headerHide {
+  background-color: red;//#DD6E42;
 
+  /* display: inline-block; */
+  right: 0px;
+  height: 200vh;
+  top: 74px;
+  z-index: -9;
+  position: absolute;
+  marin-left: auto;
+  /* margin-right: auto; */
+transition: width 4s;
+  /* margin-left: auto; */
+  width: 75vw;
+}
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  width: 100%;
+  top: 16vh;
+  text-align: center;
+  font-size: 10vw;
+  position: absolute;
+  font-weight: 2;
+  z-index:-10;
+}
 
 .mat-stroked-button {
   font-family: 'Teko', sans-serif;
   font-weight: 500;
+}
+
+.footer {
+  font-family: 'Teko', sans-serif;
+  bottom:0;
+  witdth: 100%;
+  text-align: center;
+  position: absolute;
+  margin-bottom: 0;
+  font-weight:200;
 }
 
 
@@ -100,20 +198,24 @@ background-position: center;
 }
 
 
-.backgroundImage {
-  width: 100%;
-  height: auto;
-  position: absolute;
-}
 
-.backgroundImager {
+
+
+
+.backgroundImage {
   position: absolute;
   top: 0px;
   vertical-align: middle;
 
-  height: 100%;
+  height: 85%;
   width: auto;
   max-width: 700px;
+}
+
+#stitchButton {
+  width: 75%;
+  height: 85%;
+  background-size: contain;
 }
 
 .background {
@@ -129,10 +231,11 @@ background-position: center;
 
 
 mat-grid-list {
-  bottom: 9vh;
+  top: 100vh;
   width: 100%;
   display: block;
   position: absolute;
+  margin-bottom:10px;
 
 }
 mat-grid-tile {
@@ -143,7 +246,7 @@ mat-grid-tile {
 
 
 .instrument {
-  height:30%;
+  height:27%;
   width:auto;
   position:absolute;
   vertical-align: center;
@@ -159,7 +262,7 @@ mat-grid-tile {
 #keyboard {
   vertical-align: middle;
   top: 34%;
-  right: 4%;
+  right: 7%;
   transition: .3s;
 }
 
@@ -172,7 +275,7 @@ mat-grid-tile {
 
 #instrumentContain {
   z-index: 11;
-  width: 80%;
+  width: 73%;
   height: 100%;
   overflow:hidden;
   position: relative;

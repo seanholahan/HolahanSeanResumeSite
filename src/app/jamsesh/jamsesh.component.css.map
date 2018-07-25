@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAG;EACD,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,MAAM",
+"sources": ["jamsesh.component.scss"],
+"names": [],
+"file": "jamsesh.component.css"
+}

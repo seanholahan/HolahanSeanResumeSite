@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Teko");
 mat-grid-tile video {
   width: 100%;
   height: auto; }
@@ -18,6 +19,12 @@ iframe {
 #pantViewContainer {
   width: 100%;
   height: 90vh; }
+
+h2 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  font-weight: 200; }
 
 p {
   position: fixed;
