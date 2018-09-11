@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+//import { NavbarService } from '../navigation/navigation.service';
 
 
 
@@ -16,8 +17,11 @@ import { fadeInAnimation } from '../app-animations/index';
 
 
 
-export class HomeComponent implements OnInit {
 
+
+
+export class HomeComponent implements OnInit {
+  @ViewChild('videoPlayer') videoPlayer: any;
   innerHeight: any;
   innerWidth: any;
   image =  "../../assets/img/skate2.png";
@@ -33,23 +37,39 @@ export class HomeComponent implements OnInit {
   drumTransition = ".3s ease-in";
   keyboardTransition =".3s ease-in";
   spriteIndex = 1;
+  enterOpacity:any;
+  videoOpacity: any;
+  homeNavOpacity: any;
+  homeNavDisplay:any;
+  homeNavTop:any;
+  homeTransition:any;
   stitchHover = false;
+  yolo: any;
+
   top = "0%";
   left = "0%";
-  yolo: any;
   yo:any;
   spriteMultiplier = 25;
-  vid = document.getElementById("video-background");
-  videoplayer: any;
+
+
   landingCount = 0;
   headerHideWidth:any;
 
 
   constructor() {
+    this.enterOpacity = '100';
+    this.videoOpacity = '0';
+    this.homeNavOpacity = '1';
+    this.homeNavDisplay = 'block';
+    this.homeNavTop = '100vh';
     this.innerHeight = (window.screen.height) + "px";
     this.innerWidth = (window.screen.width) + "px";
-    console.log(innerHeight, innerWidth);
-    this.yo = setInterval(()=>this.s(), 500);
+    this.homeTransition = 'top 1s ease-out';
+    console.log("geek",innerHeight, innerWidth);
+
+
+
+
 
   }
   movementX = 0;
@@ -62,73 +82,65 @@ export class HomeComponent implements OnInit {
 
 
 
+ startAnim(event:any): void {
+   this.videoOpacity = "100";
+   //this.yo = setInterval(()=>this.s(), 320);
+   this.videoPlayer.nativeElement.play();
+   this.enterOpacity = '0';
 
 
 
-  /////
+
+ }
+
+ onTimeUpdate(value) : void {
+   console.log("curretnt",value.target.currentTime);
+   var videoTime  = value.target.currentTime;
+   if(videoTime > 1) {
+     this.headerHideWidth = '20vw';
+
+   }
+   if (videoTime >= 3.8) {
+     this.headerHideWidth = '0';
+     this.videoOpacity = 0;
+     this.homeNavDisplay = 'block';
+     this.homeNavOpacity = '100';
+     this.homeNavTop = '0vh';
+
+   }
+ }
+
+
 
   s(): void {
 
     this.landingCount++;
-    console.log(this.landingCount, "geeks");
+   // console.log(document.getElementById('video-background').currentTime);
+   // console.log(this.video.currentTime);
     if (this.landingCount == 3) {
-      this.headerHideWidth = '0vw';
+      this.headerHideWidth = '20vw';
+
 
     }
-    if (this. landingCount == 20) {
+    if (this. landingCount == 14) {
       clearInterval(this.yo);
       this.landingCount = 0;
+      this.headerHideWidth = '0';
+      this.videoOpacity = 0;
+      this.homeNavDisplay = 'block';
+      this.homeNavOpacity = '100';
+
+      this.homeNavTop = '0vh';
+
+
+
     }
-
-
-    // this.spriteIndex++;
-    // console.log(this.spriteIndex)
-    //
-    //
-    //
-    // if (this.spriteIndex < 5) {
-    //   this.left = String((this.spriteIndex) * this.spriteMultiplier) + '%';
-    //   this.top = "0%";
-    //
-    // } else if (  this.spriteIndex < 9) {
-    //   this.left = String((this.spriteIndex - 5) * this.spriteMultiplier) + '%';
-    //   this.top = "33.33333%";
-    //
-    //  } else if (this.spriteIndex < 11) {
-    //   this.left = String((this.spriteIndex-6) * this.spriteMultiplier) + '%';
-    //   this.top = "33.333333%";
-    //
-    //   console.log(this.spriteIndex - 5,"keee");
-    //   // this.spriteIndex = event.clientX - 7;
-    // }
-    //
-    //
-    // else if (  this.spriteIndex < 16) {
-    //   this.left = String((this.spriteIndex - 11) * this.spriteMultiplier) + '%';
-    //   this.top = "66.5%";
-    //   console.log(this.spriteIndex ," addd");
-    //
-    // }
-    // else if (  this.spriteIndex < 17) {
-    //   this.left = '0%';
-    //   this.top = "99.7%";
-    //   console.log(this.spriteIndex , "this");
-    //
-    // } else if (this.spriteIndex == 17){
-    //   console.log("sucks");
-    //   this.top = "0%";
-    //   this.left = "0%";
-    //   this.spriteIndex = 1;
-    //   console.log(this.spriteIndex,"gee");
-    //   clearInterval(this.yolo);
-    // }
   }
 
-  ////
 
-
-
-
+  // stepper(): void {
+  //   console.log("yo");
+  // }
 
 
   sprite(): void {
@@ -146,38 +158,39 @@ export class HomeComponent implements OnInit {
     } else {
       clearInterval(this.yolo);
     }
-}
-
-spriteOut():void {
-  console.log(this.spriteIndex);
-  if (this.spriteIndex < 11) {
-    this.left = String((this.spriteIndex-6) * this.spriteMultiplier) + '%';
-    this.top = "33.333333%";
-    this.spriteIndex++;
-    console.log(this.spriteIndex - 5,"keee");
-    // this.spriteIndex = event.clientX - 7;
-  }
-  else if (  this.spriteIndex < 16) {
-    this.left = String((this.spriteIndex - 11) * this.spriteMultiplier) + '%';
-    this.top = "66.5%";
-    console.log(this.spriteIndex - 11,"this");
-    this.spriteIndex++;
-  }
-  else if (  this.spriteIndex == 16) {
-    this.left = '0%';
-    this.top = "99.7%";
-    console.log(this.spriteIndex - 15, "this");
-    this.spriteIndex++;
-  } else if (this.spriteIndex == 17){
-    console.log("sucks");
-    this.top = "99.7%";
-    this.left = "25%";
-    this.spriteIndex = 1;
-    console.log(this.spriteIndex,"gee");
-    clearInterval(this.yolo);
   }
 
-}
+  spriteOut():void {
+    console.log(this.spriteIndex);
+    if (this.spriteIndex < 11) {
+      this.left = String((this.spriteIndex-6) * this.spriteMultiplier) + '%';
+      this.top = "33.333334%";
+      this.spriteIndex++;
+      console.log(this.spriteIndex - 5,"keee");
+      // this.spriteIndex = event.clientX - 7;
+    }
+    else if (  this.spriteIndex < 16) {
+      this.left = String((this.spriteIndex - 11) * this.spriteMultiplier) + '%';
+      this.top = "66.67%";
+      console.log(this.spriteIndex - 11,"this");
+      this.spriteIndex++;
+    }
+    else if (  this.spriteIndex == 16) {
+      this.left = '0%';
+      this.top = "100%";
+      console.log(this.spriteIndex - 15, "this");
+      this.spriteIndex++;
+    } else if (this.spriteIndex == 17){
+      console.log("sucks");
+      this.top = "99.99%";
+      this.left = "25%";
+      this.spriteIndex = 1;
+      console.log(this.spriteIndex,"gee");
+      clearInterval(this.yolo);
+    }
+
+  }
+
 
 
 
@@ -202,6 +215,7 @@ spriteOut():void {
 
     }
   }
+
 
 
 
@@ -293,6 +307,9 @@ spriteOut():void {
   }
 
 
+
+
+
   coordinates(event: MouseEvent): void {
   this.clientX = event.clientX;
 
@@ -314,4 +331,7 @@ spriteOut():void {
     this.nextInstrument = "synth";
 
   };
+
 }
+
+

@@ -15,15 +15,17 @@ import { DataScienceComponent } from './data-science/data-science.component';
 import { AnimationComponent } from './animation/animation.component';
 import { HomeComponent } from './home/home.component';
 import { JamseshComponent } from './jamsesh/jamsesh.component';
+import {NavigationComponent} from './navigation/navigation.component';
 import { SafeLinkPipe } from './util/safe-link.pipe';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'data-science', component: DataScienceComponent },
-  { path: 'jamsesh', component: JamseshComponent },
+  { path: 'dataScience', component: DataScienceComponent },
+  { path: 'jamSesh', component: JamseshComponent },
   { path: 'animation', component: AnimationComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'navigation', component: NavigationComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomeComponent }
 
   // ,
@@ -44,12 +46,13 @@ const appRoutes: Routes = [
     AppMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false  } // <-- debugging purposes only
     )
   ],
-  declarations: [AppComponent, DialogContentComponent,  DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe],
+  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe],
   entryComponents: [DialogContentComponent],
   bootstrap: [AppComponent],
 })

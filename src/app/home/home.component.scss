@@ -11,6 +11,8 @@
   position:fixed;
 }
 
+//body {margin: 0; height: 100%; overflow: hidden}
+
 video {
   height: auto;
   width: 100%;
@@ -28,14 +30,37 @@ video {
 
 }
 
+#enterButton {
+  font-family: 'Teko', sans-serif;
+  width: 20vw;
+  font-size: 3vw;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+
+
+#buttonContain {
+
+
+  position:absolute;
+
+  width: 100%;
+  text-align: center;
+  z-index: 21;
+  top: 40vh;
+}
+
 
 .video-background {
   /*  making the video fullscreen  */
   position: absolute;
   left: 0;
   top: 0;
-
   z-index: 100;
+
 
 }
 
@@ -56,11 +81,12 @@ video {
   display:inline-block;
   height: 100%;
   width: auto;
-  bottom: 0px;
+  top: 0px;
   overflow: hidden;
   margin-left: auto;
   margin-right:auto;
-  z-index: 100;
+  z-index: 20;
+  transition: opacity 2s;
 }
 
 
@@ -127,7 +153,8 @@ p {
 }
 
 #headerHide {
-  background-color: red;//#DD6E42;
+  background-color: #DD6E42;
+
 
   /* display: inline-block; */
   right: 0px;
@@ -137,11 +164,12 @@ p {
   position: absolute;
   marin-left: auto;
   /* margin-right: auto; */
-transition: width 4s;
+transition: width 3.05s;
   /* margin-left: auto; */
   width: 75vw;
+  -webkit-transition-timing-function:  cubic-bezier(0,0,0.33,1) ;//0,0,0.43,1
 }
-
+//cubic-bezier(0,0,0.49,1)
 h1 {
   font-family: 'Teko', sans-serif;
   width: 100%;
@@ -151,6 +179,9 @@ h1 {
   position: absolute;
   font-weight: 2;
   z-index:-10;
+  color: black;
+
+
 }
 
 .mat-stroked-button {
@@ -231,16 +262,50 @@ background-position: center;
 
 
 mat-grid-list {
-  top: 100vh;
-  width: 100%;
+  bottom: 0;
+  width: 80vw;
+  //height: 70vh;
+  left: -2px;
   display: block;
   position: absolute;
-  margin-bottom:10px;
+  margin-bottom: 10px;
+  margin-left: 10vw;
+  margin-right:10vw;
+  transform-origin: bottom;
+  padding-bottom: 0!important;
+
+
+
+
 
 }
+
+
+#gridListContain {
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
+
+//#gridListContain {
+//  background-size: cover;
+//  background-position: top left;
+//  width: 101vw;
+//  height: 116vh;
+//
+//  z-index: -1;
+//  left: 0;
+//  position: absolute;
+//  transition: top 3s;
+//
+//
+//}
 mat-grid-tile {
 
   cursor: pointer;
+  transition:  top 3s;
 
 }
 
@@ -281,3 +346,13 @@ mat-grid-tile {
   position: relative;
 }
 
+
+//#step {
+//  position: fixed;
+//  z-index:20;
+//  top:20px;
+//  left: 20px;
+//  width: 30px;
+//  height: 30px;
+//  background-color: purple;
+//}

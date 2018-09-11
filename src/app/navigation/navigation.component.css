@@ -1,0 +1,13 @@
+mat-toolbar img {
+  height: 80%;
+  width: auto; }
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  font-weight: 300;
+  text-align: center; }
+
+mat-toolbar .mat-button {
+  background: transparent; }
+
+/*# sourceMappingURL=navigation.component.css.map */

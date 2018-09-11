@@ -5,20 +5,8 @@ mat-sidenav-container.m2app-dark {
 mat-toolbar .mat-primary {
   background: transparent; }
 
-router-outlet {
-  background: #CAE1EF; }
-
 button {
   background: transparent; }
-
-mat-toolbar img {
-  height: 80%;
-  width: auto; }
-
-h1 {
-  font-family: 'Teko', sans-serif;
-  font-weight: 300;
-  text-align: center; }
 
 .app-content {
   padding: 5px; }

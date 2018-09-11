@@ -14,6 +14,8 @@ export class AnimationComponent implements OnInit {
 
 
 
+
+
   videoList = [{
     id: "1",
     embed: '92SfnUlgupQ'

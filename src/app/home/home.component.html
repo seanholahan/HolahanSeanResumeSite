@@ -1,32 +1,40 @@
+<div id="gridListContain"  >
+<div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity}">
+  <button mat-button  class="md-warn" id="enterButton" (click)="startAnim()" >ENTER SITE </button>
+</div>
 <div id="landingContain">
   <h1>SEAN HOLAHAN</h1>
   <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
-<div id="homeLanding">
-  <!--<video   src="../../assets/img/PantDance.mov" allow="autoplay; encrypted-media" allowfullscreen></video>-->
-  <!--<video-background source="{ nov: '../../assets/img/PantDance.mov' }"></video-background>-->
-  <video class="videoBackground" autoplay id="video-background" #videoplayer muted plays-inline>
+<div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
+  <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted plays-inline>
     <source src='../../assets/img/OnloadAnimation.webm'>
     </video>
 </div>
-  </div>
-<mat-grid-list   cols="2" rowHeight="2:1" gutterSize="10px" >
+</div>
 
+
+
+
+
+  <!--HOME NAV-->
+<mat-grid-list id="homeNav" [ngStyle]="{'display':homeNavDisplay, 'opacity': homeNavOpacity , 'top':homeNavTop, 'transition':homeTransition}"  cols="2" rowHeight="2:1" gutterSize="10px" >
+
+      <!--
+     ANIMATION BUTTON
+     -->
     <mat-grid-tile [routerLink]="['/animation']"  class="box flexbox-parent" (mouseenter)="onAnimationhover($event)"
                     (mouseleave)="onAnimationhover($event)"
                     (mousemove)="coordinates($event)" >
-
-
-
-
        <img class="backgroundImage"  id="skateButton"  src="../../assets/img/animationCropped.png"/>
       <img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity,'transition-delay': skate2Delay  }" src="../../assets/img/skate2.png"/>
       <img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity, 'transition-delay': skate3Delay }"   src="../../assets/img/skate3.png"/>
       <h4 class="footer">ANIMATION</h4>
-</mat-grid-tile>
+    </mat-grid-tile>
 
 
-
-    <!--</mat-grid-tile>-->
+    <!--
+    JAMSESH BUTTON
+    -->
     <mat-grid-tile [routerLink]="['/jamsesh']"  (mouseenter)="onJamSeshHover($event)" (mouseleave)="onJamSeshHover($event)">
       <img class="backgroundImage" src="../../assets/img/jamseshCropped.png"/>
       <div id="instrumentContain">
@@ -36,20 +44,27 @@
       </div>
       <h4 class="footer">JAMSESH</h4>
     </mat-grid-tile>
-    <mat-grid-tile>
-      <!--<img class="backgroundImager" src="../../assets/img/stitchophrenicSprite.png"/>
 
-      -->
-      <div class="backgroundImage" id="stitchButton" (mouseenter)="onStitchHover($event)" (mouseleave)="onStitchHover($event)" [ngStyle]="{'background' : 'url(../../assets/img/stitchSprite2.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '500%'}"  ></div>
+
+    <!--
+    STITCH BUTTON
+    -->
+    <mat-grid-tile>
+      <div class="backgroundImage" id="stitchButton" (mouseenter)="onStitchHover($event)" (mouseleave)="onStitchHover($event)"
+           [ngStyle]="{'background' : 'url(../../assets/img/stitchSprite3.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '499.2%'}"  ></div>
       <h4 class="footer">STITCHOPHRENIC</h4>
     </mat-grid-tile>
+
+
+      <!--
+    DATA SCIENCE BUTTON
+    -->
     <mat-grid-tile>
       <h4 class="footer">DATA SCIENCE</h4>
     </mat-grid-tile>
 
 
   </mat-grid-list>
+</div>
 
 
-
-<!--<div class="tester" (mousedown)="s()" > </div>-->

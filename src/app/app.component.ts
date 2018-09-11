@@ -1,4 +1,5 @@
 import { Component, Optional } from '@angular/core';
+
 import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 
 
@@ -29,5 +30,7 @@ export class AppComponent {
   `,
 })
 export class DialogContentComponent {
-  constructor() { }
+  constructor() {
+    console.log("activatedRoute");
+  }
 }
