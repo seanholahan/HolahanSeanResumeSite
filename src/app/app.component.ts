@@ -1,4 +1,5 @@
 import { Component, Optional } from '@angular/core';
+import {Title} from '@angular/platform-browser'
 
 import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 
@@ -9,6 +10,12 @@ import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public constructor(private titleService: Title ) { }
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
+
+
 
 }
 
@@ -31,6 +38,6 @@ export class AppComponent {
 })
 export class DialogContentComponent {
   constructor() {
-    console.log("activatedRoute");
+
   }
 }

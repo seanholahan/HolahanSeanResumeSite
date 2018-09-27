@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInOutAnimation } from '../app-animations/index';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-data-science',
@@ -10,7 +11,9 @@ import { slideInOutAnimation } from '../app-animations/index';
 })
 export class DataScienceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Sean Holahan: Data Science');
+  }
 
   ngOnInit() {
     console.log('hello from data science');

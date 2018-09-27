@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-animation',
@@ -11,6 +11,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 
 export class AnimationComponent implements OnInit {
+
 
 
 
@@ -31,8 +32,8 @@ export class AnimationComponent implements OnInit {
 
 
 
-  constructor() {
-
+  constructor( private titleService:Title) {
+    this.titleService.setTitle( 'Sean Holahan: Animations' );
   }
 
   event: MouseEvent;

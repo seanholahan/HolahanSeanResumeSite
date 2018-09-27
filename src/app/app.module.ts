@@ -1,7 +1,7 @@
 import 'hammerjs';
 
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
@@ -17,14 +17,20 @@ import { HomeComponent } from './home/home.component';
 import { JamseshComponent } from './jamsesh/jamsesh.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import { SafeLinkPipe } from './util/safe-link.pipe';
+import { StitchophrenicComponent } from './stitchophrenic/stitchophrenic.component';
+import { HomeNavComponent } from './home-nav/home-nav.component';
 
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home',
+    component: HomeComponent,
+    data: {title:'hi'}
+  },
   { path: 'dataScience', component: DataScienceComponent },
   { path: 'jamSesh', component: JamseshComponent },
   { path: 'animation', component: AnimationComponent },
   { path: 'navigation', component: NavigationComponent },
+  { path: 'stitchophrenic', component: StitchophrenicComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomeComponent }
 
@@ -52,7 +58,8 @@ const appRoutes: Routes = [
       { enableTracing: false  } // <-- debugging purposes only
     )
   ],
-  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe],
+  providers: [Title],
+  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe, StitchophrenicComponent, HomeNavComponent],
   entryComponents: [DialogContentComponent],
   bootstrap: [AppComponent],
 })

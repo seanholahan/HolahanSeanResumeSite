@@ -1,70 +1,33 @@
-<div id="gridListContain"  >
-<div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity}">
-  <button mat-button  class="md-warn" id="enterButton" (click)="startAnim()" >ENTER SITE </button>
+<div id="gridListContain" scroll="no" style="overflow: hidden">
+  <div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity, 'display': enterDisplay}">
+    <button mat-button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
+    <!--startAnim()-->
+  </div>
+  <div id="landingContain" scroll="no" style="overflow: hidden">
+    <h1 [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
+    <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
+    <!--<div id="blackBox" ></div>-->
+<div id="seanWrapper">
+    <div id="seanPortrait" [@portraitState]="currentPortraitState" >
+      <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture">
+      <img src="../../assets/img/building1.png" class="balancePicture buildings">
+      <img src="../../assets/img/building2.png" class="balancePicture buildings">
+      <img src="../../assets/img/building3.png" class="balancePicture buildings">
+      <img src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
+      <img src="../../assets/img/seanBody.png" class="balancePicture">
+    </div>
 </div>
-<div id="landingContain">
-  <h1>SEAN HOLAHAN</h1>
-  <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
-<div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
-  <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted plays-inline>
-    <source src='../../assets/img/OnloadAnimation.webm'>
-    </video>
-</div>
-</div>
 
+    <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
+      <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted plays-inline>
+        <source src='../../assets/img/OnloadAnimation.webm'>
+      </video>
+    </div>
+  </div>
 
-
-
-
-  <!--HOME NAV-->
-<mat-grid-list id="homeNav" [ngStyle]="{'display':homeNavDisplay, 'opacity': homeNavOpacity , 'top':homeNavTop, 'transition':homeTransition}"  cols="2" rowHeight="2:1" gutterSize="10px" >
-
-      <!--
-     ANIMATION BUTTON
-     -->
-    <mat-grid-tile [routerLink]="['/animation']"  class="box flexbox-parent" (mouseenter)="onAnimationhover($event)"
-                    (mouseleave)="onAnimationhover($event)"
-                    (mousemove)="coordinates($event)" >
-       <img class="backgroundImage"  id="skateButton"  src="../../assets/img/animationCropped.png"/>
-      <img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity,'transition-delay': skate2Delay  }" src="../../assets/img/skate2.png"/>
-      <img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity, 'transition-delay': skate3Delay }"   src="../../assets/img/skate3.png"/>
-      <h4 class="footer">ANIMATION</h4>
-    </mat-grid-tile>
-
-
-    <!--
-    JAMSESH BUTTON
-    -->
-    <mat-grid-tile [routerLink]="['/jamsesh']"  (mouseenter)="onJamSeshHover($event)" (mouseleave)="onJamSeshHover($event)">
-      <img class="backgroundImage" src="../../assets/img/jamseshCropped.png"/>
-      <div id="instrumentContain">
-      <img [ngStyle]="{ right: drumPosition, transition: drumTransition}" class="instrument" id="drum"  src="../../assets/img/drum.png"/>
-      <img [ngStyle]="{ right: synthPosition, transition: synthTransition  }"  class="instrument"  id="synth" src="../../assets/img/synth.png"/>
-      <img [ngStyle]="{ right: keyboardPosition, transition: keyboardTransition  }" class="instrument" id="keyboard"  src="../../assets/img/keyboard.png"/>
-      </div>
-      <h4 class="footer">JAMSESH</h4>
-    </mat-grid-tile>
-
-
-    <!--
-    STITCH BUTTON
-    -->
-    <mat-grid-tile>
-      <div class="backgroundImage" id="stitchButton" (mouseenter)="onStitchHover($event)" (mouseleave)="onStitchHover($event)"
-           [ngStyle]="{'background' : 'url(../../assets/img/stitchSprite3.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '499.2%'}"  ></div>
-      <h4 class="footer">STITCHOPHRENIC</h4>
-    </mat-grid-tile>
-
-
-      <!--
-    DATA SCIENCE BUTTON
-    -->
-    <mat-grid-tile>
-      <h4 class="footer">DATA SCIENCE</h4>
-    </mat-grid-tile>
-
-
-  </mat-grid-list>
+  <div>
+    <app-home-nav [@currentState]="enterState"> </app-home-nav>
+  </div>
 </div>
 
 
