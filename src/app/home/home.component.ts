@@ -22,46 +22,65 @@ import {buildingAnimation} from '../animations';
     buildingAnimation('building3'),
     buildingAnimation('building4'),
 
+    trigger('enterSite', [
+      state('notEntered', style({
+        top: 'calc(100vh)'
+      })),
+      state('hasEntered', style({
+        top: 'calc(100vh - 70px)'
+      })),
+      transition('*=>hasEntered', animate('300ms'))
+    ]),
+
+
+    trigger('yellowBG', [
+      state('hidden', style({
+        // transform: 'scaleX(0)'
+        //transform: 'scaleY(0)'
+        opacity: 0
+      })),
+      state('shown', style({
+        // transform: 'scaleX(1)'
+         opacity: 1
+        // transform: 'scaleY(1)'
+
+      })),
+      transition('hidden <=> shown',  animate('300ms'))
+    ]),
+
 
 
     trigger('description', [
-      // state('invisible', style({
-      //   borderRadius: "10px 10px 10px 10px",
-      //   opacity: '0',
-      //   transform: "translateX(0vw) scale(1)"
-      //
-      // })),
-
       state('hidden', style({
-        borderRadius: "10px 10px 10px 10px",
+        // borderRadius: "10px 10px 10px 10px",
         transform: 'translateX(-21vh)'
       })),
       state('shown', style({
-        borderRadius: "0px 10px 10px 0px",
+        // borderRadius: "0px 10px 10px 0px",
         transform: 'translateX(0vh)'
       })),
 
-      transition('hidden <=> shown',  animate('300ms'))
+      transition('hidden <=> shown',  animate('300ms 300ms'))
     ]),
 
     trigger('portraitState', [
       state('hidden', style({
-        transform: 'scale(0) translateX(-21vh)'
+        transform: 'scaleY(0) translateX(-21vh)'
       })),
 
       state('visible', style({
 
-        transform: 'scale(1) translateX(-21vh)',
+        transform: 'scaleY(1) translateX(-21vh)',
         borderRadius: "10px 10px 10px 10px"
       })),
       state('pushed', style({
-        transform: 'scale(1) translateX(calc(-42vh + 1px))',
-        borderRadius: "10px 0px 0px 10px"
+        transform: 'scaleY(1) translateX(calc(-42vh + 1px))',
+        borderRadius: "0px 0px 0px 0px"
 
       })),
 
-      transition('hidden <=> visible', animate('500ms')),
-      transition('visible <=> pushed', animate('300ms'))
+      transition('hidden <=> visible', animate('300ms')),
+      transition('visible <=> pushed', animate('300ms 300ms'))
     ]),
 
 
@@ -139,6 +158,8 @@ export class HomeComponent implements OnInit {
   @Input() building3State: string = 'hidden';
   @Input() building4State: string = 'hidden';
   @Input() descriptionState: string = 'hidden';
+  @Input() currentState: string = 'notEntered';
+  @Input() yellowBGState: string = 'hidden';
 
 
   interval;
@@ -146,6 +167,7 @@ export class HomeComponent implements OnInit {
   enterState: string = 'notEntered';
   animationStartToggle: boolean = false;
   descriptionToggle: boolean = false;
+  landingPointerEvents: string = 'none';
   innerHeight: any;
   innerWidth: any;
   buildSwitch: boolean;
@@ -224,8 +246,10 @@ export class HomeComponent implements OnInit {
 
     if (this.descriptionToggle == true) {
 
+
       this.descriptionState = 'shown';
       this.currentPortraitState = 'pushed';
+      this.landingPointerEvents = 'all';
       console.log("descriptionAnimation", this.descriptionState);
     }
   }
@@ -252,6 +276,7 @@ export class HomeComponent implements OnInit {
           }
           case 3: {
             this.building3State = 'visible';
+
             this.buildingCount++;
             break;
           }
@@ -302,9 +327,12 @@ export class HomeComponent implements OnInit {
       //this.homeNavBottom = "0vh";
       //this.homeNavAnchor = 'bottom';
       this.homeTransition = 'top 3s ease-in';
-      this.enterSite('hasEntered');
+
+      console.log(this.currentState, 'currentState');
       this.currentPortraitState = 'visible';
+      this.yellowBGState = 'shown';
       this.currentHeaderState = 'topAligned';
+      this.currentState = 'hasEntered';
       this.buildSwitch = true;
       this.currentBuildState = 'built';
 

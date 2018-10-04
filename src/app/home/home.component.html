@@ -1,11 +1,9 @@
 <div id="gridListContain" scroll="no" style="overflow: hidden">
   <div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity, 'display': enterDisplay}">
     <button mat-button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
-    <!--startAnim()-->
   </div>
 
-
-  <div id="landingContain" scroll="no" style="overflow: hidden">
+  <div id="landingContain" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
     <h1  [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
     <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
     <div id="seanPortrait" [@portraitState]="currentPortraitState" (@portraitState.done)="buildingAnimation()">
@@ -15,10 +13,10 @@
       <img [@building3]="building3State"  src="../../assets/img/building3.png"  class="balancePicture buildings">
       <img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
       <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
-
     </div>
-    <div [@description]="descriptionState" [ngStyle]="{'opacity':descriptionOpacity}" id="description">
-      <p id="descriptionText">Hi! <br> My name is sean, I am a designer and a developer, currently looking for work.  Please check out some of my latest projects and view my resume</p>
+
+    <div [@yellowBG]="yellowBGState" [ngStyle]="{'opacity':descriptionOpacity}" id="description">
+      <p [@description]="descriptionState" id="descriptionText">Hi! <br> My name is sean, I am a designer and a developer, currently looking for work.  Please check out some of my latest projects and view my resume</p>
     </div>
 
     <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
@@ -26,12 +24,27 @@
         <source src='../../assets/img/OnloadAnimation.webm'>
       </video>
     </div>
-  </div>
 
-  <div>
-    <app-home-nav [@currentState]="enterState"> </app-home-nav>
+
+    <mat-grid-list  id="homeNav" [@enterSite]="currentState"    cols="4" rowHeight="3:1" gutterSize="0px" >
+      <mat-grid-tile  [routerLink]="['/animation']" >
+        <h2 class="tileHeader">ANIMATION</h2>
+      </mat-grid-tile>
+
+      <mat-grid-tile [routerLink]="['/webDev']"  >
+        <h2 class="tileHeader">WEB DEVELOPEMENT</h2>
+      </mat-grid-tile>
+
+      <!--this.yolo = setInterval(()=>this.sprite(), 50);-->
+      <mat-grid-tile >
+        <h2 class="tileHeader">USER EXPERIENCE</h2>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <h2 class="tileHeader">DATASCIENCE</h2>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>
-<!---->
 
 

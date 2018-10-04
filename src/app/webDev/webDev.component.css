@@ -1,31 +1,15 @@
-
-#homeNav {
-  //transition: top 3s;
-  //top: calc(100vh - 70vh);
-}
-
-
 mat-grid-tile:hover {
-   background-color: #ddbc429e;
-  transition:background-color 1s;
-
-
-}
-
+  background-color: #ddbc429e;
+  transition: background-color 1s; }
 
 #homeContain {
   width: 100vw;
-  height: 100vh;
-  //overflow: hidden;
-
-}
+  height: 100vh; }
 
 .imageContainer {
   width: 100%;
-  height:100%;
-  background-color: red;
-}
-
+  height: 100%;
+  background-color: red; }
 
 .skate2 {
   position: absolute;
@@ -37,9 +21,7 @@ mat-grid-tile:hover {
   right: 26%;
   z-index: 12;
   transition: opacity .3s;
-  max-height: 327px;
-
-}
+  max-height: 327px; }
 
 .skate3 {
   position: absolute;
@@ -51,24 +33,16 @@ mat-grid-tile:hover {
   width: 61%;
   left: 58%;
   transition: opacity .3s;
-  max-height: 327px;
-
-}
-
-
-
+  max-height: 327px; }
 
 #skateSlide {
   width: 100px;
-  height:100px;
+  height: 100px;
   background-color: blue;
   background-image: url("../../assets/img/skate1.png");
   background-position: top left;
   background-size: contain;
-  background-repeat: no-repeat;
-}
-
-
+  background-repeat: no-repeat; }
 
 .tileHeader {
   font-family: 'Teko', sans-serif;
@@ -77,31 +51,23 @@ mat-grid-tile:hover {
   text-align: center;
   position: absolute;
   margin-bottom: 0;
-  font-weight:200;
-}
+  font-weight: 200; }
 
 mat-grid-tile {
-  overflow: hidden;
-}
-
+  overflow: hidden; }
 
 .backgroundImage {
   position: absolute;
   top: 70px;
   vertical-align: middle;
-
   height: auto;
   width: 100%;
-  max-width: 700px;
-}
+  max-width: 700px; }
 
 #stitchButton {
   width: 25vw;
   height: 14vw;
-  //width: 71%;
-  //height: 85%;
-  background-size: contain;
-}
+  background-size: contain; }
 
 .background {
   position: absolute;
@@ -110,95 +76,57 @@ mat-grid-tile {
   margin-left: 15%;
   margin-right: 15%;
   width: 70%;
+  max-width: 700px; }
 
-  max-width: 700px;
-}
-
-
-#matContain  {
-  //bottom: 0vh;
-
+#matContain {
   transform-origin: bottom;
   width: 100%;
   max-height: 90vh;
-  // max-width: 950px;
-  margin-left:auto;
-  margin-right:auto;
-
-  transition: bottom 1s ease-out ;
-  position: absolute;
-
-}
+  margin-left: auto;
+  margin-right: auto;
+  transition: bottom 1s ease-out;
+  position: absolute; }
 
 mat-grid-list {
-  // max-width: 950px;
-
   margin-left: auto;
-  margin-right:auto;
-
-}
-
-
-
-
-
-#gridListContain {
-
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: fixed;
-}
-
+  margin-right: auto; }
 
 mat-grid-tile {
   overflow: visible;
-  //transition: top 1s ease-out;
-  //background-color: black;
+  cursor: pointer; }
 
-  cursor: pointer;
-
-
-
-
-
-
-}
-
-
+#gridListContain {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed; }
 
 .instrument {
   height: auto;
   width: 93%;
-  position:absolute;
-
-
-}
+  position: absolute; }
 
 #synth {
   top: 31%;
   right: 92%;
-  transition: .3s;
-}
+  transition: .3s; }
 
 #keyboard {
   vertical-align: middle;
   top: 34%;
   right: 7%;
-  transition: .3s;
-}
+  transition: .3s; }
 
 #drum {
   top: 31%;
   right: -62%;
-  transition: .3s;
-}
-
+  transition: .3s; }
 
 #instrumentContain {
   z-index: 11;
   width: 73%;
   height: 100%;
-  overflow:hidden;
-  position: relative;
-}
+  overflow: hidden;
+  position: relative; }
+
+/*# sourceMappingURL=webDev.component.css.map */

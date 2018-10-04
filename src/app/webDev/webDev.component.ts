@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import{trigger, style, transition, animate,  state, useAnimation} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,7 +7,7 @@ import { interval, timer } from 'rxjs';
 import { map } from 'rxjs/operators'
 
 @Component({
-  selector: 'app-home-nav',
+  selector: 'app-webDev',
   animations: [
     trigger('enterSite', [
       state('notEntered', style({
@@ -17,21 +18,21 @@ import { map } from 'rxjs/operators'
       })),
       transition('*=>hasEntered', animate('300ms'))
     ])
-   // , trigger('slider2', [
-   //    state('open', style(
-   //      {
-   //        transform: 'translateY(-15vw)'
-   //      }
-   //    ))
-   //  ]),
-   //  trigger('slider1', [
-   //    state('open', style(
-   //      {
-   //        transform: 'translateY(-15vw)'
-   //      }
-   //    ))
-   //  ])
-      ,homeNavSlideAnim('slider1'),
+    // , trigger('slider2', [
+    //    state('open', style(
+    //      {
+    //        transform: 'translateY(-15vw)'
+    //      }
+    //    ))
+    //  ]),
+    //  trigger('slider1', [
+    //    state('open', style(
+    //      {
+    //        transform: 'translateY(-15vw)'
+    //      }
+    //    ))
+    //  ])
+    ,homeNavSlideAnim('slider1'),
     homeNavSlideAnim('slider2'),
     homeNavSlideAnim('slider3'),
     homeNavSlideAnim('slider4')
@@ -64,10 +65,10 @@ import { map } from 'rxjs/operators'
     // 'slider'
 
   ],
-  templateUrl: './home-nav.component.html',
-  styleUrls: ['./home-nav.component.scss']
+  templateUrl: './webDev.component.html',
+  styleUrls: ['./webDev.component.scss']
 })
-export class HomeNavComponent implements OnInit {
+export class WebDevComponent implements OnInit {
 
   @Input() currentState;
   @Input('state') state: string = 'closed';

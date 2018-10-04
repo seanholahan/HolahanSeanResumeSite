@@ -17,8 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { JamseshComponent } from './jamsesh/jamsesh.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import { SafeLinkPipe } from './util/safe-link.pipe';
-import { StitchophrenicComponent } from './stitchophrenic/stitchophrenic.component';
-import { HomeNavComponent } from './home-nav/home-nav.component';
+import { WebDevComponent } from './webDev/webDev.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +29,7 @@ const appRoutes: Routes = [
   { path: 'jamSesh', component: JamseshComponent },
   { path: 'animation', component: AnimationComponent },
   { path: 'navigation', component: NavigationComponent },
-  { path: 'stitchophrenic', component: StitchophrenicComponent },
+  { path: 'webDev', component: WebDevComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomeComponent }
 
@@ -59,7 +58,7 @@ const appRoutes: Routes = [
     )
   ],
   providers: [Title],
-  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe, StitchophrenicComponent, HomeNavComponent],
+  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe, WebDevComponent],
   entryComponents: [DialogContentComponent],
   bootstrap: [AppComponent],
 })

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StitchophrenicComponent } from './stitchophrenic.component';
+import { WebDevComponent } from './webDev.component';
 
 describe('StitchophrenicComponent', () => {
-  let component: StitchophrenicComponent;
-  let fixture: ComponentFixture<StitchophrenicComponent>;
+  let component: WebDevComponent;
+  let fixture: ComponentFixture<WebDevComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StitchophrenicComponent ]
+      declarations: [ WebDevComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StitchophrenicComponent);
+    fixture = TestBed.createComponent(WebDevComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
