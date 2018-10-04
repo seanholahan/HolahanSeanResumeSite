@@ -6,16 +6,19 @@
   <div id="landingContain" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
     <h1  [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
     <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
-    <div id="seanPortrait" [@portraitState]="currentPortraitState" (@portraitState.done)="buildingAnimation()">
-      <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">
-      <img [@building1]="building1State"  src="../../assets/img/building1.png" class="balancePicture buildings">
-      <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
-      <img [@building3]="building3State"  src="../../assets/img/building3.png"  class="balancePicture buildings">
-      <img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
-      <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
-    </div>
+
 
     <div [@yellowBG]="yellowBGState" [ngStyle]="{'opacity':descriptionOpacity}" id="description">
+
+      <div id="seanPortrait" [@portraitState]="currentPortraitState" (@portraitState.done)="buildingAnimation()">
+        <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">
+        <img [@building1]="building1State"  src="../../assets/img/building1.png" class="balancePicture buildings">
+        <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
+        <img [@building3]="building3State"  src="../../assets/img/building3.png"  class="balancePicture buildings">
+        <img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
+        <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
+      </div>
+
       <p [@description]="descriptionState" id="descriptionText">Hi! <br> My name is sean, I am a designer and a developer, currently looking for work.  Please check out some of my latest projects and view my resume</p>
     </div>
 

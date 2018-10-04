@@ -35,17 +35,17 @@ import {buildingAnimation} from '../animations';
 
     trigger('yellowBG', [
       state('hidden', style({
-        // transform: 'scaleX(0)'
-        //transform: 'scaleY(0)'
-        opacity: 0
+        transform: 'scaleX(0)'
+        // transform: 'scaleY(0)'
+        //opacity: 0
       })),
       state('shown', style({
-        // transform: 'scaleX(1)'
-         opacity: 1
-        // transform: 'scaleY(1)'
+        transform: 'scaleX(1)'
+        //opacity: 1
+        //  transform: 'scaleY(1)'
 
       })),
-      transition('hidden <=> shown',  animate('300ms'))
+      transition('hidden <=> shown',  animate('300ms 500ms'))
     ]),
 
 
@@ -64,9 +64,9 @@ import {buildingAnimation} from '../animations';
     ]),
 
     trigger('portraitState', [
-      state('hidden', style({
-        transform: 'scaleY(0) translateX(-21vh)'
-      })),
+      // state('hidden', style({
+      //   transform: 'scaleY(0) translateX(-21vh)'
+      // })),
 
       state('visible', style({
 
@@ -148,7 +148,7 @@ import {buildingAnimation} from '../animations';
 export class HomeComponent implements OnInit {
 
   @ViewChild('videoPlayer') videoPlayer: any;
-  @Input() currentPortraitState = "hidden";
+  @Input() currentPortraitState = "shown"; //hidden
   @Input() currentHeaderState = 'centerAligned';
   @Input() currentHeaderHideState = 'hidden';
   @Input() currentBuildState ;
