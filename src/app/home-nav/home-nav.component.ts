@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import{trigger, style, transition, animate,  state, useAnimation} from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {slideNavAnimation,homeNavSlideAnim} from '../animations';
+import {homeNavSlideAnim} from '../animations';
 import { interval, timer } from 'rxjs';
 import { map } from 'rxjs/operators'
 
@@ -76,6 +76,8 @@ export class HomeNavComponent implements OnInit {
   @Input('dataSlideNavState') dataSlideNavState: string = 'closed';
   @Input('stitchSlideNavState') stitchSlideNavState: string = 'closed';
 
+
+
   enterState = 'notEntered';
 
 
@@ -149,6 +151,7 @@ export class HomeNavComponent implements OnInit {
   onAnimationhover(event: MouseEvent): void {
     this.event = event;
     console.log(this.event.type,"eventType");
+
     if (this.event.type === 'mouseleave') {
       // this.skate2Opacity = 0;
       // this.skate3Opacity = 0;

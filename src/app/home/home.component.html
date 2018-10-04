@@ -3,20 +3,23 @@
     <button mat-button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
     <!--startAnim()-->
   </div>
+
+
   <div id="landingContain" scroll="no" style="overflow: hidden">
-    <h1 [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
+    <h1  [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
     <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
-    <!--<div id="blackBox" ></div>-->
-<div id="seanWrapper">
-    <div id="seanPortrait" [@portraitState]="currentPortraitState" >
-      <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture">
-      <img src="../../assets/img/building1.png" class="balancePicture buildings">
-      <img src="../../assets/img/building2.png" class="balancePicture buildings">
-      <img src="../../assets/img/building3.png" class="balancePicture buildings">
-      <img src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
-      <img src="../../assets/img/seanBody.png" class="balancePicture">
+    <div id="seanPortrait" [@portraitState]="currentPortraitState" (@portraitState.done)="buildingAnimation()">
+      <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">
+      <img [@building1]="building1State"  src="../../assets/img/building1.png" class="balancePicture buildings">
+      <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
+      <img [@building3]="building3State"  src="../../assets/img/building3.png"  class="balancePicture buildings">
+      <img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
+      <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
+
     </div>
-</div>
+    <div [@description]="descriptionState" [ngStyle]="{'opacity':descriptionOpacity}" id="description">
+      <p id="descriptionText">Hi! <br> My name is sean, I am a designer and a developer, currently looking for work.  Please check out some of my latest projects and view my resume</p>
+    </div>
 
     <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
       <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted plays-inline>
@@ -29,5 +32,6 @@
     <app-home-nav [@currentState]="enterState"> </app-home-nav>
   </div>
 </div>
+<!---->
 
 

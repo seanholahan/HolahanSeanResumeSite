@@ -1,7 +1,15 @@
 
 #homeNav {
-  transition: top 3s;
-  top: calc(100vh - 70vh);
+  //transition: top 3s;
+  //top: calc(100vh - 70vh);
+}
+
+
+mat-grid-tile:hover {
+   background-color: #ddbc429e;
+  transition:background-color 1s;
+
+
 }
 
 
@@ -124,6 +132,7 @@ mat-grid-tile {
 
 mat-grid-list {
   // max-width: 950px;
+
   margin-left: auto;
   margin-right:auto;
 
