@@ -31,10 +31,15 @@ mat-grid-list {
 
 mat-grid-tile {
   overflow: visible;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: background-color 400ms;
+  padding-top: 200px; }
 
 mat-grid-tile:hover {
-  background-color: chocolate; }
+  background-color: #ddbc429e; }
+
+mat-grid-tile:focus {
+  outline: none; }
 
 #descriptionText {
   width: calc(42vh - 20px);
@@ -48,11 +53,11 @@ mat-grid-tile:hover {
   font-family: 'Teko', sans-serif;
   text-align: left; }
 
-#description {
+#yellowBG {
   position: absolute;
   width: 100vw;
-  height: calc(88vh - 200px);
-  top: calc(12vh + 100px);
+  height: 61vh;
+  top: 26vh;
   left: 0;
   transform-origin: bottom center;
   /* border-radius: 0px 10px 10px 0px; */
@@ -61,7 +66,7 @@ mat-grid-tile:hover {
 #seanPortrait {
   position: absolute;
   width: 42vh;
-  height: calc(88vh - 200px);
+  height: 61vh;
   z-index: 30;
   overflow: hidden;
   background-size: contain;
@@ -161,30 +166,33 @@ p {
 #headerHide {
   background-color: #DD6E42;
   top: calc(100vh);
-  /* display: inline-block; */
   right: 0px;
   height: 200vh;
   top: 74px;
   z-index: -9;
   position: absolute;
   marin-left: auto;
-  /* margin-right: auto; */
-  transition: width 1.2s;
   /* margin-left: auto; */
   width: 75vw; }
 
 h1 {
   font-family: 'Teko', sans-serif;
-  width: 100%;
   text-align: center;
   font-size: 10vw;
-  position: absolute;
+  position: relative;
   font-weight: 200;
-  z-index: -10;
   color: black;
-  margin-top: 0;
   transition-delay: 1s;
-  transition: top 1s; }
+  transition: top 1s;
+  margin: 0; }
+
+#headerContain {
+  width: 100%;
+  z-index: -10;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .mat-stroked-button {
   font-family: 'Teko', sans-serif;

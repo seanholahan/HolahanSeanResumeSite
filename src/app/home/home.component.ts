@@ -36,14 +36,11 @@ import {buildingAnimation} from '../animations';
     trigger('yellowBG', [
       state('hidden', style({
         transform: 'scaleX(0)'
-        // transform: 'scaleY(0)'
         //opacity: 0
       })),
       state('shown', style({
         transform: 'scaleX(1)'
         //opacity: 1
-        //  transform: 'scaleY(1)'
-
       })),
       transition('hidden <=> shown',  animate('300ms 500ms'))
     ]),
@@ -71,7 +68,7 @@ import {buildingAnimation} from '../animations';
       state('visible', style({
 
         transform: 'scaleY(1) translateX(-21vh)',
-        borderRadius: "10px 10px 10px 10px"
+       // borderRadius: "10px 10px 10px 10px"
       })),
       state('pushed', style({
         transform: 'scaleY(1) translateX(calc(-42vh + 1px))',
@@ -87,14 +84,43 @@ import {buildingAnimation} from '../animations';
 
     trigger('headerState', [
       state('centerAligned', style({
-        top: '26vh'
+        // top: '26vh',
+       // fontSize:'10vw',
+        textShadow: 'none'
       })),
       state('topAligned', style({
-        top: '7vh',
+        // top: '3vh',
+       // fontSize:'10vw'
         //scale: '.5'
       })),
-      transition('topAligned <=> centerAligned',  animate('500ms'))
+      state('topAlignedWide', style({
+        //
+        // fontSize:'14vw',
+        textShadow: '1px 1px orange',
+        letterSpacing: '2.5vw'
+        //scale: '.5'
+      })),
+      transition('topAligned <=> centerAligned',  animate('300ms')),
+      transition('topAligned <=> topAlignedWide',  animate('300ms 200ms'))
+    ]),
+
+
+
+
+
+    trigger('headerPosition', [
+      state('middle', style({
+        height: '70vh'
+      })),
+      state('topAligned', style({
+        height: '26vh'
+      })),
+      transition('middle <=> topAligned',  animate('300ms'))
     ])
+
+
+
+
     ,trigger('headerHideState', [
       state('hidden', style({
         transform: 'translateX(0)'
@@ -160,14 +186,18 @@ export class HomeComponent implements OnInit {
   @Input() descriptionState: string = 'hidden';
   @Input() currentState: string = 'notEntered';
   @Input() yellowBGState: string = 'hidden';
+  @Input() currentHeaderPosition: string = "middle";
 
 
   interval;
   buildingCount: number = 1;
+  intervalAmount: number = 300;
   enterState: string = 'notEntered';
   animationStartToggle: boolean = false;
   descriptionToggle: boolean = false;
+  headerToggle: boolean = false ;
   landingPointerEvents: string = 'none';
+  headerHideTransition: string = 'width 1.2s';
   innerHeight: any;
   innerWidth: any;
   buildSwitch: boolean;
@@ -175,9 +205,9 @@ export class HomeComponent implements OnInit {
 
 
   enterOpacity:string = '100';
-  descriptionOpacity: string = '0';
+
   enterDisplay: any;
-  videoOpacity: any;
+  videoOpacity: string =  '0';
   headerTop : any;
 
   homeNavOpacity: any;
@@ -219,7 +249,7 @@ export class HomeComponent implements OnInit {
     this.buildSwitch2 = false;
     // this.portraitTransform = 'scale(0)';
     this.enterDisplay = 'block';
-    this.videoOpacity = '0';
+
 
     this.headerTop= '26vh';
     //console.log("navbottom",this.homeNavBottom);
@@ -255,34 +285,55 @@ export class HomeComponent implements OnInit {
   }
 
 
+  widenHeader(): void {
+    console.log('widen');
+    if (this.currentHeaderState == 'topAligned') {
+      this.currentHeaderState = 'topAlignedWide';
+
+      console.log('yao');
+    }
+
+  }
+
+
+
 
   buildingAnimation(): void {
+
+    setTimeout(()=>{ this.animationStartToggle = true }, 600);
+
     if (this.animationStartToggle == true) {
       // this.descriptionState = 'hidden';
-      this.descriptionOpacity = '1';
 
-      console.log('working');
+
+
+
       this.interval = setInterval(() => {
         switch(this.buildingCount) {
           case 1: {
             this.building1State = 'visible';
             this.buildingCount++;
+            this.intervalAmount = 100;
+            console.log('working', this.intervalAmount);
             break;
           }
           case 2: {
             this.building2State = 'visible';
             this.buildingCount++;
+            console.log('working2', this.intervalAmount);
             break;
           }
           case 3: {
             this.building3State = 'visible';
 
             this.buildingCount++;
+            console.log('working3', this.intervalAmount);
             break;
           }
           case 4: {
             this.building4State = 'visible';
             this.buildingCount++;
+            console.log('working4', this.intervalAmount);
             break;
           }
           case 5: {
@@ -290,7 +341,7 @@ export class HomeComponent implements OnInit {
             break;
           }
         }
-      },100)
+      }, 100)
     }
   }
 
@@ -298,7 +349,8 @@ export class HomeComponent implements OnInit {
     this.videoOpacity = "100";
     this.enterDisplay ='none';
     this.descriptionToggle = true;
-    this.animationStartToggle = true;
+    // this.animationStartToggle = true;
+    this.headerToggle = true;
     // this.changeState('state2');
 
     if (this.videoPlay == false) {
@@ -321,6 +373,9 @@ export class HomeComponent implements OnInit {
     }
     if (videoTime >= 3.8) {
       this.headerHideWidth = '0';
+
+      this.headerHideTransition = 'width 0s';
+
       this.homeNavDisplay = 'block';
       this.homeNavOpacity = '100';
       //this.homeNavTop = 'calc(100vh - 70px)';
@@ -331,8 +386,13 @@ export class HomeComponent implements OnInit {
       console.log(this.currentState, 'currentState');
       this.currentPortraitState = 'visible';
       this.yellowBGState = 'shown';
-      this.currentHeaderState = 'topAligned';
+
+      console.log('ADSFASDFA',this.currentHeaderState);
       this.currentState = 'hasEntered';
+      this.currentHeaderPosition = 'topAligned';
+      this.currentHeaderState = 'topAligned';
+
+
       this.buildSwitch = true;
       this.currentBuildState = 'built';
 

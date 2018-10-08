@@ -45,10 +45,17 @@ mat-grid-tile {
   //transition: top 1s ease-out;
   //background-color: black;
   cursor: pointer;
+  transition: background-color 400ms;
+  padding-top: 200px;
 }
 
 mat-grid-tile:hover {
-  background-color: chocolate;
+   background-color: #ddbc429e;
+ }
+mat-grid-tile:focus {
+
+  outline: none;
+
 }
 
 #descriptionText{
@@ -65,11 +72,11 @@ mat-grid-tile:hover {
 }
 
 
-#description {
+#yellowBG {
   position: absolute;
   width: 100vw;
-  height: calc(88vh - 200px);
-  top: calc(12vh + 100px);
+  height: 61vh;
+  top: 26vh;
   left: 0;
   transform-origin:  bottom center;
 
@@ -80,7 +87,7 @@ mat-grid-tile:hover {
 #seanPortrait {
   position: absolute;
   width: 42vh;
-  height: calc(88vh - 200px);
+  height: 61vh;
   z-index: 30;
   overflow: hidden;
   background-size: contain;
@@ -232,40 +239,66 @@ p {
 }
 
 
+
+
 #headerHide {
   background-color: #DD6E42;
   top: calc(100vh);
 
-
-  /* display: inline-block; */
   right: 0px;
   height: 200vh;
   top: 74px;
   z-index: -9;
   position: absolute;
   marin-left: auto;
-  /* margin-right: auto; */
-transition: width 1.2s;
+
+
   /* margin-left: auto; */
   width: 75vw;
  // -webkit-transition-timing-function:  cubic-bezier(0,0,0.37,1) ;//0,0,0.43,1
 }
 //cubic-bezier(0,0,0.49,1)
 h1 {
+  //font-family: 'Teko', sans-serif;
+  //width: 100%;
+  //
+  //text-align: center;
+  //font-size: 10vw;
+  //position: absolute;
+  //font-weight: 200;
+  //z-index:-10;
+  //color: black;
+  //margin-top:0;
+  //transition-delay: 1s;
+  //transition: top 1s;
+
+
   font-family: 'Teko', sans-serif;
-  width: 100%;
+
 
   text-align: center;
   font-size: 10vw;
-  position: absolute;
+  position: relative;
   font-weight: 200;
-  z-index:-10;
+
   color: black;
-  margin-top:0;
+
   transition-delay: 1s;
   transition: top 1s;
+  margin:0;
 
+}
 
+#headerContain {
+  width: 100%;
+  //h
+  z-index: -10;
+  //background-color: red;
+  //opacity: .5;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mat-stroked-button {

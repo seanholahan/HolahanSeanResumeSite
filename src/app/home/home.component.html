@@ -3,14 +3,19 @@
     <button mat-button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
   </div>
 
-  <div id="landingContain" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
-    <h1  [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
-    <div id="headerHide" [ngStyle]="{'width':headerHideWidth}"></div>
+  <div id="landingContain"  class="flexbox-parent" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
+    <div id="headerContain" [@headerPosition]="currentHeaderPosition" layout="column" layout-align="center center" style="height: 40vh" >
+
+    <h1 [@headerState]="currentHeaderState" (@headerState.done)="widenHeader()">SEAN HOLAHAN</h1>
+
+      <!---->
+      </div>
+    <div id="headerHide" [ngStyle]="{'width':headerHideWidth, 'transition': headerHideTransition}"></div>
 
 
-    <div [@yellowBG]="yellowBGState" [ngStyle]="{'opacity':descriptionOpacity}" id="description">
+    <div [@yellowBG]="yellowBGState"  (@yellowBG.done)="buildingAnimation()" id="yellowBG">
 
-      <div id="seanPortrait" [@portraitState]="currentPortraitState" (@portraitState.done)="buildingAnimation()">
+      <div id="seanPortrait" [@portraitState]="currentPortraitState" >
         <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">
         <img [@building1]="building1State"  src="../../assets/img/building1.png" class="balancePicture buildings">
         <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
@@ -30,13 +35,15 @@
 
 
     <mat-grid-list  id="homeNav" [@enterSite]="currentState"    cols="4" rowHeight="3:1" gutterSize="0px" >
-      <mat-grid-tile  [routerLink]="['/animation']" >
-        <h2 class="tileHeader">ANIMATION</h2>
-      </mat-grid-tile>
 
       <mat-grid-tile [routerLink]="['/webDev']"  >
         <h2 class="tileHeader">WEB DEVELOPEMENT</h2>
       </mat-grid-tile>
+
+      <mat-grid-tile  [routerLink]="['/animation']" >
+        <h2 class="tileHeader">ANIMATION</h2>
+      </mat-grid-tile>
+
 
       <!--this.yolo = setInterval(()=>this.sprite(), 50);-->
       <mat-grid-tile >
