@@ -4,39 +4,32 @@
 <!--HOME NAV-->
 
 <!--[ngStyle]="{'display':homeNavDisplay, 'opacity': homeNavOpacity , 'top':homeNavTop}"-->
-<mat-grid-list  id="homeNav" [@enterSite]="currentState"    cols="4" rowHeight="2:3" gutterSize="0px" >
-  <!--<app-home > </app-home>-->
-  <!--[currentState]="toState"-->
-  <!--'transition':slideMenuTransition,-->
+<!--<mat-grid-list  cols="1" rowHeight="7:3" gutterSize="20px" >-->
 
-  <!--[enterState]="slideState"-->
-  <!--[ngStyle]="{  'bottom':animationTop}"-->
-  <mat-grid-tile  [routerLink]="['/animation']" [@slider1]="animSlideNavState" (@slider1.done)="slider1Animation()"   (mouseenter)="onAnimationhover($event)" (mouseleave)="onAnimationhover($event)">
-    <h2 class="tileHeader">ANIMATION</h2>
-    <!--<img class="backgroundImage"  id="skateButton"  src="../../assets/img/animationCropped.png"/>-->
-    <!--<img class="skate2"  [ngStyle]="{ 'opacity':  skate2Opacity,'transition-delay': skate2Delay  }" src="../../assets/img/skate2.png"/>-->
-    <!--<img class="skate3" [ngStyle]="{ 'opacity':  skate3Opacity, 'transition-delay': skate3Delay }"   src="../../assets/img/skate3.png"/>-->
 
-  </mat-grid-tile>
-  <!--//"onJamSeshHover($event)" (mouseenter)=[@itemAnim]-->
-  <mat-grid-tile [routerLink]="['/webDev']" id = "jamseshHomeTop" [@slider2]="jamSeshSlideNavState" (@slider2.done)="slider2Animation()"  [ngStyle]="{top:jamseshHomeTop}" (mouseenter)="onJamSeshHover($event)"  (mouseleave)="onJamSeshHover($event)" >
-    <h2 class="tileHeader">WEB DEVELOPEMENT</h2>
-    <img class="backgroundImage" src="../../assets/img/jamseshCropped.png"/>
-    <div id="instrumentContain">
-    <img [ngStyle]="{ right: drumPosition, transition: drumTransition}" class="instrument" id="drum"  src="../../assets/img/drum.png"/>
-    <img [ngStyle]="{ right: synthPosition, transition: synthTransition  }"  class="instrument"  id="synth" src="../../assets/img/synth.png"/>
-    <img [ngStyle]="{ right: keyboardPosition, transition: keyboardTransition  }" class="instrument" id="keyboard"  src="../../assets/img/keyboard.png"/>
+  <!--<mat-grid-tile id="stitchophrenic">-->
+    <!--<mat-grid-tile-header class="tileFooter">STITCHOPHRENIC</mat-grid-tile-header>-->
+  <!--</mat-grid-tile>-->
+
+  <!--<mat-grid-tile id="jamSesh">-->
+    <!--<mat-grid-tile-header class="tileFooter">JAMSESH</mat-grid-tile-header>-->
+  <!--</mat-grid-tile>-->
+  <div class="container" id="stitchContainer">
+  <div class="heroImg" id="stitchophrenic"></div>
+    <div id="stitchDescription" [@stitchDescriptionHover]="stitchHoverState"  (mouseenter)="stitchHover($event)" (mouseleave)="stitchHover($event)" class="description">
+      <h1 [@titleHover]="stitchHoverState">Stitchophrenic</h1>
+      <p>  This website was made With AngularJS and will rock your socks off!</p>
     </div>
-  </mat-grid-tile>
 
-  <!--this.yolo = setInterval(()=>this.sprite(), 50);-->
-  <mat-grid-tile [ngStyle]="{top:stitchHomeTop}" [@slider3]="stitchSlideNavState" id = "stitchHomeTop"  (mouseenter)="onStitchHover($event)" (mouseleave)="onStitchHover($event)">
-    <h2 class="tileHeader">USER EXPERIENCE</h2>
-    <div class="backgroundImage" id="stitchButton"
-    [ngStyle]="{'background' : 'url(../../assets/img/stitchSprite3.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '499.2%'}"  ></div>
-  </mat-grid-tile>
+  </div>
+  <div class="container">
+  <div class="heroImg" id="jamSesh"></div>
+    <div id="jamSeshDescription" [@jamSeshDescriptionHover]="jamSeshHoverState" (mouseenter)="jamSeshHover($event)" (mouseleave)="jamSeshHover($event)" class="description">
+      <h1 id="jamSeshTitle" [@titleHover]="jamSeshHoverState">JamSesh</h1>
+      <p>This website was made With AngularJS and will rock your socks off!</p>
+    </div>
 
-  <mat-grid-tile>
-    <h2 class="tileHeader" [ngStyle]="{top:dataScienceHomeTop }" [@slider4]="dataSlideNavState" >DATASCIENCE</h2>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+
+
+<!--</mat-grid-list>-->

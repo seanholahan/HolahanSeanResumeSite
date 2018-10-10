@@ -46,4 +46,8 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToGit() {
+    window.open('https://github.com/seanholahan', '_blank')
+  }
+
 }

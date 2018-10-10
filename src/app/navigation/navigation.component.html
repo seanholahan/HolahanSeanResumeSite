@@ -9,10 +9,14 @@
   <!--</button>-->
   <!--<img src="../assets/img/SH.png"/>-->
   <h1 [routerLink]="['/home']">SEAN HOLAHAN</h1>
-  <button mat-button class="md-warn" [routerLink]="['/home']">HOME</button>
-  <button mat-button class="md-accent" [routerLink]="['/dataScience']">dataScience</button>
-  <button mat-button [routerLink]="['/animation']">animation</button>
-  <button mat-button [routerLink]="['/jamSesh']">jamsesh</button>
+
+  <button class="md-accent" [routerLink]="['/webDev']">WEB DEVELOPEMENT</button>
+  <button  class="md-accent" [routerLink]="['/dataScience']">DATA SCIENCE</button>
+  <button  [routerLink]="['/animation']">ANIMATION</button>
+  <button  [routerLink]="['/jamSesh']">UX/UI</button>
+  <button  [routerLink]="['/animation']">RESUME</button>
+  <button   (click)="goToGit()">GITHUB</button>
+
 </mat-toolbar>
 </div>
   </nav>

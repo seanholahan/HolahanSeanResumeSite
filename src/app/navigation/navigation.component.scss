@@ -6,16 +6,56 @@ mat-toolbar {
   }
 }
 
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
 h1 {
   font-family: 'Teko', sans-serif;
   font-weight: 300;
-
+  letter-spacing: 3px;
   text-align: center;
+  text-shadow: 1px 1px orange;
+  flex-grow:1;
+  cursor: default;
+}
+
+h1:hover {
+  text-shadow: 1.5px 1.5px orange;
+  transition: text-shadow 50ms;
 }
 
 mat-toolbar {
   .mat-button{
     background: transparent;
+
   }
 }
 
+button:hover {
+background: transparent;
+  //background-color: #ddbc42c7;
+  text-shadow: 1px 1px orange;
+  transition: text-shadow 200ms;
+
+
+}
+
+button {
+  background: none;
+  border: none;
+  /* margin: 10vw; */
+  padding: 26px;
+  flex-grow: 1;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1:focus {
+  outline: none;
+}

@@ -5,7 +5,13 @@ mat-grid-tile video {
 
 .mat-tab-labels {
   justify-content: center;
-  /* align items in Main Axis */ }
+  /* align items in Main Axis */
+  font: 400 11px system-ui;
+  color: black;
+  font-size: large; }
+
+.mat-tab-label:hover {
+  border-bottom: 3px solid black; }
 
 .modeling {
   background-color: red;

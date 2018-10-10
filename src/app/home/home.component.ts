@@ -35,11 +35,13 @@ import {buildingAnimation} from '../animations';
 
     trigger('yellowBG', [
       state('hidden', style({
-        transform: 'scaleX(0)'
+        transform: 'scaleX(0)',
+        zIndex: '5'
         //opacity: 0
       })),
       state('shown', style({
-        transform: 'scaleX(1)'
+        transform: 'scaleX(1)',
+        zIndex: '22'
         //opacity: 1
       })),
       transition('hidden <=> shown',  animate('300ms 500ms'))
@@ -96,7 +98,7 @@ import {buildingAnimation} from '../animations';
       state('topAlignedWide', style({
         //
         // fontSize:'14vw',
-        textShadow: '1px 1px orange',
+        textShadow: '2px 2px orange',
         letterSpacing: '2.5vw'
         //scale: '.5'
       })),
@@ -110,7 +112,7 @@ import {buildingAnimation} from '../animations';
 
     trigger('headerPosition', [
       state('middle', style({
-        height: '70vh'
+        height: '80vh'
       })),
       state('topAligned', style({
         height: '26vh'
@@ -228,6 +230,8 @@ export class HomeComponent implements OnInit {
   enterSite(state: any) {
     this.enterState = state;
   }
+
+
 
 
 

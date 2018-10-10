@@ -32,11 +32,11 @@ mat-grid-list {
 mat-grid-tile {
   overflow: visible;
   cursor: pointer;
-  transition: background-color 400ms;
+  transition: text-shadow 400ms;
   padding-top: 200px; }
 
 mat-grid-tile:hover {
-  background-color: #ddbc429e; }
+  text-shadow: 2px 2px #ddbc429e; }
 
 mat-grid-tile:focus {
   outline: none; }
@@ -47,10 +47,9 @@ mat-grid-tile:focus {
   top: 0px;
   left: 50%;
   margin: 0px;
-  font-size: x-large;
+  font-size: 1.2em;
   padding-top: 20px;
   padding-left: 20px;
-  font-family: 'Teko', sans-serif;
   text-align: left; }
 
 #yellowBG {
@@ -89,7 +88,23 @@ mat-grid-tile:focus {
   font-size: 3vw;
   color: black;
   margin: 20px;
-  padding: 20px; }
+  padding: 20px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  transition: background 400ms; }
+
+#enterButton:focus {
+  outline: none; }
+
+#enterButton:hover {
+  background-image: radial-gradient(#ddbc429e 25%, #DD6E42 75%); }
+
+a {
+  color: black; }
+
+a:focus {
+  outline: none; }
 
 #buttonContain {
   position: absolute;

@@ -1,5 +1,8 @@
-@import './app/style/custom-theme';
-
+//@import '~@angular/material/core/theming/all-theme';
+//@import 'sass-material-colors-classes';
+//@include md-core();
+//
 body {
   background-color: #DD6E42; //#F9A123;
+  margin:0;
 }

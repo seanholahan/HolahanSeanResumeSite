@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;EA0BE;ACxBF,IAAK;EACH,gBAAgB,EAAE,OAAO",
-"sources": ["app/style/custom-theme.scss","style.scss"],
+"mappings": "AAIA,IAAK;EACH,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAC,CAAC",
+"sources": ["style.scss"],
 "names": [],
 "file": "style.css"
 }

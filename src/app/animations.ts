@@ -29,6 +29,19 @@ export function buildingAnimation(triggerName): AnimationTriggerMetadata {
 }
 
 
+export function descriptionAnimation(triggerName,  idleBgColor, activeBgColor): AnimationTriggerMetadata {
+  return trigger(triggerName, [
+    state('active', style({
+      clipPath: 'polygon(0 78%, 100% 62.5%, 100% 100%, 0 100%)',
+      backgroundColor: activeBgColor// '#ddbc42'//'#ddbc42c7'//
+    })),
+    state('idle', style({
+      clipPath: 'polygon(0px 85%, 100% 85%, 100% 100%, 0px 100%)',
+      backgroundColor:idleBgColor// '#ddbc42c7'
+    })),
+    transition('idle <=> active', animate('100ms'))
+  ])
+}
 
 
 
@@ -40,20 +53,4 @@ export function buildingAnimation(triggerName): AnimationTriggerMetadata {
 
 
 
-
-
-
-
-
-
-
-//
-// trigger('slider', [
-//   state('open', style(
-//     {
-//       transform: 'translateY(-14vw)'
-//     }
-//   ))
-// ])
-//
 

@@ -1,6 +1,6 @@
 <div id="gridListContain" scroll="no" style="overflow: hidden">
   <div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity, 'display': enterDisplay}">
-    <button mat-button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
+    <button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
   </div>
 
   <div id="landingContain"  class="flexbox-parent" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
@@ -24,7 +24,20 @@
         <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
       </div>
 
-      <p [@description]="descriptionState" id="descriptionText">Hi! <br> My name is sean, I am a designer and a developer, currently looking for work.  Please check out some of my latest projects and view my resume</p>
+      <p [@description]="descriptionState" id="descriptionText">
+
+          & bull; Great at balancing work and life. <br>
+          & bull; Designer and developer <br>
+          & bull; Recent graduate of Northeastern University <br>
+          & bull; BS in Computer Science and Interactive Media <br>
+          & bull; Check out my latest projects below, along with my <a href="http://www.yahoo.com">resume</a> and
+            <a href="http://www.yahoo.com">github</a>
+
+
+
+
+
+
     </div>
 
     <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
