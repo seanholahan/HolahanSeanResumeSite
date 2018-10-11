@@ -10,8 +10,11 @@ import {descriptionAnimation} from '../animations';
 @Component({
   selector: 'app-webDev',
   animations: [
-    descriptionAnimation('stitchDescriptionHover','#ddbc42c7', '#ddbc42'),
-    descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#DD6E42'),
+    descriptionAnimation('stitchDescriptionHover','#ddbc42c7', '#ddbc42c7'),
+    descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#dd6e42c2'),
+    // descriptionAnimation('stitchDescriptionHover','#ddbc42c7', '#ddbc42'),
+    // descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#DD6E42'),
+
     trigger('titleHover', [
       state('active', style({
         bottom: '16%'
@@ -19,8 +22,20 @@ import {descriptionAnimation} from '../animations';
       state('idle', style({
         bottom: '0'
       })),
-      transition('idle <=> active', animate('500ms'))
+      transition('idle <=> active', animate('500ms 500ms'))
     ]),
+
+    trigger('descriptionHover', [
+      state('hidden', style({
+        opacity: 0
+      })),
+      state('visible', style({
+        opacity: 1
+      })),
+      transition('hidden <=> visible', animate('500ms 500ms'))
+    ]),
+
+
 
     // trigger('stitchDescriptionHover', [
     //   state('active', style({
@@ -47,6 +62,7 @@ import {descriptionAnimation} from '../animations';
 export class WebDevComponent implements OnInit {
   @Input() stitchHoverState: string = 'idle';
   @Input() jamSeshHoverState: string = 'idle';
+  @Input() stitchDescriptionState: string = 'hidden';
 
 
   event: MouseEvent;
@@ -66,11 +82,13 @@ export class WebDevComponent implements OnInit {
     if (this.event.type == 'mouseleave') {
       console.log('left');
       this.stitchHoverState = 'idle';
+      this.stitchDescriptionState = 'hidden';
     }
 
 
     if (this.event.type == 'mouseenter') {
       this.stitchHoverState = 'active';
+      this.stitchDescriptionState = 'visible';
       console.log('enter');
     }
 

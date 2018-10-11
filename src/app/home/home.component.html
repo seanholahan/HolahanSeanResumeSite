@@ -3,44 +3,57 @@
     <button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
   </div>
 
-  <div id="landingContain"  class="flexbox-parent" [ngStyle]="{'pointer-events':landingPointerEvents}" scroll="no" style="overflow: hidden">
-    <div id="headerContain" [@headerPosition]="currentHeaderPosition" layout="column" layout-align="center center" style="height: 40vh" >
+  <div id="landingContain"  class="flexbox-parent" [ngStyle]="{'pointer-events':landingPointerEvents, 'background-color': landingBackgroundColor}" scroll="no" style="overflow: hidden">
+    <div id="headerContain" [@headerPosition]="currentHeaderPosition" (@headerPosition.done)="widenHeader()" layout="column" layout-align="center center" style="height: 40vh" >
 
-    <h1 [@headerState]="currentHeaderState" (@headerState.done)="widenHeader()">SEAN HOLAHAN</h1>
-
+    <h1 [@headerState]="currentHeaderState" (@headerState.done)="buildingAnimation()">SEAN HOLAHAN</h1>
+<!--buildingAnimation()-->
       <!---->
       </div>
     <div id="headerHide" [ngStyle]="{'width':headerHideWidth, 'transition': headerHideTransition}"></div>
 
 
-    <div [@yellowBG]="yellowBGState"  (@yellowBG.done)="buildingAnimation()" id="yellowBG">
-
+    <div [@cloudBG]="cloudBGState" (@cloudBG.done)="topAlignHeader()" id="cloudBG">
+    </div>
+    <div id="portraitContain" >
       <div id="seanPortrait" [@portraitState]="currentPortraitState" >
-        <img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">
+        <!--<img src="../../assets/img/clouds.png" id="clouds" class="balancePicture bp">-->
         <img [@building1]="building1State"  src="../../assets/img/building1.png" class="balancePicture buildings">
         <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
-        <img [@building3]="building3State"  src="../../assets/img/building3.png"  class="balancePicture buildings">
-        <img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">
+        <img [@building2]="building2State"   src="../../assets/img/building2.png" class="balancePicture buildings">
+        <img [@building3]="building3State" (@building3.done)="descriptionAnimation()" src="../../assets/img/building3.png"  class="balancePicture buildings">
+        <!--<img [@building4]="building4State" (@building4.done)="descriptionAnimation()"  src="../../assets/img/rightBuilding.png" class="balancePicture buildings">-->
         <img   src="../../assets/img/seanBody.png" class="balancePicture bp">
       </div>
-
-      <p [@description]="descriptionState" id="descriptionText">
-
-          & bull; Great at balancing work and life. <br>
-          & bull; Designer and developer <br>
-          & bull; Recent graduate of Northeastern University <br>
-          & bull; BS in Computer Science and Interactive Media <br>
-          & bull; Check out my latest projects below, along with my <a href="http://www.yahoo.com">resume</a> and
-            <a href="http://www.yahoo.com">github</a>
-
-
-
-
-
-
     </div>
 
-    <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity}">
+      <p [@description]="descriptionState" (@description.done)="buildingsFade()" id="descriptionText">
+        <br>
+        Always striving for the perfect balance between design and development.
+        <br>
+        <br>
+        Recent graduate of Northeastern University with a
+        BS in Computer Science and Interactive Media.
+        <br>
+        <br>
+        Fashion designer, contra dancer, ukulele player, action sports enthusiast, skilled coder what more could you ask for?
+
+        <br>
+        <br>
+
+        Check out my latest projects below, <a href="http://www.yahoo.com">resume</a> and my
+        <a href="http://www.yahoo.com">github</a>.
+      </p>
+
+
+
+
+
+
+
+
+
+    <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity, 'display': videoDisplay}">
       <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted plays-inline>
         <source src='../../assets/img/OnloadAnimation.webm'>
       </video>

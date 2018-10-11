@@ -18,13 +18,21 @@ export function homeNavSlideAnim(triggerName): AnimationTriggerMetadata {
 export function buildingAnimation(triggerName): AnimationTriggerMetadata {
   return trigger(triggerName, [
     state('hidden', style({
-      transform: 'translateY(0)'
+      transform: 'translateY(0)',
+      opacity: 1
     })),
 
     state('visible', style({
-      transform: 'translateY(-100%)'
+      transform: 'translateY(-100%)',
+      opacity: 1
     })),
-    transition('hidden <=> visible', animate('800ms 300ms ease-out'))
+    state('opaque', style({
+      transform: 'translateY(-100%)',
+      opacity: 0
+    })),
+
+    transition('hidden <=> visible', animate('800ms 300ms ease-out')),
+    transition('opaque <=> visible', animate('200ms 300ms'))
   ])
 }
 

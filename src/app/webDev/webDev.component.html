@@ -18,7 +18,8 @@
   <div class="heroImg" id="stitchophrenic"></div>
     <div id="stitchDescription" [@stitchDescriptionHover]="stitchHoverState"  (mouseenter)="stitchHover($event)" (mouseleave)="stitchHover($event)" class="description">
       <h1 [@titleHover]="stitchHoverState">Stitchophrenic</h1>
-      <p>  This website was made With AngularJS and will rock your socks off!</p>
+      <p [@descriptionHover]="stitchDescriptionState" > E-commerce platform made for my clothing brand, Stitchophrenic.
+        Each piece is up-cycled and one of a kind! This site was made With MongoDB, ExpressJS, AngularJS and NodeJS.</p>
     </div>
 
   </div>
