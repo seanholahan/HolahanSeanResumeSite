@@ -1,6 +1,6 @@
 <nav *ngIf="router.url !== '/home' " >
 <div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
-<mat-toolbar color="primary">
+<mat-toolbar >
   <!--<button mat-button class="app-menu-button" >-->
 
 
@@ -8,14 +8,17 @@
   <!--<i class="material-icons">menu</i>-->
   <!--</button>-->
   <!--<img src="../assets/img/SH.png"/>-->
-  <h1 [routerLink]="['/home']">SEAN HOLAHAN</h1>
+  <h1 [routerLink]="['/home']" (click)="playAnimation()">SEAN HOLAHAN</h1>
 
-  <button class="md-accent" [routerLink]="['/webDev']">WEB DEVELOPEMENT</button>
-  <button  class="md-accent" [routerLink]="['/dataScience']">DATA SCIENCE</button>
-  <button  [routerLink]="['/animation']">ANIMATION</button>
-  <button  [routerLink]="['/jamSesh']">UX/UI</button>
-  <button  [routerLink]="['/animation']">RESUME</button>
-  <button   (click)="goToGit()">GITHUB</button>
+  <button class="md-accent" [routerLink]="['/portfolio']">PORTFOLIO</button>
+  <button  class="md-accent" [routerLink]="['/home']"  (click)="doNotPlayAnimation()">ABOUT</button>
+  <button  [routerLink]="['/contact']">CONTACT</button>
+  <button  [routerLink]="['/resume']">RESUME</button>
+  <div id="iconContain">
+    <div class="icon" id="github" (click)="goToGit()"></div>
+    <div class="icon" id="linkedIn" (click)="goToLinkedIn()"></div>
+  </div>
+  <!--<button   (click)="window.open('https://github.com/seanholahan', '_blank')">GITHUB</button>-->
 
 </mat-toolbar>
 </div>

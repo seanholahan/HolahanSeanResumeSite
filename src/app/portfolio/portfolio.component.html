@@ -1,0 +1,30 @@
+<div id="dropdownContainer">
+  <mat-form-field>
+    <mat-select [(ngModel)]="selectedType" (ngModelChange)="onSelect(selectedType)" placeholder="Filter by project type">
+      <mat-option *ngFor="let projectType of uniqueProjectTypes" [value]="projectType">
+        {{projectType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<mat-grid-list  [cols]="cols | async" rowHeight="6:4" gutterSize="30px" >
+
+
+  <mat-grid-tile *ngFor="let project of portfolioDisplay" id="stitchophrenic" class="tile" [ngStyle]="{'background-image': 'url(' + project.backgroundUrl + ')'}">
+    <!--<mat-grid-tile-footer class="tileFooter">STITCHOPHRENIC</mat-grid-tile-footer>-->
+
+    <div class="whiteOut"></div>
+    <h1 class="hoverElement">{{project.title}}</h1>
+
+    <p class="hoverElement">{{project.description}}</p>
+    <div class="buttonContain">
+      <button class="hoverElement" (click)=openProject(project.button1Url)>{{project.button1Title}}</button>
+      <button class="hoverElement" (click)=openProject(project.button2Url)>{{project.button2Title}}</button>
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+
+

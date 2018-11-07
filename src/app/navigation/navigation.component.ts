@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit,Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute,Router, Params } from '@angular/router';
-import { NavigationService } from './navigation.service';
+import {SharedService}   from '../shared.service';
 import { Observable } from 'rxjs/Observable';
 
-
-
+@Injectable({
+  providedIn: 'root',
+})
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -21,7 +22,11 @@ export class NavigationComponent implements OnInit {
 
 
 
-  constructor(private _router: Router) {//,public nav: NavbarService,
+
+
+
+
+  constructor(private _router: Router, private sharedService: SharedService) {//,public nav: NavbarService,
     this.router = _router;
     // this.toolBarDisplay = 'block';
 
@@ -46,8 +51,22 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
+  playAnimation(): void {
+    this.sharedService.changeAnimationToggle(true);
+  }
+
+  doNotPlayAnimation(): void {
+    this.sharedService.changeAnimationToggle(false);
+  }
+
   goToGit() {
     window.open('https://github.com/seanholahan', '_blank')
   }
+
+  goToLinkedIn() {
+    window.open('https://www.linkedin.com/in/sean-holahan-79269a122/', '_blank')
+  }
+
+
 
 }

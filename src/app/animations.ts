@@ -27,12 +27,13 @@ export function buildingAnimation(triggerName): AnimationTriggerMetadata {
       opacity: 1
     })),
     state('opaque', style({
-      transform: 'translateY(-100%)',
-      opacity: 0
+      transform: 'translateY(0)',
+      opacity: 1
     })),
 
     transition('hidden <=> visible', animate('800ms 300ms ease-out')),
-    transition('opaque <=> visible', animate('200ms 300ms'))
+    transition('visible <=> opaque', animate('800ms 300ms ease-in'))
+    // '200ms 300ms'
   ])
 }
 

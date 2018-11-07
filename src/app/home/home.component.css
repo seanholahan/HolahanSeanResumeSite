@@ -37,7 +37,7 @@ mat-grid-tile {
   padding-top: 200px; }
 
 mat-grid-tile:hover {
-  text-shadow: 2px 2px #ddbc429e; }
+  text-shadow: 1px 1px orange; }
 
 mat-grid-tile:focus {
   outline: none; }
@@ -53,7 +53,8 @@ mat-grid-tile:focus {
   padding-left: 20px;
   text-align: left;
   bottom: 60px;
-  font-family: 'Hind', sans-serif; }
+  font-family: 'Hind', sans-serif;
+  line-height: 1.3em; }
 
 #cloudBG {
   position: absolute;
@@ -67,16 +68,16 @@ mat-grid-tile:focus {
   transform-origin: bottom center; }
 
 #seanPortrait {
-  position: absolute;
   box-shadow: 0px 0px 40px black;
-  width: calc(66.7vh - 60px);
-  height: calc(84vh - 60px);
+  width: calc(61.7vh - 60px);
+  height: calc(78vh - 60px);
   z-index: 30;
   background-size: contain;
   background-repeat: no-repeat;
   bottom: 60px;
   -webkit-transform-origin: bottom center;
-  overflow: hidden; }
+  overflow: hidden;
+  flex-grow: 0; }
 
 @media only screen and (max-width: 700px) {
   video {
@@ -101,7 +102,7 @@ mat-grid-tile:focus {
   outline: none; }
 
 #enterButton:hover {
-  background-image: radial-gradient(#ddbc429e 25%, #DD6E42 75%); }
+  background-image: radial-gradient(lightSkyBlue 5%, #6E9EC1 75%); }
 
 a {
   color: black; }
@@ -136,10 +137,10 @@ a:focus {
   text-align: center; }
 
 .balancePicture {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   bottom: 0;
-  position: absolute;
+  position: sticky;
   left: 0; }
 
 .buildings {
@@ -174,8 +175,11 @@ a:focus {
 
 #portraitContain {
   display: flex;
-  align-items: center;
-  justify-content: center; }
+  /* justify-content: center; */
+  bottom: 60px;
+  position: absolute;
+  width: 100vw;
+  align-items: center; }
 
 #tile1 {
   background-color: black; }
@@ -206,13 +210,90 @@ h1 {
   color: black;
   transition-delay: 1s;
   transition: top 1s;
-  margin: 0; }
+  margin: 0;
+  margin-top: 10px;
+  line-height: 12vh; }
+
+h2 {
+  font-family: 'Teko', sans-serif;
+  text-align: center;
+  font-size: 3vw;
+  position: relative;
+  width: 100%;
+  font-weight: 200;
+  color: black;
+  transition-delay: 1s;
+  transition: top 1s;
+  margin: 0;
+  letter-spacing: 4px;
+  line-height: 1; }
+
+#descriptionTextRight {
+  right: 0; }
+
+#homeNavContain {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  width: 100%; }
+
+.button {
+  width: 25vw;
+  height: 40px; }
+
+.button:hover h4 {
+  text-shadow: orange 0.5px 0.5px; }
+
+.button:focus {
+  outline: none; }
+
+h3 {
+  font-family: 'Teko', sans-serif;
+  text-align: center;
+  font-size: 23px;
+  font-weight: 200;
+  color: black;
+  margin-bottom: 11vh;
+  /* margin-top: -14vw; */
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 1.5px;
+  width: 20vw;
+  flex-grow: 1;
+  max-width: 277px; }
+
+h4:hover {
+  cursor: default; }
+
+h4 {
+  font-family: 'Teko', sans-serif;
+  font-size: 23px;
+  letter-spacing: 2px;
+  margin: 0;
+  /* bottom: 14px; */
+  /* vertical-align: middle; */
+  /* position: absolute; */
+  font-weight: 100;
+  /* text-align: center; */
+  width: 25vw;
+  text-shadow: white 0.5px 0.5px;
+  transition: text-shadow 500ms; }
 
 #headerContain {
   width: 100%;
   z-index: -10;
   position: absolute;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+#taglineContain {
+  width: 100%;
+  z-index: -10;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center; }
 
@@ -240,5 +321,70 @@ mat-toolbar {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute; }
+
+@media only screen and (max-width: 685px) {
+  h3 {
+    display: none; }
+
+  #seanPortrait {
+    margin-left: auto;
+    margin-right: auto; } }
+@media only screen and (max-width: 920px) {
+  h3 {
+    margin-left: 10px;
+    margin-right: 10px; }
+
+  h1 {
+    line-height: 10vh; }
+
+  h2 {
+    font-size: 4vw;
+    width: 81vw; } }
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    font-size: 12vw;
+    position: relative;
+    font-weight: 200;
+    color: black;
+    transition-delay: 1s;
+    transition: top 1s;
+    margin: 0;
+    line-height: 9vh; }
+
+  h2 {
+    font-family: 'Teko', sans-serif;
+    text-align: center;
+    font-size: 6vw;
+    position: relative;
+    width: 80vw;
+    font-weight: 200;
+    color: black;
+    transition-delay: 1s;
+    transition: top 1s;
+    margin: 0;
+    letter-spacing: 4px;
+    line-height: 1; }
+
+  h3 {
+    display: none; }
+
+  #portraitContain {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 15vh; }
+
+  #seanPortrait {
+    box-shadow: 0px 0px 40px black;
+    height: calc(130vw - 60px);
+    z-index: 30;
+    background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-transform-origin: bottom center;
+    overflow: hidden;
+    flex-grow: 0;
+    width: 100vw; } }
 
 /*# sourceMappingURL=home.component.css.map */

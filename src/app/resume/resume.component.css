@@ -1,0 +1,14 @@
+#loadingGif {
+  background-color: red;
+  width: 150px;
+  height: 150px;
+  background-image: url(../../assets/img/skateSprite2.png);
+  margin-left: auto;
+  margin-right: auto;
+  top: calc(50vh - 75px); }
+
+object {
+  width: 100%;
+  height: calc(100vh - 64px); }
+
+/*# sourceMappingURL=resume.component.css.map */

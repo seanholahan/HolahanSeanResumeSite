@@ -1,8 +1,55 @@
-//@import '~@angular/material/core/theming/all-theme';
 //@import 'sass-material-colors-classes';
-//@include md-core();
+
 //
+@import '~@angular/material/theming';
+//@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+//@import '~@angular/material/theming';
+@import './theme.scss';
+
+
+
+
+
+
+//
+//$my-theme-primary: mat-palette ($mat-amber, A400, A100, A700);
+//$my-theme-accent: mat-palette ($mat-amber, A400, A100, A700);
+//$my-theme-warn: mat-palette ($mat-amber, A400, A100, A700);
+//
+//// create theme (use mat-dark-theme for themes with dark backgrounds)
+//$my-theme: mat-dark-theme (
+//  $my-theme-primary,
+//  $my-theme-accent,
+//  $my-theme-warn
+//);
+//
+
+//@include mat-core();
+//@include angular-material-theme($my-theme);
+
+.theme {
+  //@include angular-material-theme($my-theme);
+}
+
+
+
 body {
-  background-color: white;//#DD6E42; //#F9A123;
+  background-color: #6E9EC1;//white;//#DD6E42; //#F9A123;
   margin:0;
+}
+
+
+#loadingGif {
+  background-image:url(./assets/img/skateSprite2.png);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  animation: play 0.8s steps(25) infinite;
+  //top: calc(50vh - 75px);
+  margin-top: 25%;
+}
+
+@keyframes play {
+  100% { background-position: 2500px; }
 }

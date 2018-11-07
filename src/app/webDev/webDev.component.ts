@@ -1,17 +1,34 @@
 
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit,Injectable,NgModule, ViewChild, Input,Pipe, PipeTransform } from '@angular/core';
+//import {Http} from '@angular/http';
 import{trigger, style, transition, animate,  state, query, useAnimation} from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {homeNavSlideAnim} from '../animations';
-import { interval, timer } from 'rxjs';
-import { map } from 'rxjs/operators'
 import {descriptionAnimation} from '../animations';
+import { PORTFOLIO } from '../portfolio/portfolio-data';
+import {Project} from '../portfolio/project';
+
+import {OverlayContainer} from '@angular/cdk/overlay';
+import { ObservableMedia } from '@angular/flex-layout';
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/takeWhile";
+import "rxjs/add/operator/startWith";
+import {SharedService}   from '../shared.service';
+import {Subscription} from 'rxjs/Subscription';
+import * as Rx from "rxjs";
+// @NgModule({
+//   providers: [SharedService]
+// })
+
+
+@Injectable({
+  providedIn: 'root',
+})
 
 @Component({
   selector: 'app-webDev',
   animations: [
     descriptionAnimation('stitchDescriptionHover','#ddbc42c7', '#ddbc42c7'),
-    descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#dd6e42c2'),
+     descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#dd6e42c2'),
     // descriptionAnimation('stitchDescriptionHover','#ddbc42c7', '#ddbc42'),
     // descriptionAnimation('jamSeshDescriptionHover', '#dd6e42c2','#DD6E42'),
 
@@ -24,56 +41,122 @@ import {descriptionAnimation} from '../animations';
       })),
       transition('idle <=> active', animate('500ms 500ms'))
     ]),
-
-    trigger('descriptionHover', [
-      state('hidden', style({
-        opacity: 0
-      })),
-      state('visible', style({
-        opacity: 1
-      })),
-      transition('hidden <=> visible', animate('500ms 500ms'))
-    ]),
-
-
-
-    // trigger('stitchDescriptionHover', [
-    //   state('active', style({
-    //
-    //     clipPath: 'polygon(0 78%, 100% 62.5%, 100% 100%, 0 100%)',
-    //     backgroundColor: '#ddbc42'//'#ddbc42c7'//
-    //
-    //
-    //   })),
-    //   state('idle', style({
-    //     clipPath: 'polygon(0px 85%, 100% 85%, 100% 100%, 0px 100%)',
-    //     backgroundColor: '#ddbc42c7'
-    //   })),
-    //   transition('idle <=> active', animate('100ms'))
-    // ]),
-
-
     //TODO: MAKE ENTERSITE:HOVER --> YELLOW INSTEAD OF BLACK
 
   ],
-  templateUrl: './webDev.component.html',
+  templateUrl: 'portfolio.component.html',
   styleUrls: ['./webDev.component.scss']
 })
+
+@Pipe({
+  name: 'unique',
+  pure: false
+})
+
 export class WebDevComponent implements OnInit {
+  portfolio = PORTFOLIO;
+  portfolioDisplay = PORTFOLIO;
+  //projectTypes = PORTFOLIO;
+
+  subscription: Subscription;
+
   @Input() stitchHoverState: string = 'idle';
   @Input() jamSeshHoverState: string = 'idle';
   @Input() stitchDescriptionState: string = 'hidden';
-
-
+  projects:Object[];
+  selectedType: string;
   event: MouseEvent;
+  lookup = {};
+  // result: string[] = new Array;
+  result = [];
+  projectTypes: string[] = ["All Categories"];
+  uniqueProjectTypes: string[] = [];
+   pt: any[] = Array.of(this.portfolio);
+  public cols: Observable<number>;
+
+  introAnimationView: boolean;
 
 
 
-  constructor() {
 
+
+  constructor( private observableMedia: ObservableMedia, private sharedService: SharedService) {
+    // this.sharedService.playAnimationToggle.subscribe((playAnimationToggle) => {
+    //   console.log(playAnimationToggle, 'val');
+    // })
   }
 
   ngOnInit() {
+  // private http:Http
+    // this.http.get('data.json').subscribe(res => {
+    //   this.projects = res.json();
+    // })
+    this.makeCategories();
+
+
+
+
+
+
+    this.introAnimationView = false;
+    console.log('playAnimationTogglewebdev',this.sharedService);
+
+    const grid = new Map([
+      ["xs", 1],
+      ["sm", 2],
+      ["md", 2],
+      ["lg", 2],
+      ["xl", 2]
+    ]);
+    let start: number;
+    grid.forEach((cols, mqAlias) => {
+      if (this.observableMedia.isActive(mqAlias)) {
+        start = cols;
+      }
+    });
+    this.cols = this.observableMedia.asObservable()
+      .map(change => {
+        console.log(change);
+        console.log(grid.get(change.mqAlias));
+        return grid.get(change.mqAlias);
+      })
+      .startWith(start);
+
+  }
+
+  makeCategories(): void {
+
+
+
+    //this.portfolio = res.json().results;
+
+     //console.log(this.pt[0]);
+    for (let i in this.pt[0]) {
+      this.projectTypes.push(this.pt[0][i].type);
+     //console.log(this.pt[0][i].type);
+    }
+
+    this.uniqueProjectTypes = this.projectTypes.filter(function(elem, index, self) {
+      return index === self.indexOf(elem);
+    });
+
+    //console.log('!!',this.projectTypes, this.uniqueProjectTypes);
+
+    }
+
+
+  openProject(url) {
+    window.open(url, '_blank')
+  }
+
+  onSelect(selected) {
+      //console.log(this.portfolio);
+    if (selected == "All Categories") {
+      this.portfolioDisplay = this.portfolio;
+
+    } else {
+      this.portfolioDisplay = this.portfolio.filter(project => project.type == selected);
+    }
 
   }
 

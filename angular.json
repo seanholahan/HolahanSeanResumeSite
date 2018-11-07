@@ -11,6 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -20,11 +21,13 @@
               "src/assets",
               "src/favicon.ico"
             ],
+
             "styles": [
               "./src/style.scss"
 
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": { "includePaths": [ "../node_modules" ] }
           },
           "configurations": {
             "production": {
@@ -72,7 +75,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme.scss"
 
             ],
             "assets": [

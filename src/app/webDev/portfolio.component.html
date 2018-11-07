@@ -1,0 +1,65 @@
+<div id="dropdownContainer">
+<mat-form-field>
+  <mat-select [(ngModel)]="selectedType" (ngModelChange)="onSelect(selectedType)" placeholder="Filter by project type">
+    <mat-option *ngFor="let projectType of uniqueProjectTypes" [value]="projectType">
+      {{projectType}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<mat-grid-list  [cols]="cols | async" rowHeight="6:4" gutterSize="30px" >
+
+
+  <mat-grid-tile *ngFor="let project of portfolioDisplay" id="stitchophrenic" class="tile" [ngStyle]="{'background-image': 'url(' + project.backgroundUrl + ')'}">
+  <!--<mat-grid-tile-footer class="tileFooter">STITCHOPHRENIC</mat-grid-tile-footer>-->
+
+  <div class="whiteOut"></div>
+  <h1 class="hoverElement">{{project.title}}</h1>
+
+  <p class="hoverElement">{{project.description}}</p>
+    <div class="buttonContain">
+  <button class="hoverElement" (click)=openProject(project.button1Url)>{{project.button1Title}}</button>
+      <button class="hoverElement" (click)=openProject(project.button2Url)>{{project.button2Title}}</button>
+    </div>
+</mat-grid-tile>
+
+  </mat-grid-list>
+
+
+
+
+
+<!--<mat-grid-tile id="stitchophrenic" class="tile">-->
+<!--&lt;!&ndash;<mat-grid-tile-footer class="tileFooter">STITCHOPHRENIC</mat-grid-tile-footer>&ndash;&gt;-->
+
+<!--<div class="whiteOut"></div>-->
+<!--<h1 class="hoverElement">STITCHOPHRENIC</h1>-->
+<!--&lt;!&ndash;[@descriptionHover]="stitchDescriptionState"&ndash;&gt;-->
+<!--<p class="hoverElement"> E-commerce platform made for my clothing brand, Stitchophrenic.-->
+<!--Each piece is up-cycled and one of a kind! This site was made With MongoDB, ExpressJS, AngularJS and NodeJS.</p>-->
+<!--<button class="hoverElement">View Project</button>-->
+<!--</mat-grid-tile>-->
+
+
+
+  <!---->
+  <!--<div class="container" id="stitchContainer">-->
+  <!--<div class="heroImg" id="stitchophrenic"></div>-->
+    <!--<div id="stitchDescription" [@stitchDescriptionHover]="stitchHoverState"  (mouseenter)="stitchHover($event)" (mouseleave)="stitchHover($event)" class="description">-->
+      <!--<h1 [@titleHover]="stitchHoverState">Stitchophrenic</h1>-->
+
+    <!--</div>-->
+
+  <!--</div>-->
+  <!--<div class="container">-->
+  <!--<div class="heroImg" id="jamSesh"></div>-->
+    <!--<div id="jamSeshDescription" [@jamSeshDescriptionHover]="jamSeshHoverState" (mouseenter)="jamSeshHover($event)" (mouseleave)="jamSeshHover($event)" class="description">-->
+      <!--<h1 id="jamSeshTitle" [@titleHover]="jamSeshHoverState">JamSesh</h1>-->
+      <!--<p>This website was made With AngularJS and will rock your socks off!</p>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+
+<!--</mat-grid-list>-->

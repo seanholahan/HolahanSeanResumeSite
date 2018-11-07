@@ -1,0 +1,54 @@
+<h1>CONTACT</h1>
+<h3>I'm currently looking for work.  Interested in collaborating?</h3>
+
+
+<div class="example-container">
+  <form #contactForm="ngForm">
+  <mat-form-field >
+    <input matInput placeholder="Name"
+           [(ngModel)]="clientMessage.name" name="name" #name="ngModel"
+           required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email"
+           [(ngModel)]="clientMessage.email" name="email" #email="ngModel" type="email"
+           required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Message" rows="2" class="form-control"
+              [(ngModel)]="clientMessage.message" name="message" #message="ngModel"
+              required></textarea>
+  </mat-form-field>
+    <!--<p>{{diagnostic}}</p>-->
+
+  <!--<mat-form-field>-->
+    <!--<mat-select placeholder="Topic of Message"-->
+                <!--[(ngModel)]="contactForm.messageTopic" name="message"-->
+    <!--&gt;-->
+      <!--<mat-option value="Job Opportunity">Job Opportunity</mat-option>-->
+      <!--<mat-option value="Project Opportunity">Project Opportunity</mat-option>-->
+      <!--<mat-option value="Other">Other</mat-option>-->
+    <!--</mat-select>-->
+  <!--</mat-form-field>-->
+    </form>
+  <button (click)="newMessage()" type="submit" class="btn btn-secondary" id="contactSubmit"name ="submit" value="submit">SUBMIT</button>
+</div>
+
+
+
+<div id="contactContainer">
+  <div class="contactItem">
+    <div class="icon" id="phone"></div>
+    <p>(323)-646-7500</p>
+  </div>
+  <div class="contactItem">
+    <div class="icon" id="mail"></div>
+    <p>shholahan@gmail.com</p>
+  </div>
+
+  <!--<p>HOW DOES THIS TEXT LOOK</p>-->
+  <!--<p>PORTFOLIO</p>-->
+</div>
+
