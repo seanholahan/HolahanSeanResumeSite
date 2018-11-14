@@ -1,13 +1,6 @@
 <nav *ngIf="router.url !== '/home' " >
 <div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
-<mat-toolbar >
-  <!--<button mat-button class="app-menu-button" >-->
-
-
-
-  <!--<i class="material-icons">menu</i>-->
-  <!--</button>-->
-  <!--<img src="../assets/img/SH.png"/>-->
+<mat-toolbar id="largeMenu" >
   <h1 [routerLink]="['/home']" (click)="playAnimation()">SEAN HOLAHAN</h1>
 
   <button class="md-accent" [routerLink]="['/portfolio']">PORTFOLIO</button>
@@ -18,8 +11,27 @@
     <div class="icon" id="github" (click)="goToGit()"></div>
     <div class="icon" id="linkedIn" (click)="goToLinkedIn()"></div>
   </div>
-  <!--<button   (click)="window.open('https://github.com/seanholahan', '_blank')">GITHUB</button>-->
-
 </mat-toolbar>
+
+  <div id="smallMenu">
+      <div id="smallHeader">
+        <img id="hamburger" src='../../assets/img/menuIcon.png'>
+        <h1 >SEAN HOLAHAN</h1>
+        </div>
+    <ul id="smallButtonContain">
+      <li><a class="button" [routerLink]="['/portfolio']">PORTFOLIO</a></li>
+      <li><a class="button" [routerLink]="['/home']">ABOUT</a></li>
+      <li><a class="button" [routerLink]="['/contact']">CONTACT</a></li>
+      <li><a class="button" [routerLink]="['/resume']">RESUME</a></li>
+      <li><a class="button" (click)="goToGit()">GITHUB</a></li>
+      <li><a class="button" (click)="goToLinkedIn()">LINKED IN</a></li>
+    </ul>
+
+
+    <!--<button   (click)="window.open('https://github.com/seanholahan', '_blank')">GITHUB</button>-->
+
+  </div>
+
+
 </div>
   </nav>

@@ -4,7 +4,6 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { HostListener} from "@angular/core";
 import { AppMaterialModule } from './app.material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';

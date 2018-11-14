@@ -18,17 +18,20 @@ import { HomeComponent } from './home/home.component';
 import { JamseshComponent } from './jamsesh/jamsesh.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import { SafeLinkPipe } from './util/safe-link.pipe';
-import { WebDevComponent } from './webDev/webDev.component';
+
 import { FlexLayoutModule } from "@angular/flex-layout";
-import {SharedService} from './shared.service';
+
 import {ContactService} from './contact/contact.service';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 import { ResumeComponent } from './resume/resume.component';
-import { ContactConfirmationComponent } from './contact-confirmation/contact-confirmation.component'
+import { ContactConfirmationComponent } from './contact-confirmation/contact-confirmation.component';
+import { ModalComponent } from './modal/modal.component';
 //import { MaterialModule } from '@angular/material';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-
+import {SharedService} from './services/shared.service';
+import {PortfolioService} from './services/porfolio.service';
 
 
 const appRoutes: Routes = [
@@ -40,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'jamSesh', component: JamseshComponent },
   { path: 'animation', component: AnimationComponent },
   { path: 'navigation', component: NavigationComponent },
-  { path: 'webDev', component: WebDevComponent },
+
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'contactConfirm', component: ContactConfirmationComponent},
@@ -68,6 +71,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FlexLayoutModule,
     HttpClientModule,
+
     // MaterialModule,
 
     RouterModule.forRoot(
@@ -75,9 +79,10 @@ const appRoutes: Routes = [
       { enableTracing: false  } // <-- debugging purposes only
     )
   ],
-  providers: [Title, SharedService, ContactService],
-  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe, WebDevComponent, PortfolioComponent, ContactComponent, ResumeComponent, ContactConfirmationComponent],
-  entryComponents: [DialogContentComponent],
+  providers: [Title, SharedService, PortfolioService, ContactService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  declarations: [AppComponent, DialogContentComponent, NavigationComponent, DataScienceComponent, AnimationComponent, HomeComponent, JamseshComponent, SafeLinkPipe,PortfolioComponent, ContactComponent, ResumeComponent, ContactConfirmationComponent, ModalComponent],
+  entryComponents: [DialogContentComponent, ModalComponent],
+  exports: [ModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

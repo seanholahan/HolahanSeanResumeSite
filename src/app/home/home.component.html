@@ -6,7 +6,7 @@
   <div id="landingContain"  class="flexbox-parent"  [ngStyle]="{'pointer-events':landingPointerEvents, 'background-color': landingBackgroundColor}" scroll="no" style="overflow: hidden">
     <div id="headerContain" [@headerPosition]="currentHeaderPosition" (@headerPosition.done)="widenHeader()" layout="column" layout-align="center center" style="height: 40vh" >
 
-    <h1 [@headerState]="currentHeaderState" (@headerState.done)="buildingAnimation()">SEAN HOLAHAN</h1>
+    <h1 [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
       <h2 [@opacityState]="currentOpacityState">the perfect balance between design and development</h2>
 
     </div>
@@ -27,7 +27,7 @@
         BS in Computer Science and Interactive Media.
       </h3>
 
-      <div id="seanPortrait" [@portraitState]="currentPortraitState" (portraitState.done) = "buildingAnimation2()" >
+      <div id="seanPortrait" [@portraitState]="currentPortraitState" >
         <img   src="../../assets/img/balancePole2.png" class="balancePicture bp">
         <img   src="../../assets/img/seanBalance2.png" class="balancePicture bp"  [ngStyle]="{'transform': 'rotate(' + seanRotate + ') translateX('+ seanTranslate + ')'}">
       </div>
@@ -43,8 +43,8 @@
         <source src='../../assets/img/OnloadAnimation.webm'>
       </video>
     </div>
-
-<div id="homeNavContain" [@enterSite]="currentState" >
+    <!--//-->
+<div id="homeNavContainLarge" [@enterSite]="currentState" >
   <div class="button" [routerLink]="['/portfolio']" >
     <h4>PORTFOLIO</h4>
   </div>
@@ -59,7 +59,26 @@
   </div>
 </div>
 
+
+  <div id="homeNavContainSmall" [@enterSite]="currentState">
+    <div id="icon" class="button"  [ngStyle]="{'margin-bottom':iconMarginBottom}">
+      <img id="hamburger" src='../../assets/img/menuIcon.png'>
     </div>
+    <div class="button" [routerLink]="['/portfolio']" >
+      <h4>PORTFOLIO</h4>
+    </div>
+    <div class="button" [routerLink]="['/resume']" >
+      <h4>RESUME</h4>
+    </div>
+    <div class="button" (click)="goToGit()">
+      <h4>GITHUB</h4>
+    </div>
+    <div class="button" [routerLink]="['/contact']">
+      <h4>CONTACT</h4>
+    </div>
+  </div>
+
 </div>
 
 
+</div>

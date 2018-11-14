@@ -1,7 +1,7 @@
 //@import 'sass-material-colors-classes';
 
-//
-@import '~@angular/material/theming';
+//@import '~@angular/material/theming';
+
 //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 //@import '~@angular/material/theming';
 @import './theme.scss';
@@ -34,22 +34,22 @@
 
 
 body {
-  background-color: #6E9EC1;//white;//#DD6E42; //#F9A123;
+  background-color:#6E9EC1;//darker #4F7189;//lighter
   margin:0;
 }
 
 
 #loadingGif {
-  background-image:url(./assets/img/skateSprite2.png);
+  background-image:url(./assets/img/skateSprite4.png);
   margin-left: auto;
   margin-right: auto;
   width: 100px;
   height: 100px;
-  animation: play 0.8s steps(25) infinite;
+  animation: play 0.8s steps(13) infinite;
   //top: calc(50vh - 75px);
   margin-top: 25%;
 }
 
 @keyframes play {
-  100% { background-position: 2500px; }
+  100% { background-position: 1300px; }
 }

@@ -1,7 +1,4 @@
 
-<mat-tab-group [disableRipple]="true">
-
-  <mat-tab label="MODELING">
 
 
 
@@ -22,20 +19,16 @@
 
 
 
-  </mat-tab>
 
-  <mat-tab label="ANIMATION">
+
+
     <mat-grid-list   cols="1" rowHeight="2:1">
       <mat-grid-tile *ngFor='let item of videoList' >
         <iframe   [src]='getEmbedUrl(item) | safeLink' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </mat-grid-tile>
       <!--width="560" height="315"-->
     </mat-grid-list>
-    allo
 
-  </mat-tab>
-
-</mat-tab-group>
 
 
 

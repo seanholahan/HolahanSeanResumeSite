@@ -1,0 +1,73 @@
+.modal {
+  background: rgba(0, 0, 0, 0.6);
+  width: 70vw;
+  height: 70vw; }
+
+mat-dialog-container {
+  transform: none;
+  opacity: 1;
+  left: 10vw;
+  width: 80vw;
+  height: 80vh;
+  top: 10vh;
+  position: absolute; }
+
+.mat-dialog-content {
+  max-width: 80vw;
+  pointer-events: auto;
+  /* width: 264px; */
+  height: 90vh;
+  width: 70vw;
+  position: static; }
+
+.photo {
+  height: 100%;
+  width: auto; }
+
+#contain {
+  max-width: 80vw;
+  pointer-events: auto;
+  /* width: 264px; */
+  height: 90vh;
+  width: 70vw;
+  position: static; }
+
+.modeling {
+  background-color: red;
+  width: 100px;
+  height: 100px; }
+
+iframe {
+  width: 90%;
+  height: 90%; }
+
+#pantViewContainer {
+  width: 100%;
+  height: 90vh; }
+
+h2 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  font-weight: 200; }
+
+p {
+  position: fixed;
+  z-index: 14; }
+
+.spriteslider {
+  margin: 20px auto;
+  /* padding: 60px; */
+  /* width: 50%; */
+  /* width: 128px; */
+  /* background: #FCFEFC; */
+  border-radius: 5px; }
+
+#spritetarget {
+  width: 33vh;
+  height: 64vh;
+  background-size: 600vh 600vh;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*# sourceMappingURL=modal.component.css.map */

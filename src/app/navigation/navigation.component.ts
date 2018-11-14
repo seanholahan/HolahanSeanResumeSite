@@ -1,6 +1,6 @@
 import { Component, OnInit,Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute,Router, Params } from '@angular/router';
-import {SharedService}   from '../shared.service';
+import {SharedService}   from '../services/shared.service';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable({

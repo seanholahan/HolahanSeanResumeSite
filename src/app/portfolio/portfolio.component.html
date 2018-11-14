@@ -19,12 +19,19 @@
 
     <p class="hoverElement">{{project.description}}</p>
     <div class="buttonContain">
-      <button class="hoverElement" (click)=openProject(project.button1Url)>{{project.button1Title}}</button>
-      <button class="hoverElement" (click)=openProject(project.button2Url)>{{project.button2Title}}</button>
+      <button class="hoverElement" [ngStyle]="{'display':project.button1Display}" (click)=openProject(project.button1Url)>{{project.button1Title}}</button>
+      <button class="hoverElement" [ngStyle]="{'display':project.button2Display}" (click)=openProject(project.button2Url)>{{project.button2Title}}</button>
+      <button class="hoverElement" type="button" [ngStyle]="{'display':project.modalButtonDisplay}"  (click)="openModal(project.modalType, project.modalData)">{{project.modalButtonTitle}}</button>
     </div>
+
   </mat-grid-tile>
 
 </mat-grid-list>
+
+
+
+
+
 
 
 

@@ -1,0 +1,39 @@
+<!--<h1 mat-dialog-title>Hi </h1>-->
+<!---->
+  <!--<p>What's your favorite animal?</p>-->
+  <!--<mat-form-field>-->
+    <!--<input matInput >-->
+  <!--</mat-form-field>-->
+<!--</div>-->
+<!--<div mat-dialog-actions>-->
+
+  <!--<button mat-button  >Ok</button>-->
+  <!--&lt;!&ndash;cdkFocusInitial&ndash;&gt;-->
+<!--</div>-->
+
+<div id="contain" *ngIf="modelView">
+<div class='spriteslider' (mousedown)="down($event)" (mouseup)="up($event)" id='spriteslider'  (mouseenter)="onJamSeshHover($event)" (mousemove)="coordinates($event)"(mouseleave)="onJamSeshHover($event)">
+  <div id='spritetarget' (dragstart)="down($event)"  [ngStyle]="{'background' : 'url(../../assets/img/pantSprite.png)', 'background-position-x': left, 'background-position-y': top, 'background-size': '600vh 600vh'}"  ></div>
+</div>
+<!--<div id="pantViewContainer" [ngStyle]="{'background': ' url(../../assets/img/pantView/' + article +'.png) no-repeat 0 0'}" (dragover)="mouseDrag($event)" (mouseenter)="onJamSeshHover($event)" (mousemove)="coordinates($event)"(mouseleave)="onJamSeshHover($event)" ></div>-->
+<!--"{'background': ' url(../../assets/img/pantView/pantSprite.png) no-repeat' + left + top}"    ''+top+' px '+left+'px'-->
+<h2>CLICK AND DRAG TO ROTATE MODEL</h2>
+<button mat-button (click)="onNoClick()">No Thanks</button>
+</div>
+
+<div *ngIf="videoView">
+<mat-grid-list   cols="1" rowHeight="2:1" >
+  <mat-grid-tile *ngFor='let item of modalData' >
+    <iframe   [src]='getEmbedUrl(item) | safeLink' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </mat-grid-tile>
+  <!--width="560" height="315"-->
+</mat-grid-list>
+</div>
+<div *ngIf="photoView">
+<mat-grid-list   cols="1" rowHeight="3:2" >
+  <mat-grid-tile *ngFor='let item of modalData' >
+    <img class="photo" src={{item}}>
+  </mat-grid-tile>
+  <!--width="560" height="315"-->
+</mat-grid-list>
+</div>

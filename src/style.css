@@ -1,24 +1,37 @@
 /*
-Error: File to import not found or unreadable: ~@angular/material/theming.
-        on line 4 of style.scss
+Error: File to import not found or unreadable: ~@angular/material/_theming.
+        on line 2 of theme.scss
+        from line 7 of style.scss
 
 1: //@import 'sass-material-colors-classes';
 2: 
-3: //
-4: @import '~@angular/material/theming';
+3: //@import '~@angular/material/theming';
+4: 
 5: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 6: //@import '~@angular/material/theming';
 7: @import './theme.scss';
-8: 
-9: 
 
 Backtrace:
-style.scss:4
+theme.scss:2
+style.scss:7
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:37:in `css_import?'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block (2 levels) in visit_import'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `map'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:328:in `block in visit_import'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
+/Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
@@ -58,4 +71,4 @@ style.scss:4
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~@angular/material/theming.\A         on line 4 of style.scss\A \A 1: //@import 'sass-material-colors-classes';\A 2: \A 3: //\A 4: @import '~@angular/material/theming';\A 5: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';\A 6: //@import '~@angular/material/theming';\A 7: @import './theme.scss';\A 8: \A 9: "; }
+  content: "Error: File to import not found or unreadable: ~@angular/material/_theming.\A         on line 2 of theme.scss\A         from line 7 of style.scss\A \A 1: //@import 'sass-material-colors-classes';\A 2: \A 3: //@import '~@angular/material/theming';\A 4: \A 5: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';\A 6: //@import '~@angular/material/theming';\A 7: @import './theme.scss';"; }

@@ -1,17 +1,21 @@
 /*
-Error: File to import not found or unreadable: ~@angular/material/theming.
-        on line 2 of theme.scss
+Error: File to import not found or unreadable: ~@angular/material/_theming.
+        on line 25 of theme.scss
 
-1: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
-2: @import '~@angular/material/theming';
-3: //@include mat-core();
-4: //@import '../node_modules/@angular/material/_theming';
-5: //@import '../node_modules/@angular/material/theming';
-6: 
-7: //
+20: //  @include angular-material-theme($my-theme);
+21: ////}
+22: //
+23: //
+24: @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+25: @import '~@angular/material/_theming';
+26: 
+27: // Include non-theme styles for core.
+28: @include mat-core();
+29: 
+30: // Define a theme.
 
 Backtrace:
-theme.scss:2
+theme.scss:25
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -56,4 +60,4 @@ theme.scss:2
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~@angular/material/theming.\A         on line 2 of theme.scss\A \A 1: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';\A 2: @import '~@angular/material/theming';\A 3: //@include mat-core();\A 4: //@import '../node_modules/@angular/material/_theming';\A 5: //@import '../node_modules/@angular/material/theming';\A 6: \A 7: //"; }
+  content: "Error: File to import not found or unreadable: ~@angular/material/_theming.\A         on line 25 of theme.scss\A \A 20: //  @include angular-material-theme($my-theme);\A 21: ////}\A 22: //\A 23: //\A 24: @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';\A 25: @import '~@angular/material/_theming';\A 26: \A 27: // Include non-theme styles for core.\A 28: @include mat-core();\A 29: \A 30: // Define a theme."; }

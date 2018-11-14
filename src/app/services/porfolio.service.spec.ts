@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SharedService } from './shared.service';
+import { PorfolioService } from './porfolio.service';
 
-describe('SharedService', () => {
+describe('PorfolioService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SharedService = TestBed.get(SharedService);
+    const service: PorfolioService = TestBed.get(PorfolioService);
     expect(service).toBeTruthy();
   });
 });

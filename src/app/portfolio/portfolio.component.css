@@ -23,7 +23,8 @@ mat-grid-tile {
 
 .buttonContain {
   position: absolute;
-  bottom: 12%; }
+  bottom: 12%;
+  display: flex; }
 
 button {
   margin: 10px;
@@ -39,7 +40,8 @@ button:hover {
 .hoverElement {
   opacity: 0;
   transition: opacity 100ms;
-  color: black; }
+  color: black;
+  max-width: 495px; }
 
 p {
   text-align: center;
@@ -86,5 +88,8 @@ mat-grid-tile-footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }
+
+.modal {
+  background: rgba(0, 0, 0, 0.6); }
 
 /*# sourceMappingURL=portfolio.component.css.map */

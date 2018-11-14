@@ -1,27 +1,24 @@
-import { Component, OnInit, ViewChild, Input,Injectable,AfterViewInit, NgModule } from '@angular/core';
-import{trigger, style, transition, animate,  state, stagger, query, group} from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { NavbarService } from '../navigation/navigation.service';
+import { Component, OnInit, ViewChild, Input,Injectable,AfterViewInit} from '@angular/core';
+import{trigger, style, transition, animate,  state} from '@angular/animations';
 import {buildingAnimation} from '../animations';
-import {SharedService}   from '../shared.service';
+import {SharedService}   from '../services/shared.service';
 import {Subscription} from 'rxjs/Subscription';
-import { Observable, of } from 'rxjs';
-//import { Subscription } from 'rxjs/Rx';
+import { Observable} from 'rxjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+
 @Injectable({
   providedIn: 'root',
 })
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  //providers: [SharedService],
   animations: [
     buildingAnimation('building1'),
     buildingAnimation('building2'),
     buildingAnimation('building3'),
     buildingAnimation('building4'),
 
+    //for home navigation
     trigger('enterSite', [
       state('notEntered', style({
         transform: 'translateY(60px)'
@@ -31,40 +28,34 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
       })),
       transition('*=>hasEntered', animate('300ms'))
     ]),
+
+    //for cloud background
     trigger('cloudBG', [
       state('hidden', style({
-       // transform: 'scaleX(0)',
         zIndex: '-11',
         opacity: 0
       })),
       state('shown', style({
-       // transform: 'scaleX(1)',
-        zIndex: '-11',
-        opacity: .7
-      })),
-
-      state('opaque', style({
-        // transform: 'scaleX(1)',
         zIndex: '-11',
         opacity: .7
       })),
       transition('hidden <=> shown',  animate('1500ms')),
-      transition('opaque <=> shown',  animate('600ms 300ms'))
-    ]),
-    trigger('description', [
-      state('hidden', style({
-        // borderRadius: "10px 10px 10px 10px",
-        opacity: 0,
-        transform: 'translateX(-21vh)'
-      })),
-      state('shown', style({
-        // borderRadius: "0px 10px 10px 0px",
-        opacity: 1,
-        transform: 'translateX(0vh)'
-      })),
 
-      transition('hidden <=> shown',  animate('500ms 300ms'))
     ]),
+
+    // //for
+    // trigger('description', [
+    //   state('hidden', style({
+    //     opacity: 0,
+    //     transform: 'translateX(-21vh)'
+    //   })),
+    //   state('shown', style({
+    //     opacity: 1,
+    //     transform: 'translateX(0vh)'
+    //   })),
+    //
+    //   transition('hidden <=> shown',  animate('500ms 300ms'))
+    // ]),
 
 
     trigger('opacityState', [
@@ -89,7 +80,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
       })),
       state('pushed', style({
         borderRadius: "0px 0px 0px 0px",
-        transform: 'scaleX(1) )'
+        transform: 'scaleX(1)'
       })),
       transition('hidden <=> visible', animate('200ms 300ms')),
       transition('visible <=> pushed', animate('500ms 300ms'))
@@ -143,11 +134,6 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 })
 
 
-// @NgModule({
-//   providers: [SharedService]
-// })
-
-
 
 
 
@@ -172,138 +158,102 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @Input() currentOpacityState: string = 'hidden';
 
 
-  mediaQuery$: Subscription;
 
-  // The active media query (xs | sm | md | lg | xl)
-  activeMediaQuery: string;
 
 
 
 
   interval;
-  buildingCount: number = 1;
-  intervalAmount: number = 300;
-  enterState: string = 'notEntered';
-  animationStartToggle: boolean = false;
-  descriptionToggle: boolean = false;
-  headerToggle: boolean = false ;
+  event: MouseEvent;
+  movementX:number = 0;
+
+  //pointer events
   landingPointerEvents: string = 'none';
+
+  //window size
+  innerHeight: string;
+  innerWidth: string;
+  mediaQuery$: Subscription;
+  activeMediaQuery: string;
+
+  //mobile detection
+  iconMarginBottom: string = '0';
+
+  //intro animation variables
   headerHideTransition: string = 'width 0s';
-  landingBackgroundColor: string = '#6E9EC1';//'#DD6E42';
-  innerHeight: any;
-  innerWidth: any;
-  buildSwitch: boolean;
-  buildSwitch2: boolean;
-
-
-
-
+  landingBackgroundColor: string = '#6E9EC1';
+  enterState: string = 'notEntered';
+  descriptionToggle: boolean = false;
+  headerToggle: boolean = false;
+  buildSwitch: boolean = false;
   enterOpacity:string = '100';
-
-  enterDisplay: any;
+  enterDisplay: string = 'block';
   videoOpacity: string =  '0';
   videoDisplay: string = 'block';
   videoZIndex: string;
-  headerTop : any;
-
-  homeNavOpacity: any;
-  homeNavDisplay:any;
-  homeNavTop:any;
-  homeTransition:any;
+  headerTop : string = '26vh';
+  homeNavOpacity: string;
+  homeNavDisplay:string;
+  homeNavTop:string;
+  homeTransition:string;
   leftTextTransform: string = '0';
   rightTextTransform: string = '0';
   seanTranslate: string = '0';
   seanRotate: string = '0';
   transformValue: number = 0;
-
-
-  enterSite(state: any) {
-    this.enterState = state;
-  }
-  yo:any;
-  headerHideWidth:any;
-
-  videoPlay: boolean;
+  videoPlay: boolean = false;
   aboutToggle: Observable<number>;
   playAnim: boolean;
+  headerHideWidth:string;
+  onSafari:boolean;
 
 
 
   constructor(
     private sharedService: SharedService,
     private observableMedia: ObservableMedia
-  ) {}
+  ) {
+    this.playAnim = this.sharedService.playAnim$;
 
-  movementX = 0;
-  event: MouseEvent;
-  clienmovementXtY = 0;
+  }
+
+
+
+  enterSite(state: any) {
+    this.enterState = state;
+  }
 
   ngAfterViewInit () {
-
     this.mediaQuery$ = this.observableMedia.subscribe( (change: MediaChange) => {
       this.activeMediaQuery = `${change.mqAlias}`;
       if (this.activeMediaQuery === 'xs') {
-        // Here goes code for update data in xs or sm (small screen)
-        console.log("small");
+        //do something for small screens...ie change template
       } else {
-        // Here goes code for update data in gt-sm (bigger screen)
-        console.log("big");
+        //else
       }
     });
+
+
   }
 
 
   ngOnInit() {
 
-    console.log('playAnimationTogglewerk', this.sharedService);
-    //console.log(this.sharedService);
-    //this.subscription = this.sharedService.navItem$.subscribe(aboutToggle => this.aboutToggle = aboutToggle)
+
+    if (navigator.userAgent.toLowerCase().indexOf('safari') != -1) {
+      if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+        this.onSafari = false;
+
+      } else {
+        this.onSafari = true;
+        alert("For the full experience, please visit this site on Chrome or Firefox");
+      }
+    }
+
     this.playAnim = this.sharedService.playAnim$;
-    console.log(this.aboutToggle,'yovalue');
+    console.log("ho",this.playAnim );
 
-
-
-    this.buildSwitch = false;
-    this.buildSwitch2 = false;
-    // this.portraitTransform = 'scale(0)';
-    this.enterDisplay = 'block';
-
-
-    this.headerTop= '26vh';
-    //console.log("navbottom",this.homeNavBottom);
-    //this.homeNavBottom =document.getElementById('matContain').clientHeight;
-    this.innerHeight = (window.screen.height) + "px";
-    this.innerWidth = (window.screen.width) + "px";
-    // this.homeTransition = 'top 1s ease-out';
-    //console.log("geek",innerHeight, innerWidth);
-    this.videoPlay = false;
-
-
-    //toggle to turn off enter Animation
-    //
-
-    // if (navigator.userAgent.toLowerCase().indexOf('safari') != -1) {
-    //   if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-    //     this.playAnim = true;
-    //     console.log ("true true");
-    //   } else {
-    //     this.playAnim = false;
-    //     console.log ("false false");
-    //   }
-    // }
-
-  console.log("eek", );
-
-    // if((/constructor/i.test(window.HTMLElement) ||
-    //   (function (p) { return p.toString()
-    //     === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification)) == true) {
-    //
-    // }
-
-
-//this.playAnim == false
-    if (true) {
-
+    if (this.playAnim == false || this.onSafari == true) {
       this.enterOpacity = '0';
       this.enterDisplay = 'none';
       this.headerTop = '26vh';
@@ -319,35 +269,39 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.currentOpacityState = 'visible';
     }
 
+    this.innerHeight = (window.screen.height) + "px";
+    this.innerWidth = (window.screen.width) + "px";
+
+    console.log(this.playAnim, 'gawdy');
+
+
+
+
+    //toggle to turn off intro animation
+
+    //check for mobile
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      console.log('mobile device detected');
+      this.iconMarginBottom = '-1';
     }
 
-
-
-
+    // if( /Safari/i.test(navigator.userAgent) ) {
+    // //  alert(" this is safiarei");
+    //   this.playAnim = false;
+    // }
     this.homeNavOpacity = '1';
     this.homeNavDisplay = 'none';
     this.homeTransition = 'top 3s ease-in';
     this.homeNavTop = 'calc(100vh + 200px)';
   };
 
-
-
-
-
-
   coordinates(event): void  {
-
     if(window.innerWidth/2 > event.pageX) {
       this.transformValue = (window.innerWidth/2 - event.pageX)/(window.innerWidth/2);
-
       this.leftTextTransform = (this.transformValue * 8).toString()+'vh';
       this.rightTextTransform = (this.transformValue * -8).toString()+'vh';
       this.seanRotate =   (this.transformValue * -3).toString()+ 'deg';
       this.seanTranslate = (this.transformValue * -3).toString()+'%';
     } else {
-
       this.transformValue = (event.pageX - window.innerWidth/2 )/(window.innerWidth/2);
       this.leftTextTransform = (this.transformValue * -8).toString()+'vh';
       this.rightTextTransform = (this.transformValue * 8).toString()+'vh';
@@ -355,7 +309,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.seanTranslate = (this.transformValue * 4).toString()+'%';
     }
   }
-
 
   widenHeader(): void {
     if (this.currentHeaderPosition == 'topAligned' && this.playAnim != false) {
@@ -365,7 +318,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-
   topAlignHeader(): void {
     if(this.buildSwitch == true) {
       this.currentHeaderPosition = 'topAligned';
@@ -374,127 +326,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-
-  buildingAnimation(): void {
-    console.log('ENTER BUILDINGS');
-    this.buildingCount = 1;
-
-    setTimeout(()=>{ this.animationStartToggle = true }, 600);
-
-    if (this.animationStartToggle == true) {
-
-      this.interval = setInterval(() => {
-        switch(this.buildingCount) {
-          case 1: {
-              this.building1State = 'visible';
-            this.buildingCount++;
-            this.intervalAmount = 100;
-            break;
-          }
-          case 2: {
-            this.building2State = 'visible';
-            this.buildingCount++;
-            break;
-          }
-          case 3: {
-            this.building3State = 'visible';
-            this.buildingCount++;
-            break;
-          }
-          case 4: {
-            this.building4State = 'visible';
-            this.buildingCount++;
-           // console.log('working4', this.intervalAmount);
-            break;
-          }
-          case 5: {
-            clearInterval(this.interval);
-            break;
-          }
-        }
-      }, 100)
-    }
-  }
-
-  buildingAnimation2(): void {
-    //console.log('hiiiii!@@', this.building1State, this.animationStartToggle);
-    this.buildingCount = 1;
-    console.log('EXIT BUILDINGS');
-
-
-    setTimeout(()=> {
-      this.animationStartToggle = true
-    }, 10);
-
-    if (this.animationStartToggle == true) {
-      // this.descriptionState = 'hidden';
-
-
-      this.interval = setInterval(() => {
-        switch (this.buildingCount) {
-          case 1: {
-            this.building3State = 'opaque';
-            this.buildingCount++;
-            this.intervalAmount = 100;
-           // console.log('working', this.intervalAmount);
-            break;
-          }
-          case 2: {
-            this.building2State = 'opaque';
-            this.buildingCount++;
-           // console.log('working2', this.intervalAmount);
-            break;
-          }
-          case 3: {
-            this.building1State = 'opaque';
-
-            this.buildingCount++;
-          //  console.log('working3', this.intervalAmount);
-            break;
-          }
-          case 4: {
-            this.building4State = 'opaque';
-            this.buildingCount++;
-           // console.log('working4', this.intervalAmount);
-            break;
-          }
-          case 5: {
-            clearInterval(this.interval);
-            break;
-          }
-        }
-      }, 100)
-    }
-  }
-
   startAnim(): void {
     this.videoOpacity = "100";
-    this.enterDisplay ='none';
+    this.enterDisplay = 'none';
     this.descriptionToggle = true;
-    // this.animationStartToggle = true;
     this.headerToggle = true;
-    // this.changeState('state2');
-
     if (this.videoPlay == false) {
-      // this.videoPlayer.nativeElement.play();
       var promise = document.querySelector('video').play();
-
-      if (promise !== undefined) {
-        promise.catch(error => {
-          // Auto-play was prevented
-          // Show a UI element to let the user manually start playback
-          console.log('fal;');
-        }).then(() => {
-          // Auto-play started
-        });
-      }
-    } else  {
-      this.videoPlayer.nativeElement.pause();
     }
   }
-
-
 
   onTimeUpdate(value) : void {
     var videoTime  = value.target.currentTime;
@@ -510,21 +350,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     if (videoTime >= 3.8) {
       this.headerHideWidth = '0';
-
       this.headerHideTransition = 'width 0s';
-
       this.homeNavDisplay = 'block';
       this.homeNavOpacity = '100';
-      //this.homeNavTop = 'calc(100vh - 70px)';
-      //this.homeNavBottom = "0vh";
-      //this.homeNavAnchor = 'bottom';
       this.homeTransition = 'top 3s ease-in';
-      //console.log(this.currentState, 'currentState');
       this.cloudBGState = 'shown';
-     // console.log('ADSFASDFA',this.currentHeaderState);
-
       this.buildSwitch = true;
-      //this.currentBuildState = 'built';
       this.landingPointerEvents = 'all';
     }
   }
@@ -532,18 +363,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
   goToGit(): void {
     window.open('https://github.com/seanholahan', '_blank')
   }
-
-
-
-  // s(): void {
-  //   this.landingCount++;
-  //   if (this.landingCount == 3) {
-  //     //this.headerHideWidth = '20vw';
-  //     this.currentHeaderHideState = 'shown';
-  //   }
-  //   if (this. landingCount == 14) {
-  //   }
-  // }
 }
-
-
