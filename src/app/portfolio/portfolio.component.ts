@@ -2,14 +2,15 @@ import { Component, OnInit,Injectable,NgModule, ViewChild, Input,Pipe, PipeTrans
 //import {Http} from '@angular/http';
 import{trigger, style, transition, animate,  state, query, useAnimation} from '@angular/animations';
 import {descriptionAnimation} from '../animations';
-import { PORTFOLIO } from '../portfolio/portfolio-data';
+//import { PORTFOLIO } from '../services/portfolio-data';
+import {Project} from '../services/project';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/takeWhile";
 import "rxjs/add/operator/startWith";
 import {SharedService}   from '../services/shared.service';
-import {PortfolioService} from '../services/portfolio.service';
+import {PortfolioService} from '../services/porfolio.service';
 import {Subscription} from 'rxjs/Subscription';
 import {ModalComponent} from '../modal/modal.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -52,8 +53,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 
 export class PortfolioComponent implements OnInit {
-  portfolio = PORTFOLIO;
-  portfolioDisplay = PORTFOLIO;
+  portfolio:Project[];
+  portfolioDisplay:Project[];
+
   //projectTypes = PORTFOLIO;
 
   subscription: Subscription;
@@ -77,9 +79,13 @@ export class PortfolioComponent implements OnInit {
 
 
 
-  constructor(private observableMedia: ObservableMedia, private sharedService: SharedService,public dialog: MatDialog) { }
+  constructor(private observableMedia: ObservableMedia, private sharedService: SharedService,private portfolioService: PortfolioService,public dialog: MatDialog) { }
 
   ngOnInit() {
+
+    this.portfolio = this.portfolioService.portfolio$ ;
+    this.portfolioDisplay = this.portfolioService.portfolio$ ;
+
     this.makeCategories();
 
 

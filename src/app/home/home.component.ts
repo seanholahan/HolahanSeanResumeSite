@@ -43,21 +43,6 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
     ]),
 
-    // //for
-    // trigger('description', [
-    //   state('hidden', style({
-    //     opacity: 0,
-    //     transform: 'translateX(-21vh)'
-    //   })),
-    //   state('shown', style({
-    //     opacity: 1,
-    //     transform: 'translateX(0vh)'
-    //   })),
-    //
-    //   transition('hidden <=> shown',  animate('500ms 300ms'))
-    // ]),
-
-
     trigger('opacityState', [
       state('hidden', style({
         opacity: '0'
@@ -251,7 +236,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     this.playAnim = this.sharedService.playAnim$;
-    console.log("ho",this.playAnim );
 
     if (this.playAnim == false || this.onSafari == true) {
       this.enterOpacity = '0';
