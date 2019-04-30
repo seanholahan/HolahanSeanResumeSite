@@ -2,6 +2,20 @@
 @import url("https://fonts.googleapis.com/css?family=Teko");
 @import url(~@angular/material/prebuilt-themes/indigo-pink.css);
 @import url("https://fonts.googleapis.com/css?family=Hind");
+/*tester*/
+#set-height {
+  display: block; }
+
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+p {
+  font-size: 24px; }
+
+/*tester*/
 .tester {
   width: 50px;
   height: 50px;
@@ -22,6 +36,7 @@
 video {
   height: auto;
   width: 100%;
+  object-fit: cover;
   max-width: 1280px; }
 
 mat-grid-list {
@@ -79,13 +94,6 @@ mat-grid-tile:focus {
   overflow: hidden;
   flex-grow: 0; }
 
-@media only screen and (max-width: 700px) {
-  video {
-    width: 100%;
-    height: auto; }
-
-  #headerHide {
-    width: 100vw; } }
 #icon {
   display: none; }
 
@@ -194,14 +202,11 @@ p {
 
 #headerHide {
   background-color: #6E9EC1;
-  top: calc(100vh);
-  right: 0px;
+  top: 0;
+  right: 0;
   height: 200vh;
-  top: 74px;
   z-index: -9;
   position: absolute;
-  marin-left: auto;
-  /* margin-left: auto; */
   width: 75vw; }
 
 h1 {
@@ -293,6 +298,7 @@ h4 {
 #headerContain {
   width: 100%;
   z-index: -10;
+  transition: height 300ms;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -339,14 +345,36 @@ mat-toolbar {
 
   #seanPortrait {
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+
+  video {
+    margin-bottom: 10vh; } }
+@media only screen and (max-width: 700px) {
+  video {
+    width: 100%;
+    height: auto; }
+
+  #headerHide {
+    width: 100vw; } }
 @media only screen and (max-width: 920px) {
+  video {
+    width: 130vw;
+    margin-left: -15vw; }
+
   h3 {
     margin-left: 10px;
     margin-right: 10px; }
 
+  video {
+    object-fit: contain;
+    margin-bottom: 10vh; }
+
+  #headerHide {
+    width: 77vw; }
+
   h1 {
-    line-height: 10vh; }
+    line-height: 10vh;
+    font-size: 12vw; }
 
   h2 {
     font-size: 4vw;
@@ -358,6 +386,12 @@ mat-toolbar {
     z-index: 30;
     /* background-image: linear-gradient( white , #6E9EC1 5% ); */
     translate: 0 80%; }
+
+  video {
+    margin-bottom: 20vh; }
+
+  #headerHide {
+    width: 76vw; }
 
   #homeNavContainLarge {
     display: none; }
@@ -412,7 +446,7 @@ mat-toolbar {
     text-align: center;
     font-size: 6vw;
     position: relative;
-    width: 80vw;
+    width: 100vw;
     font-weight: 200;
     color: black;
     transition-delay: 1s;

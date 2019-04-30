@@ -3,6 +3,30 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url("https://fonts.googleapis.com/css?family=Hind");
 
+
+
+
+/*tester*/
+
+#set-height {
+  display: block;
+  height:2000px;
+}
+#videoBackground {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+p  {
+  font-size: 24px;
+}
+
+/*tester*/
+
+
+
+
 .tester {
   width: 50px;
   height: 50px;
@@ -27,7 +51,10 @@
 video {
   height: auto;
   width: 100%;
+  object-fit: cover;
   max-width: 1280px;
+  position: fixed;
+  top:0;
 
 }
 
@@ -105,15 +132,7 @@ mat-grid-tile:focus {
 
 
 
-@media only screen and (max-width: 700px) {
-  video {
-    width:100%;
-    height: auto;
-  }
-  #headerHide {
-    width: 100vw;
-  }
-}
+
 
 
 #icon {
@@ -286,20 +305,13 @@ p {
 
 #headerHide {
   background-color: #6E9EC1;//#DD6E42;
-  top: calc(100vh);
-
-
-  right: 0px;
+  //top: calc(100vh);
+  top:0;
+  right: 0;
   height: 200vh;
-  top: 74px;
   z-index: -9;
   position: absolute;
-  marin-left: auto;
-
-
-  /* margin-left: auto; */
   width: 75vw;
- // -webkit-transition-timing-function:  cubic-bezier(0,0,0.37,1) ;//0,0,0.43,1
 }
 //cubic-bezier(0,0,0.49,1)
 h1 {
@@ -418,8 +430,7 @@ h4 {
   width: 100%;
   //h
   z-index: -10;
-  //background-color: red;
-  //opacity: .5;
+  transition: height 300ms;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -490,17 +501,45 @@ background-position: center;
     margin-left: auto;
     margin-right: auto;
   }
+  video {
+    margin-bottom: 10vh;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  video {
+    width:100%;
+    height: auto;
+  }
+  #headerHide {
+    width: 100vw;
+  }
 }
 
 @media only screen and (max-width: 920px) {
+  video {
+    width: 130vw;
+    margin-left: -15vw;
+  }
+
   h3 {
     margin-left: 10px;
     margin-right: 10px;
   }
-  h1 {
-    line-height: 10vh;
+  video {
+    object-fit: contain;
+    margin-bottom:10vh;
 
   }
+
+  #headerHide {
+    width: 77vw;
+  }
+  h1 {
+    line-height: 10vh;
+    font-size: 12vw;
+  }
+
   h2 {
     font-size: 4vw;
     width: 81vw;
@@ -518,8 +557,14 @@ background-position: center;
     /* background-image: linear-gradient( white , #6E9EC1 5% ); */
     translate: 0 80%;
 
+  }
 
+  video {
+    margin-bottom:20vh;
+  }
 
+  #headerHide {
+    width: 76vw;
   }
 
   #homeNavContainLarge {
@@ -560,7 +605,7 @@ background-position: center;
 
   #icon {
     display: flex;
-    background-image: linear-gradient(transparent , rgba(255, 255, 255, 0.9)100%);
+    background-image: linear-gradient(transparent,rgba(255, 255, 255, 0.9)100%);
     background-color: transparent;
   }
 
@@ -593,7 +638,7 @@ background-position: center;
     text-align: center;
     font-size: 6vw;
     position: relative;
-    width: 80vw;
+    width: 100vw;
     font-weight: 200;
     color: black;
     transition-delay: 1s;
@@ -627,7 +672,3 @@ background-position: center;
     width: 100vw;
   }
 }
-
-
-
-

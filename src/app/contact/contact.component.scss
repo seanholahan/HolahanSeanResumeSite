@@ -1,13 +1,17 @@
-p {
-  //font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
-  font-family: 'Teko', sans-serif;
-  font-weight: 300;
-  letter-spacing: 2px;
-  //text-align: center;
-  flex-grow: 0;
-  cursor: default;
-  font-size: 21px;
-  margin: 0;
+p, a{
+   font-family: 'Teko', sans-serif;
+   font-weight: 300;
+   letter-spacing: 2px;
+   flex-grow: 0;
+   cursor: default;
+   font-size: 21px;
+   margin: 0;
+ }
+
+a {
+  color:black;
+  font-style: normal;
+
 }
 
 h1 {

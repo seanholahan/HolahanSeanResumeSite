@@ -1,31 +1,5 @@
-//@import 'sass-material-colors-classes';
 
-//@import '~@angular/material/theming';
-
-//@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
-//@import '~@angular/material/theming';
 @import './theme.scss';
-
-
-
-
-
-
-//
-//$my-theme-primary: mat-palette ($mat-amber, A400, A100, A700);
-//$my-theme-accent: mat-palette ($mat-amber, A400, A100, A700);
-//$my-theme-warn: mat-palette ($mat-amber, A400, A100, A700);
-//
-//// create theme (use mat-dark-theme for themes with dark backgrounds)
-//$my-theme: mat-dark-theme (
-//  $my-theme-primary,
-//  $my-theme-accent,
-//  $my-theme-warn
-//);
-//
-
-//@include mat-core();
-//@include angular-material-theme($my-theme);
 
 .theme {
   //@include angular-material-theme($my-theme);

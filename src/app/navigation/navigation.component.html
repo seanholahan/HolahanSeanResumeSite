@@ -1,5 +1,7 @@
-<nav *ngIf="router.url !== '/home' " >
-<div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
+<nav *ngIf="router.url !== '/home'"  [@enterAnimation]>
+
+  <!--router.url !== '/home'-->
+  <div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
 <mat-toolbar id="largeMenu" >
   <h1 [routerLink]="['/home']" (click)="playAnimation()">SEAN HOLAHAN</h1>
 
@@ -13,16 +15,19 @@
   </div>
 </mat-toolbar>
 
-  <div id="smallMenu">
+  <div id="smallMenu" >
       <div id="smallHeader">
         <img id="hamburger" src='../../assets/img/menuIcon.png'>
         <h1 >SEAN HOLAHAN</h1>
         </div>
-    <ul id="smallButtonContain">
-      <li><a class="button" [routerLink]="['/portfolio']">PORTFOLIO</a></li>
-      <li><a class="button" [routerLink]="['/home']">ABOUT</a></li>
-      <li><a class="button" [routerLink]="['/contact']">CONTACT</a></li>
-      <li><a class="button" [routerLink]="['/resume']">RESUME</a></li>
+    <ul id="smallButtonContain" >
+      <li><a class="button" (click)="navigate('/portfolio')" >PORTFOLIO</a></li>
+      <!--[routerLink]="['/portfolio']"-->
+      <li><a class="button" (click)="navigate('/home')"(click)="doNotPlayAnimation()" >ABOUT</a></li>
+      <!--[routerLink]="['/home']"-->
+      <li><a class="button"(click)="navigate('/contact')" >CONTACT</a></li>
+      <li><a class="button"(click)="navigate('/resume')" >RESUME</a></li>
+      <!--[routerLink]="['/contact']"  [routerLink]="['/resume']"-->
       <li><a class="button" (click)="goToGit()">GITHUB</a></li>
       <li><a class="button" (click)="goToLinkedIn()">LINKED IN</a></li>
     </ul>

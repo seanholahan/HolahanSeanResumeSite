@@ -57,7 +57,7 @@ export const PORTFOLIO: Project[] = [
     modalButtonDisplay: 'block',
     modalType: 'video',
     modalButtonTitle: 'View Videos',
-    modalData:['92SfnUlgupQ', 'AqhUISrJ9Wk']
+    modalData:['92SfnUlgupQ?', 'AqhUISrJ9Wk']
   },
 
   { id: 5, title: 'Fanswipe Loading Game',
@@ -88,6 +88,21 @@ export const PORTFOLIO: Project[] = [
     modalButtonDisplay: 'block',
     modalType: 'video',
     modalButtonTitle: 'View Videos',
+    modalData:['nfVEQlR7c3o']
+  },
+  { id: 7, title: '3D Model Viewer',
+    backgroundUrl: "../../assets/img/modelCover.png",
+    description:"Modeled and textured in maya, simple sprite viewer made from scratch with typescript",
+    button1Title:"View Project",
+    button1Url:"https://github.com/seanholahan",
+    button1Display: 'none',
+    button2Title:"",
+    button2Url:"",
+    type: ["animation"],
+    button2Display: 'none',
+    modalButtonDisplay: 'block',
+    modalType: 'modelView',
+    modalButtonTitle: 'View Model',
     modalData:['nfVEQlR7c3o']
   }
 ];

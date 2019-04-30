@@ -29,13 +29,14 @@ export class ContactComponent implements OnInit {
 
 
   newMessage() {
+    console.log("clientMessage!",this.clientMessage);
     this.contactService.sendEmail(this.clientMessage).subscribe(res => {
       console.log('AppComponent Success', res);
-      this.router.navigate(['/resume']);
+      this.router.navigate(['/contactConfirm']);
       // alert("Thanks for the message! you will be attached as a recipient to this message.");
     }, error => {
-      this.router.navigate(['/contactConfirm']);
-      //alert("Something went wrong! Please make sure to fill out all fields and provide a valid email");
+
+      alert("Something went wrong! Please make sure to fill out all fields and provide a valid email");
       console.log('AppComponent Error', error);
     })
 
@@ -45,10 +46,5 @@ export class ContactComponent implements OnInit {
 
   get diagnostic() { return JSON.stringify(this.clientMessage); }
 
-  // formUpload(event) {
-  //   let element =
-  // }
 }
-
-
 

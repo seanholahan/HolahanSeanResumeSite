@@ -1,3 +1,4 @@
+
 /**
  * Created by seanHolahan on 11/4/18.
  */
@@ -36,10 +37,9 @@ export class ContactService {
         console.log('Sending email got error', error.message);
         return Observable.throw(error.message);
       });
-      // .catch(error => {
-      //   console.log('Sending email got error', error);
-      //   return Observable.throw(error)
-      // })
+    // .catch(error => {
+    //   console.log('Sending email got error', error);
+    //   return Observable.throw(error)
+    // })
   }
 }
-

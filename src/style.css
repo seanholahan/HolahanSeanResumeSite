@@ -1,19 +1,19 @@
 /*
 Error: File to import not found or unreadable: ~@angular/material/_theming.
         on line 2 of theme.scss
-        from line 7 of style.scss
+        from line 2 of style.scss
 
-1: //@import 'sass-material-colors-classes';
-2: 
-3: //@import '~@angular/material/theming';
-4: 
-5: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
-6: //@import '~@angular/material/theming';
-7: @import './theme.scss';
+1: 
+2: @import './theme.scss';
+3: 
+4: .theme {
+5:   //@include angular-material-theme($my-theme);
+6: }
+7: 
 
 Backtrace:
 theme.scss:2
-style.scss:7
+style.scss:2
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
 /Users/seanHolahan/.rvm/gems/ruby-2.3.1/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -71,4 +71,4 @@ style.scss:7
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~@angular/material/_theming.\A         on line 2 of theme.scss\A         from line 7 of style.scss\A \A 1: //@import 'sass-material-colors-classes';\A 2: \A 3: //@import '~@angular/material/theming';\A 4: \A 5: //@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';\A 6: //@import '~@angular/material/theming';\A 7: @import './theme.scss';"; }
+  content: "Error: File to import not found or unreadable: ~@angular/material/_theming.\A         on line 2 of theme.scss\A         from line 2 of style.scss\A \A 1: \A 2: @import './theme.scss';\A 3: \A 4: .theme {\A 5:   //@include angular-material-theme($my-theme);\A 6: }\A 7: "; }

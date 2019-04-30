@@ -4,35 +4,35 @@
 
 <div class="example-container">
   <form #contactForm="ngForm">
-  <mat-form-field >
-    <input matInput placeholder="Name"
-           [(ngModel)]="clientMessage.name" name="name" #name="ngModel"
-           required>
-  </mat-form-field>
+    <mat-form-field >
+      <input matInput placeholder="Name"
+             [(ngModel)]="clientMessage.name" name="name" #name="ngModel"
+             required>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Email"
-           [(ngModel)]="clientMessage.email" name="email" #email="ngModel" type="email"
-           required>
-  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email"
+             [(ngModel)]="clientMessage.email" name="email" #email="ngModel" type="email"
+             required>
+    </mat-form-field>
 
-  <mat-form-field>
+    <mat-form-field>
     <textarea matInput placeholder="Message" rows="2" class="form-control"
               [(ngModel)]="clientMessage.message" name="message" #message="ngModel"
               required></textarea>
-  </mat-form-field>
+    </mat-form-field>
     <!--<p>{{diagnostic}}</p>-->
 
-  <!--<mat-form-field>-->
+    <!--<mat-form-field>-->
     <!--<mat-select placeholder="Topic of Message"-->
-                <!--[(ngModel)]="contactForm.messageTopic" name="message"-->
+    <!--[(ngModel)]="contactForm.messageTopic" name="message"-->
     <!--&gt;-->
-      <!--<mat-option value="Job Opportunity">Job Opportunity</mat-option>-->
-      <!--<mat-option value="Project Opportunity">Project Opportunity</mat-option>-->
-      <!--<mat-option value="Other">Other</mat-option>-->
+    <!--<mat-option value="Job Opportunity">Job Opportunity</mat-option>-->
+    <!--<mat-option value="Project Opportunity">Project Opportunity</mat-option>-->
+    <!--<mat-option value="Other">Other</mat-option>-->
     <!--</mat-select>-->
-  <!--</mat-form-field>-->
-    </form>
+    <!--</mat-form-field>-->
+  </form>
   <button (click)="newMessage()" type="submit" class="btn btn-secondary" id="contactSubmit"name ="submit" value="submit">SUBMIT</button>
 </div>
 

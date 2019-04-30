@@ -67,7 +67,10 @@ export class ModalComponent implements OnInit {
 
 
   getEmbedUrl(item) {
-    return 'https://www.youtube.com/embed/' + item + '?ecver=2';
+    console.log(item, 'ITEM IS HERE?');
+
+    return 'https://www.youtube.com/embed/' + item + '?rel=0';
+    // '?loop=1&playlist='+ item
   }
 
   getPantView(pantPos:number ) {

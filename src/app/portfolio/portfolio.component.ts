@@ -10,7 +10,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/takeWhile";
 import "rxjs/add/operator/startWith";
 import {SharedService}   from '../services/shared.service';
-import {PortfolioService} from '../services/porfolio.service';
+import {PortfolioService} from '../services/portfolio.service';
 import {Subscription} from 'rxjs/Subscription';
 import {ModalComponent} from '../modal/modal.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -39,8 +39,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
       })),
       transition('idle <=> active', animate('500ms 500ms'))
     ]),
-    //TODO: MAKE ENTERSITE:HOVER --> YELLOW INSTEAD OF BLACK
-
   ],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
@@ -55,9 +53,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class PortfolioComponent implements OnInit {
   portfolio:Project[];
   portfolioDisplay:Project[];
-
-  //projectTypes = PORTFOLIO;
-
   subscription: Subscription;
 
   @Input() stitchHoverState: string = 'idle';
@@ -67,13 +62,12 @@ export class PortfolioComponent implements OnInit {
   selectedType: string;
   event: MouseEvent;
   lookup = {};
-  // result: string[] = new Array;
   result = [];
   button1Display: string = 'block';
   button2Display: string = 'block';
   projectTypes: string[] = ["All Categories"];
   uniqueProjectTypes: string[] = [];
-  pt: any[] = Array.of(this.portfolio);
+  pt: any[];
   public cols: Observable<number>;
   introAnimationView: boolean;
 
@@ -83,8 +77,9 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit() {
 
-    this.portfolio = this.portfolioService.portfolio$ ;
-    this.portfolioDisplay = this.portfolioService.portfolio$ ;
+    this.portfolio = this.portfolioService.portfolio$;
+    this.portfolioDisplay = this.portfolioService.portfolio$;
+    this.pt = Array.of(this.portfolio);
 
     this.makeCategories();
 

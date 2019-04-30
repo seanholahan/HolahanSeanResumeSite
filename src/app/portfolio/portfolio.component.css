@@ -62,6 +62,9 @@ mat-grid-tile:hover h1 {
 mat-grid-tile:hover .whiteOut {
   opacity: .8; }
 
+.whiteOut:hover {
+  opacity: .8; }
+
 mat-grid-tile:hover {
   opacity: .5; }
 

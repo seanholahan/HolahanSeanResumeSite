@@ -7,6 +7,8 @@ import { Injectable} from '@angular/core';
 export class SharedService {
 
   playAnim$: boolean;
+  isHome$: boolean;
+
 
   constructor() {
   }
@@ -14,6 +16,12 @@ export class SharedService {
   changeAnimationToggle(bool) {
     this.playAnim$ = bool;
   }
+
+  changeIsHomeToggle(bool) {
+    this.isHome$ = !bool;
+  }
+
+
 }
 
 

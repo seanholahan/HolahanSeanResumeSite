@@ -2,6 +2,10 @@ import { Component, OnInit,Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute,Router, Params } from '@angular/router';
 import {SharedService}   from '../services/shared.service';
 import { Observable } from 'rxjs/Observable';
+import {
+  animation,state, trigger, animateChild, group,
+  transition, animate, style, query, AnimationTriggerMetadata
+} from '@angular/animations';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +13,21 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('500ms 500ms', style({ opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class NavigationComponent implements OnInit {
   isHome$: Observable<boolean>;
@@ -17,6 +35,9 @@ export class NavigationComponent implements OnInit {
 
 
    router: any;
+   toolBarDisplay: string;
+  isHome: boolean;
+
   // toolBarDisplay: any;
   // @ViewChild('nav') nav: NavigationComponent;
 
@@ -28,34 +49,34 @@ export class NavigationComponent implements OnInit {
 
   constructor(private _router: Router, private sharedService: SharedService) {//,public nav: NavbarService,
     this.router = _router;
-    // this.toolBarDisplay = 'block';
 
-    console.log("nav", this.router.url);
-    // if (this.router.url === '/') {
-    //   console.log('ayo');
-    //   this.isHome$ = Observable.of(false);;
-    //   //this.toolBarDisplay = 'none';
-    // }
-    // // } else
-    // // {
-    // //   this.toolBarDisplay = 'block';
-    // // }
-    // if (this.router.url === '/animation') {
-    //   console.log('geez');
-    //  // this.toolBarDisplay = 'none';
-    //   this.isHome$ = Observable.of(true);;
-    // }
+    console.log("nav", this.router);
+
 
   }
-
   ngOnInit() {
+    console.log(this.router.url,"heee");
   }
+
+  ngAfterViewInit () {
+    console.log(this.router.url,"url!")
+    // if (this.router.url == '/home') {
+    //   this.isHome = false;
+    // }
+  }
+
+  navigate(link) {
+    this.router.navigate([link]);
+  }
+
+
 
   playAnimation(): void {
     this.sharedService.changeAnimationToggle(true);
   }
 
   doNotPlayAnimation(): void {
+
     this.sharedService.changeAnimationToggle(false);
   }
 

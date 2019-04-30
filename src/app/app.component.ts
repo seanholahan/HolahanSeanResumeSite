@@ -1,22 +1,48 @@
-import { Component, Optional } from '@angular/core';
-import {Title} from '@angular/platform-browser'
+import { Component, AfterViewInit } from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {RouterOutlet, Router, NavigationStart, NavigationCancel, NavigationEnd,Resolve} from '@angular/router';
+import {opacityAnimation} from './animations';
 
-import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    opacityAnimation
+  ]
 })
-export class AppComponent {
-  public constructor(private titleService: Title ) { }
+export class AppComponent implements AfterViewInit {
+  loading;
+  public constructor(private titleService: Title, private router: Router ) {
+    this.loading = true;
+  }
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
   }
 
 
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 
+  ngAfterViewInit() {
+    this.router.events
+      .subscribe((event) => {
+        if(event instanceof NavigationStart) {
+          this.loading = true;
+          console.log("startedloading");
+        }
+        else if (
+          event instanceof NavigationEnd ||
+          event instanceof NavigationCancel
+        ) {
+          this.loading = false;
+          console.log("endLOAD");
+        }
+      });
+  }
 }
 
 

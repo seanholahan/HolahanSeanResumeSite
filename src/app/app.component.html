@@ -1,5 +1,12 @@
+
 <app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<div [hidden]="!loading" class="loader">
+  <h2>Loading...</h2>
+
+</div>
+<div [hidden]="loading"  [@routeAnimations]="prepareRoute(outlet)">
+<router-outlet #outlet="outlet"></router-outlet>
+</div>
 
 
 
