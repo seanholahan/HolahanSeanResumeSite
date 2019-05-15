@@ -191,6 +191,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   playAnim: boolean;
   headerHideWidth:string;
   onSafari:boolean;
+  menuActive: boolean = false;
 
 
 
@@ -291,6 +292,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.rightTextTransform = (this.transformValue * 8).toString()+'vh';
       this.seanRotate =   (this.transformValue * 9).toString()+'deg';
       this.seanTranslate = (this.transformValue * 4).toString()+'%';
+    }
+  }
+
+  menuToggle() {
+    console.log("hiii")
+    if (this.menuActive == false) {
+      document.getElementById("homeNavContainSmall").style.cssText = "translate: 0 0;"
+      this.menuActive = true;
+    } else {
+      document.getElementById("homeNavContainSmall").style.cssText = "translate: 0 -1;"
+      this.menuActive = false;
     }
   }
 

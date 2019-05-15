@@ -2,6 +2,7 @@ import { Component, OnInit,Injectable, ViewChild } from '@angular/core';
 import { ActivatedRoute,Router, Params } from '@angular/router';
 import {SharedService}   from '../services/shared.service';
 import { Observable } from 'rxjs/Observable';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 import {
   animation,state, trigger, animateChild, group,
   transition, animate, style, query, AnimationTriggerMetadata
@@ -37,9 +38,8 @@ export class NavigationComponent implements OnInit {
    router: any;
    toolBarDisplay: string;
   isHome: boolean;
+  dropDownActive = false;
 
-  // toolBarDisplay: any;
-  // @ViewChild('nav') nav: NavigationComponent;
 
 
 
@@ -50,12 +50,14 @@ export class NavigationComponent implements OnInit {
   constructor(private _router: Router, private sharedService: SharedService) {//,public nav: NavbarService,
     this.router = _router;
 
-    console.log("nav", this.router);
+
+
 
 
   }
   ngOnInit() {
-    console.log(this.router.url,"heee");
+
+
   }
 
   ngAfterViewInit () {
@@ -69,6 +71,16 @@ export class NavigationComponent implements OnInit {
     this.router.navigate([link]);
   }
 
+  dropdownToggle(): void {
+    console.log("hi", this.dropDownActive)
+    if (this.dropDownActive == false) {
+      document.getElementById("smallButtonContain").style.cssText = "translate: 0 0;"
+      this.dropDownActive = true;
+    } else {
+      document.getElementById("smallButtonContain").style.cssText = "translate: 0 -1;"
+      this.dropDownActive = false;
+    }
+  }
 
 
   playAnimation(): void {

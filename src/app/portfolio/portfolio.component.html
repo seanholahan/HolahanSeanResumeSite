@@ -14,7 +14,7 @@
   <mat-grid-tile *ngFor="let project of portfolioDisplay" id="stitchophrenic" class="tile" [ngStyle]="{'background-image': 'url(' + project.backgroundUrl + ')'}">
     <!--<mat-grid-tile-footer class="tileFooter">STITCHOPHRENIC</mat-grid-tile-footer>-->
 
-    <div class="whiteOut"></div>
+    <div class="whiteOut">
     <h1 class="hoverElement">{{project.title}}</h1>
 
     <p class="hoverElement">{{project.description}}</p>
@@ -23,15 +23,8 @@
       <button class="hoverElement" [ngStyle]="{'display':project.button2Display}" (click)=openProject(project.button2Url)>{{project.button2Title}}</button>
       <button class="hoverElement" type="button" [ngStyle]="{'display':project.modalButtonDisplay}"  (click)="openModal(project.modalType, project.modalData)">{{project.modalButtonTitle}}</button>
     </div>
+    </div>
 
   </mat-grid-tile>
 
 </mat-grid-list>
-
-
-
-
-
-
-
-

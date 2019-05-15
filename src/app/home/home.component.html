@@ -60,7 +60,7 @@
 </div>
 
 
-  <div id="homeNavContainSmall" [@enterSite]="currentState">
+  <div id="homeNavContainSmall" (click)="menuToggle()" [@enterSite]="currentState">
     <div id="icon" class="button"  [ngStyle]="{'margin-bottom':iconMarginBottom}">
       <img id="hamburger" src='../../assets/img/menuIcon.png'>
     </div>
