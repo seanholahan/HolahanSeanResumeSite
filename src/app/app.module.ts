@@ -26,6 +26,8 @@ import {PortfolioService} from './services/portfolio.service';
 import { PdfViewerModule,PdfViewerComponent } from 'ng2-pdf-viewer';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule} from '@angular/common';
+import { ProfessionalLinksComponent } from './professional-links/professional-links.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -40,6 +42,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent, data: {animation: 'ContactPage'}},
   { path: 'contactConfirm', component: ContactConfirmationComponent},
   { path: 'resume', component: ResumeComponent, data: {animation: 'ResumePage'}},
+  {path: 'about', component: AboutComponent, data: {animation: 'AboutPage'}}
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomeComponent, data: {animation: 'HomePage'} }
 
@@ -64,7 +67,7 @@ const appRoutes: Routes = [
   providers: [Title, SharedService, PortfolioService, ContactService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
 
   // SafeLinkPipe - declarations
-  declarations: [AppComponent, DialogContentComponent, NavigationComponent,  HomeComponent,  PortfolioComponent, ContactComponent, ResumeComponent, ContactConfirmationComponent, ModalComponent, SafeLinkPipe],
+  declarations: [AppComponent, DialogContentComponent, NavigationComponent,  HomeComponent,  PortfolioComponent, ContactComponent, ResumeComponent, ContactConfirmationComponent, ModalComponent, SafeLinkPipe, ProfessionalLinksComponent, AboutComponent],
   entryComponents: [DialogContentComponent, ModalComponent],
   exports: [ModalComponent],
   bootstrap: [AppComponent],

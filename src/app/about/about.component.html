@@ -1,0 +1,85 @@
+<div id="gridListContain" scroll="no" style="overflow: hidden" (mousemove)="coordinates($event)">
+    <!-- <div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity, 'display': enterDisplay}">
+       <button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
+    </div> -->
+  
+    <div id="landingContain"  class="flexbox-parent"  [ngStyle]="{'pointer-events':landingPointerEvents, 'background-color': landingBackgroundColor}" scroll="no" style="overflow: hidden">
+      <div id="headerContain" [@headerPosition]="currentHeaderPosition" (@headerPosition.done)="widenHeader()" layout="column" layout-align="center center" style="height: 40vh" >
+  
+      <h1 [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
+        <h2 [@opacityState]="currentOpacityState">the perfect balance between design and development</h2>
+  
+      </div>
+  
+  
+  
+  
+      <div id="headerHide" [ngStyle]="{'width':headerHideWidth, 'transition': headerHideTransition}"></div>
+  
+  
+      <div [@cloudBG]="cloudBGState" (@cloudBG.done)="topAlignHeader()" id="cloudBG">
+      </div>
+  
+      <div id="portraitContain" >
+  
+        <h3 id="descriptionTextLeft" [ngStyle]="{'transform':'translateY(' + leftTextTransform + ')'}"  [@opacityState]="currentOpacityState" >
+          Recent graduate of Northeastern University with a
+          BS in Computer Science and Interactive Media.
+        </h3>
+  
+        <div id="seanPortrait" [@portraitState]="currentPortraitState" >
+          <img   src="../../assets/img/balancePole2.png" class="balancePicture bp">
+          <img   src="../../assets/img/seanBalance2.png" class="balancePicture bp"  [ngStyle]="{'transform': 'rotate(' + seanRotate + ') translateX('+ seanTranslate + ')'}">
+        </div>
+        <h3   id="descriptionTextRight" [ngStyle]="{'transform':'translateY(' + rightTextTransform + ')'}" [@opacityState]="currentOpacityState" >
+        <!---->
+          Fashion designer, multimedia artist, outdoor enthusiast, contra dancer, all in one!
+        </h3>
+      </div>
+  
+  
+      <div id="homeLanding" [ngStyle]="{'opacity':videoOpacity, 'display': videoDisplay, 'z-index': videoZIndex}">
+        <video class="videoBackground" id="video-background"  (timeupdate)="onTimeUpdate($event)"   #videoPlayer muted>
+          <source src='../../assets/img/OnloadAnimation.webm'>
+        </video>
+      </div>
+      <!--//-->
+  <div id="homeNavContainLarge" [@enterSite]="currentState" >
+    <div class="button" [routerLink]="['/portfolio']" >
+      <h4>PORTFOLIO</h4>
+    </div>
+    <div class="button" [routerLink]="['/resume']" >
+      <h4>RESUME</h4>
+    </div>
+    <div class="button" (click)="goToGit()">
+      <h4>GITHUB</h4>
+    </div>
+    <div class="button" [routerLink]="['/contact']">
+      <h4>CONTACT</h4>
+    </div>
+  </div>
+  
+  
+    <div id="homeNavContainSmall" [@enterSite]="currentState">
+      <div id="icon" class="button"  [ngStyle]="{'margin-bottom':iconMarginBottom}">
+        <img id="hamburger" src='../../assets/img/menuIcon.png'>
+      </div>
+      <div class="button" [routerLink]="['/portfolio']" >
+        <h4>PORTFOLIO</h4>
+      </div>
+      <div class="button" [routerLink]="['/resume']" >
+        <h4>RESUME</h4>
+      </div>
+      <div class="button" (click)="goToGit()">
+        <h4>GITHUB</h4>
+      </div>
+      <div class="button" [routerLink]="['/contact']">
+        <h4>CONTACT</h4>
+      </div>
+    </div>
+  
+  </div>
+  
+  
+  </div>
+  

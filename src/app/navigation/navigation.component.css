@@ -6,7 +6,9 @@ mat-toolbar {
   display: flex;
   flex-direction: row;
   background-color: transparent;
-  padding: 0px 30px 0px 30px; }
+  padding: 0px 30px 0px 30px; 
+
+}
 
 #smallMenu {
   display: none; }

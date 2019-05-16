@@ -128,7 +128,6 @@ export class PortfolioComponent implements OnInit {
     //console.log(this.portfolio);
     if (selected == "All Categories") {
       this.portfolioDisplay = this.portfolio;
-
     } else {
       this.portfolioDisplay = this.portfolio.filter(project => project.type.includes(selected));
      // this.portfolioDisplay = this.portfolio.filter(project => project.type  == selected  );

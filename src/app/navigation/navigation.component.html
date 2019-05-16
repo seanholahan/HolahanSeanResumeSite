@@ -1,18 +1,16 @@
-<nav *ngIf="router.url !== '/home'"  [@enterAnimation]>
-
-  <!--router.url !== '/home'-->
+<nav  [@enterAnimation]>
   <div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
 <mat-toolbar id="largeMenu" >
-  <h1 [routerLink]="['/home']" (click)="playAnimation()">SEAN HOLAHAN</h1>
-
+  <h1 [routerLink]="['/home']" *ngIf="router.url !== '/home'" >SEAN HOLAHAN</h1>
+  <div id="buttonContain">
   <button class="md-accent" [routerLink]="['/portfolio']">PORTFOLIO</button>
-  <button  class="md-accent" [routerLink]="['/home']"  (click)="doNotPlayAnimation()">ABOUT</button>
+  <button  class="md-accent" [routerLink]="['/about']"  (click)="doNotPlayAnimation()">ABOUT</button>
   <button  [routerLink]="['/contact']">CONTACT</button>
   <button  [routerLink]="['/resume']">RESUME</button>
-  <div id="iconContain">
-    <div class="icon" id="github" (click)="goToGit()"></div>
-    <div class="icon" id="linkedIn" (click)="goToLinkedIn()"></div>
+  
   </div>
+ 
+  
 </mat-toolbar>
 
   <div id="smallMenu" (click)="dropdownToggle()">
@@ -23,7 +21,7 @@
     <ul id="smallButtonContain" >
       <li><a class="button" (click)="navigate('/portfolio')" >PORTFOLIO</a></li>
       <!--[routerLink]="['/portfolio']"-->
-      <li><a class="button" (click)="navigate('/home')"(click)="doNotPlayAnimation()" >ABOUT</a></li>
+      <li><a class="button" (click)="navigate('/about')"(click)="doNotPlayAnimation()" >ABOUT</a></li>
       <!--[routerLink]="['/home']"-->
       <li><a class="button"(click)="navigate('/contact')" >CONTACT</a></li>
       <li><a class="button"(click)="navigate('/resume')" >RESUME</a></li>

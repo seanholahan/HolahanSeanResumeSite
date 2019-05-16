@@ -1,14 +1,8 @@
 
-<app-navigation></app-navigation>
 <div [hidden]="!loading" class="loader">
-  <h2>Loading...</h2>
-
-</div>
+    <h2>Loading...</h2>
+  </div>
+<app-navigation></app-navigation>
 <div [hidden]="loading"  [@routeAnimations]="prepareRoute(outlet)">
 <router-outlet #outlet="outlet"></router-outlet>
 </div>
-
-
-
-
-

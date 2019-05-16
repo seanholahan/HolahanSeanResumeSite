@@ -1,3 +1,5 @@
+@import "../style/custom-theme.scss";
+
 
 mat-toolbar {
   img {
@@ -9,6 +11,8 @@ mat-toolbar {
 mat-toolbar {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  translate: 0 0;
   background-color: transparent;
   //background-image: linear-gradient(transparent 91%, white , transparent );
   padding: 0px 30px 0px 30px;
@@ -19,22 +23,24 @@ mat-toolbar {
   display: none;
 }
 
-
+#headerContain {
+  flex-grow:1;
+}
 
 h1 {
   font-family: 'Teko', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
-  text-align: center;
-  text-shadow: 1px 1px orange;
-  flex-grow:0;
+  text-align: left;
+  text-shadow: $small-text-shadow;
+  flex-grow:1;
   cursor: default;
   font-size: 29px;
-  color: white;
+  color: $primary-font-base-color;
 }
 
 h1:hover {
-  text-shadow: 2px 2px orange;
+  text-shadow: $large-text-shadow;
   transition: text-shadow 200ms;
   cursor: pointer;
 }
@@ -49,46 +55,17 @@ mat-toolbar {
 button:hover {
 background: transparent;
   //background-color: #ddbc42c7;
-  text-shadow: .5px .5px orange;
+  text-shadow: .5px .5px $text-accent-color;
   transition: text-shadow 200ms;
   cursor: pointer;
-
-
 }
 
 button {
   font-weight: bold;
   background: none;
   border: none;
-  /* margin: 10vw; */
   padding: 26px;
-  flex-grow: 3;
-}
-
-#iconContain {
-  flex-direction: row;
-  flex-grow: 1;
-}
-
-#linkedIn {
-  background-image: url(../../assets/img/linkedInIcon.png);
-}
-
-#github {
-  background-image: url(../../assets/img/gitIcon.png);
-}
-
-.icon {
-  float: right;
-  height: 25px;
-  width: 25px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-left: 5px;
-}
-
-.icon:hover {
-  cursor: pointer;
+  
 }
 
 button:focus {
@@ -107,7 +84,6 @@ h1:focus {
   margin-top: -3px;
   z-index: 3;
 }
-
 
 @media only screen and (max-width: 700px) {
   #largeMenu {
@@ -149,11 +125,6 @@ h1:focus {
     background-color: #6E9EC1;
   }
 
-
-
-  
-
-
   #smallButtonContain {
     display: flex;
     margin-top: 0;
@@ -180,5 +151,4 @@ h1:focus {
     z-index: 2;
 
   }
-
 }

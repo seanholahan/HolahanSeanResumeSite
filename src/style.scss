@@ -1,14 +1,13 @@
 
 @import './theme.scss';
+@import "./app/style/custom-theme.scss";
 
-.theme {
-  //@include angular-material-theme($my-theme);
-}
+
 
 
 
 body {
-  background-color:#6E9EC1;//darker #4F7189;//lighter
+  background-color: $base-color;//darker #4F7189;//lighter
   margin:0;
 }
 

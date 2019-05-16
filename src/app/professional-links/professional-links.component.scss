@@ -1,0 +1,26 @@
+.icon {
+    float: right;
+    height: 35px;
+    width: 35px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px 5px 10px 5px;
+  }
+  .icon:hover {
+    cursor: pointer;
+  }
+  #linkedIn {
+    background-image: url(../../assets/img/linkedInIcon.png);
+  }
+  
+  #github {
+    background-image: url(../../assets/img/gitIcon.png);
+  }
+  #iconContain {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+  }

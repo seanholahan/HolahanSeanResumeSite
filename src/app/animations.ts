@@ -8,12 +8,12 @@ import {
 export const opacityAnimation = trigger('routeAnimations', [
   transition('* <=> *', [
     /* order */
-    /* 1 */ query(':enter, :leave', style({ position: 'fixed', width:'100%' })
+    /* 1 */ query(':enter, :leave', style({ position: 'fixed', width:'100%' ,zIndex:-1})
       , { optional: true }),
     /* 2 */ group([  // block executes in parallel
       query(':enter', [
         style({ opacity: 0 }),
-        animate('.5s 1s  ease-in-out', style({ opacity:1 })),
+        animate('.5s 1s  ease-in-out', style({ opacity:1})),
 
       ], { optional: true }),
       query(':leave', [
@@ -42,7 +42,6 @@ export function buildingAnimation(triggerName): AnimationTriggerMetadata {
       transform: 'translateY(0)',
       opacity: 1
     })),
-
     state('visible', style({
       transform: 'translateY(-100%)',
       opacity: 1

@@ -21,17 +21,6 @@
               [(ngModel)]="clientMessage.message" name="message" #message="ngModel"
               required></textarea>
     </mat-form-field>
-    <!--<p>{{diagnostic}}</p>-->
-
-    <!--<mat-form-field>-->
-    <!--<mat-select placeholder="Topic of Message"-->
-    <!--[(ngModel)]="contactForm.messageTopic" name="message"-->
-    <!--&gt;-->
-    <!--<mat-option value="Job Opportunity">Job Opportunity</mat-option>-->
-    <!--<mat-option value="Project Opportunity">Project Opportunity</mat-option>-->
-    <!--<mat-option value="Other">Other</mat-option>-->
-    <!--</mat-select>-->
-    <!--</mat-form-field>-->
   </form>
   <button (click)="newMessage()" type="submit" class="btn btn-secondary" id="contactSubmit"name ="submit" value="submit">SUBMIT</button>
 </div>
@@ -47,8 +36,7 @@
     <div class="icon" id="mail"></div>
     <p>shholahan@gmail.com</p>
   </div>
-
-  <!--<p>HOW DOES THIS TEXT LOOK</p>-->
-  <!--<p>PORTFOLIO</p>-->
 </div>
+
+<app-professional-links></app-professional-links>
 
