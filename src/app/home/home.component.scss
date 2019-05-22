@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: -64px;
+  margin-bottom: 75px;
 }
 
 #portraitPic {
@@ -29,14 +29,13 @@
   background-size: cover;
   margin-right: auto;
   margin-left: auto;
+  position: absolute;
+  top: 100%;
   transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease-out;
--moz-transition: all 0.3s ease-out;
--o-transition: all 0.3s ease-out;
-transition: all 0.3s ease-out;
+align-self: center;
 }
 app-professional-links {
-  position: absolute;
+
   bottom:0;
   width: 100%;
 }
@@ -52,12 +51,15 @@ app-professional-links {
   flex-direction: column;
   min-height: 650px;
   margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
-   font-family: 'Teko', sans-serif;
+   font-family: $primary-font;
    text-align: center;
-   font-size: 10vw;
+   font-size: 6em;
+   line-height: 1em;
    position: relative;
    font-weight: 200;
    color:$primary-font-base-color;
@@ -70,7 +72,7 @@ h1 {
  }
 
 h2 {
-  font-family: 'Teko', sans-serif;
+  font-family: $primary-font;
   text-align: center;
   font-size: 3vw;
   position: relative;
@@ -85,7 +87,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Teko', sans-serif;
+  font-family: $primary-font;
   text-align: center;
   font-size: 23px;
   font-weight: 200;
@@ -100,35 +102,23 @@ h3 {
 }
 
 h4 {
-  font-family: 'Teko', sans-serif;
-  font-size: 23px;
-  letter-spacing: 2px;
+  font-family: $secondary-font;
+  font-size: 1.5em;
+  letter-spacing: 1px;
   margin: 0;
   font-weight: 100;
-  width: 100vw;
-  
   transition: text-shadow 500ms;
   text-align: center;
 }
 
-@media only screen and (max-width: 920px) {
-  
+h5 {
+  font-family: $secondary-font;
+  font-weight: bold;
+  text-align: right;
+}
 
-  h3 {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-
-  
-  h1 {
-    font-size: 12vw;
-  }
-
-  h2 {
-    font-size: 4vw;
-
-  }
+#quoteContainer {
+  width: 80vw;
 }
 
 @media only screen and (max-width: 400px) {
@@ -184,7 +174,7 @@ h4 {
 
 
   h1 {
-    font-family: 'Teko', sans-serif;
+    font-family: $primary-font;
     text-align: center;
     /* position: relative; */
     font-weight: 200;
@@ -203,7 +193,7 @@ h4 {
 
 
   h2 {
-    font-family: 'Teko', sans-serif;
+    font-family: $primary-font;
     text-align: center;
     font-size: 6vw;
     position: relative;

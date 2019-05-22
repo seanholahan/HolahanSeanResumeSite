@@ -23,6 +23,7 @@ import { ModalComponent } from './modal/modal.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {SharedService} from './services/shared.service';
 import {PortfolioService} from './services/portfolio.service';
+import {TwitterService} from './services/twitter.service';
 import { PdfViewerModule,PdfViewerComponent } from 'ng2-pdf-viewer';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule} from '@angular/common';
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent, data: {animation: 'ContactPage'}},
   { path: 'contactConfirm', component: ContactConfirmationComponent},
   { path: 'resume', component: ResumeComponent, data: {animation: 'ResumePage'}},
-  {path: 'about', component: AboutComponent, data: {animation: 'AboutPage'}}
+  {path: 'about', component: AboutComponent, data: {animation: 'AboutPage'}},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: HomeComponent, data: {animation: 'HomePage'} }
 
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
       { enableTracing: false  } // <-- debugging purposes only
     )
   ],
-  providers: [Title, SharedService, PortfolioService, ContactService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [Title, SharedService, PortfolioService,TwitterService, ContactService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
 
   // SafeLinkPipe - declarations
   declarations: [AppComponent, DialogContentComponent, NavigationComponent,  HomeComponent,  PortfolioComponent, ContactComponent, ResumeComponent, ContactConfirmationComponent, ModalComponent, SafeLinkPipe, ProfessionalLinksComponent, AboutComponent],

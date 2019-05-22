@@ -1,4 +1,4 @@
-<nav  [@enterAnimation]>
+<nav  [@enterAnimation] *ngIf="router.url !== '/about'">
   <div class="toolBarDisplay" [ngStyle]="{ 'display':  toolBarDisplay}">
 <mat-toolbar id="largeMenu" >
   <h1 [routerLink]="['/home']" *ngIf="router.url !== '/home'" >SEAN HOLAHAN</h1>
@@ -16,16 +16,13 @@
   <div id="smallMenu" (click)="dropdownToggle()">
       <div id="smallHeader" >
         <img id="hamburger" src='../../assets/img/menuIcon.png'>
-        <h1 >SEAN HOLAHAN</h1>
+        <h1 *ngIf="router.url !== '/home'">SEAN HOLAHAN</h1>
         </div>
     <ul id="smallButtonContain" >
+        <li><a class="button" (click)="navigate('/home')" >HOME</a></li>
       <li><a class="button" (click)="navigate('/portfolio')" >PORTFOLIO</a></li>
-      <!--[routerLink]="['/portfolio']"-->
-      <li><a class="button" (click)="navigate('/about')"(click)="doNotPlayAnimation()" >ABOUT</a></li>
-      <!--[routerLink]="['/home']"-->
       <li><a class="button"(click)="navigate('/contact')" >CONTACT</a></li>
       <li><a class="button"(click)="navigate('/resume')" >RESUME</a></li>
-      <!--[routerLink]="['/contact']"  [routerLink]="['/resume']"-->
       <li><a class="button" (click)="goToGit()">GITHUB</a></li>
       <li><a class="button" (click)="goToLinkedIn()">LINKED IN</a></li>
     </ul>

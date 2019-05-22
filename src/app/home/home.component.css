@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Teko");
 @import url(~@angular/material/prebuilt-themes/indigo-pink.css);
 @import url("https://fonts.googleapis.com/css?family=Hind");
+@import "../style/custom-theme.scss";
 /*tester*/
 #set-height {
   display: block; }

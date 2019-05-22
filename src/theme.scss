@@ -10,6 +10,8 @@ $accent:  mat-palette($mat-orange, 500, A100, A400);
 $warn: mat-pallete($mat-pink , 200,100,400);
 $background: mat-pallete($mat-orange);
 
+
+
 $theme: mat-dark-theme($primary, $accent);
 
 // Include all theme styles for the components.

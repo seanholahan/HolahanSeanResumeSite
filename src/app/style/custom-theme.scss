@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Teko");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
 $base-color:#6E9EC1;
 $primary-font-base-color: white;
 $secondary-font-base-color: black;
 $text-accent-color:orange;
+
 $small-text-shadow: 1px 1px $text-accent-color;
 $large-text-shadow: 2px 2px $text-accent-color;
+
+$primary-font: 'Teko', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;

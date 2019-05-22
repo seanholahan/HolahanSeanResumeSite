@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, Input,Injectable,AfterViewInit} from '@an
 import{trigger, style, transition, animate,  state} from '@angular/animations';
 import {buildingAnimation} from '../animations';
 import {SharedService}   from '../services/shared.service';
+import {TwitterService} from '../services/twitter.service';
+
 import {Subscription} from 'rxjs/Subscription';
 import { Observable} from 'rxjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
@@ -59,13 +61,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   //mobile detection
   iconMarginBottom: string = '0';
+  data: string = '"Look not mournfully into the past. It comes not back again. Wisely improve the present. It is thine. Go forth to meet the shadowy future, without fear." - Henry Wadsworth Longfellow';
+  quote: string; 
+  author: string;
 
 
 
 
   constructor(
     private sharedService: SharedService,
+    private twitterService: TwitterService,
     private observableMedia: ObservableMedia
+    
   ) {
 
   }
@@ -89,8 +96,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit() {
-
-
+    console.log("inited");
+    this.twitterService.getDailyTweet();
+    this.quote = this.data.match(/"([^"]*)"/)[0];
+    this.author = this.data.replace(this.quote, "");
     this.innerHeight = (window.screen.height) + "px";
     this.innerWidth = (window.screen.width) + "px";
 

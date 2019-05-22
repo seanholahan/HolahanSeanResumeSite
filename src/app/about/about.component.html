@@ -1,9 +1,9 @@
-<div id="gridListContain" scroll="no" style="overflow: hidden" (mousemove)="coordinates($event)">
+<div id="gridListContain" (scroll)="onWindowScroll($event)" (mousemove)="coordinates($event)">
     <!-- <div id="buttonContain" layout-align="center center" [ngStyle]="{'opacity':enterOpacity, 'display': enterDisplay}">
        <button  class="md-warn"   id="enterButton" (click)="startAnim()" >ENTER SITE </button>
     </div> -->
   
-    <div id="landingContain"  class="flexbox-parent"  [ngStyle]="{'pointer-events':landingPointerEvents, 'background-color': landingBackgroundColor}" scroll="no" style="overflow: hidden">
+    <div id="landingContain"  class="flexbox-parent"  [ngStyle]="{'pointer-events':landingPointerEvents, 'background-color': landingBackgroundColor}" scroll="no" >
       <div id="headerContain" [@headerPosition]="currentHeaderPosition" (@headerPosition.done)="widenHeader()" layout="column" layout-align="center center" style="height: 40vh" >
   
       <h1 [@headerState]="currentHeaderState">SEAN HOLAHAN</h1>
@@ -14,7 +14,7 @@
   
   
   
-      <div id="headerHide" [ngStyle]="{'width':headerHideWidth, 'transition': headerHideTransition}"></div>
+      <div id="headerHide" [ngStyle]="{'width':headerHideWidth, 'transition': headerHideTransition, 'display':headerHideDisplay}"></div>
   
   
       <div [@cloudBG]="cloudBGState" (@cloudBG.done)="topAlignHeader()" id="cloudBG">
@@ -45,14 +45,14 @@
       </div>
       <!--//-->
   <div id="homeNavContainLarge" [@enterSite]="currentState" >
+    <div class="button" [routerLink]="['/home']">
+      <h4>HOME</h4>
+    </div>
     <div class="button" [routerLink]="['/portfolio']" >
       <h4>PORTFOLIO</h4>
     </div>
     <div class="button" [routerLink]="['/resume']" >
       <h4>RESUME</h4>
-    </div>
-    <div class="button" (click)="goToGit()">
-      <h4>GITHUB</h4>
     </div>
     <div class="button" [routerLink]="['/contact']">
       <h4>CONTACT</h4>
@@ -79,7 +79,9 @@
     </div>
   
   </div>
+  <div id="learnMoreContain" [ngStyle]="{'display':scrollIconOpacity}">
+  <button id="learnMore" (click)="startAnim()">ABOUT</button>
   
-  
+  <img src ='../../assets/img/arrowDown.png' id="arrowDown" />
+</div>
   </div>
-  

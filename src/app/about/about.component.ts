@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, Input,Injectable,AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, Input,Injectable,AfterViewInit, HostListener} from '@angular/core';
 import{trigger, style, transition, animate,  state} from '@angular/animations';
 import {buildingAnimation} from '../animations';
 import {SharedService}   from '../services/shared.service';
 import {Subscription} from 'rxjs/Subscription';
 import { Observable} from 'rxjs';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-about',
@@ -57,8 +58,6 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
       state('visible', style({
         transform: 'scaleX(1)'
-        //transform: 'scaleY(1) translateX(-21vh)',
-       // borderRadius: "10px 10px 10px 10px"
       })),
       state('pushed', style({
         borderRadius: "0px 0px 0px 0px",
@@ -69,23 +68,15 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
     ]),
     trigger('headerState', [
       state('centerAligned', style({
-        // top: '26vh',
-       // fontSize:'10vw',
         textShadow: 'none',
         letterSpacing: '0'
       })),
       state('topAligned', style({
-        // top: '3vh',
-       // fontSize:'10vw'
-        //scale: '.5'
         letterSpacing: '0'
       })),
       state('topAlignedWide', style({
-        //
-        // fontSize:'14vw',
         textShadow: '2px 2px orange',
         letterSpacing: '2.5vw'
-        //scale: '.5'
       })),
       transition('topAligned <=> centerAligned',  animate('300ms')),
       transition('topAligned <=> topAlignedWide',  animate('300ms 200ms')),
@@ -93,7 +84,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
     ]),
     trigger('headerPosition', [
       state('middle', style({
-        height: '80vh'  //80vh
+        height: '80vh' 
       })),
       state('topAligned', style({
         height: '22vh'
@@ -114,7 +105,8 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 })
 export class AboutComponent implements OnInit,AfterViewInit {
   @ViewChild('videoPlayer') videoPlayer: any;
-  @Input() currentPortraitState = "hidden"; //hidden
+
+  @Input() currentPortraitState = "hidden"; 
   @Input() currentHeaderState = 'centerAligned';
   @Input() currentHeaderHideState = 'hidden';
   @Input() currentBuildState ;
@@ -128,6 +120,11 @@ export class AboutComponent implements OnInit,AfterViewInit {
   @Input() cloudBGState: string = 'hidden';
   @Input() currentHeaderPosition: string = "middle";
   @Input() currentOpacityState: string = 'hidden';
+  @HostListener("window:scroll", ['event'])
+  onWindowScroll(event) {
+   this.startAnim();
+  }
+      
 
 
   interval;
@@ -146,16 +143,20 @@ export class AboutComponent implements OnInit,AfterViewInit {
   //mobile detection
   iconMarginBottom: string = '0';
 
+  //scroll variables
+  scrollIconOpacity: string = 'flex';
+
   //intro animation variables
   headerHideTransition: string = 'width 0s';
+  headerHideDisplay: string = 'block';
   landingBackgroundColor: string = '#6E9EC1';
   enterState: string = 'notEntered';
   descriptionToggle: boolean = false;
   headerToggle: boolean = false;
   buildSwitch: boolean = false;
-  enterOpacity:string = '100';
+  enterOpacity:string = '0';
   enterDisplay: string = 'block';
-  videoOpacity: string =  '0';
+  videoOpacity: string =  '100';
   videoDisplay: string = 'block';
   videoZIndex: string;
   headerTop : string = '26vh';
@@ -175,22 +176,28 @@ export class AboutComponent implements OnInit,AfterViewInit {
   onSafari:boolean;
 
 
+  vid = document.getElementById('video-background');
+
+
 
   constructor(
     private sharedService: SharedService,
     private observableMedia: ObservableMedia
+    
   ) {
-    this.playAnim = this.sharedService.playAnim$;
+    this.playAnim = true;
 
   }
 
 
+  
 
   enterSite(state: any) {
     this.enterState = state;
   }
 
   ngAfterViewInit () {
+    
     this.mediaQuery$ = this.observableMedia.subscribe( (change: MediaChange) => {
       this.activeMediaQuery = `${change.mqAlias}`;
       if (this.activeMediaQuery === 'xs') {
@@ -201,10 +208,14 @@ export class AboutComponent implements OnInit,AfterViewInit {
     });
 
 
+
+
   }
 
 
   ngOnInit() {
+    
+    
 
 
     if (navigator.userAgent.toLowerCase().indexOf('safari') != -1) {
@@ -217,9 +228,9 @@ export class AboutComponent implements OnInit,AfterViewInit {
       }
     }
 
-    this.playAnim = this.sharedService.playAnim$;
-
-    if (this.playAnim == false || this.onSafari == true) {
+    // this.playAnim = this.sharedService.playAnim$;
+    // this.playAnim == false || 
+    if (this.onSafari == true) {
       this.enterOpacity = '0';
       this.enterDisplay = 'none';
       this.headerTop = '26vh';
@@ -238,7 +249,7 @@ export class AboutComponent implements OnInit,AfterViewInit {
     this.innerHeight = (window.screen.height) + "px";
     this.innerWidth = (window.screen.width) + "px";
 
-    console.log(this.playAnim, 'gawdy');
+    
 
 
 
@@ -293,12 +304,14 @@ export class AboutComponent implements OnInit,AfterViewInit {
   }
 
   startAnim(): void {
-    this.videoOpacity = "100";
-    this.enterDisplay = 'none';
+    this.scrollIconOpacity = 'none';
     this.descriptionToggle = true;
     this.headerToggle = true;
+    var promise = <HTMLAudioElement> document.getElementById('video-background');
     if (this.videoPlay == false) {
-      var promise = document.querySelector('video').play();
+     promise.play();
+    } else {
+      promise.play();
     }
   }
 
@@ -315,8 +328,10 @@ export class AboutComponent implements OnInit,AfterViewInit {
       this.videoOpacity = '0';
     }
     if (videoTime >= 3.8) {
+      console.log("got to the end")
       this.headerHideWidth = '0';
       this.headerHideTransition = 'width 0s';
+      this.headerHideDisplay = 'none';
       this.homeNavDisplay = 'block';
       this.homeNavOpacity = '100';
       this.homeTransition = 'top 3s ease-in';

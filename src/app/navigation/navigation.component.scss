@@ -133,9 +133,8 @@ h1:focus {
     flex-direction: column;
     position: absolute;
     background-color: #6e9ec1fa;
-    top: 64px;
     width: 100vw;
-    z-index: 1;
+    z-index: 2;
     transition: translate 600ms;
     translate: 0 -120%;
   }
@@ -145,7 +144,7 @@ h1:focus {
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    background-color: #6E9EC1;
+    background-color: transparent; //#6E9EC1;
     width: 100vw;
     height:64px;
     z-index: 2;

@@ -26,7 +26,8 @@
               "./src/style.scss"
 
             ],
-            "scripts": [],
+            "scripts": [
+            ],
             "stylePreprocessorOptions": { "includePaths": [ "../node_modules" ] }
           },
           "configurations": {

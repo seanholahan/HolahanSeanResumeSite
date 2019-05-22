@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Teko");
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url("https://fonts.googleapis.com/css?family=Hind");
+@import "../style/custom-theme.scss";
 
 
 
@@ -24,6 +25,50 @@ p  {
 
 /*tester*/
 
+
+#gridListContain {
+  height: calc(100vh + 5px );//- 58px
+}
+
+#arrowDown {
+  z-index: 12;
+  height: 20px;
+  bottom: 0px;
+  left: calc(50vw - 15px);
+  margin-bottom: 10px;
+  transition: opacity 400ms;
+  width: 30px;
+}
+
+#learnMoreContain {
+  position: absolute;
+  bottom: 0px;
+  z-index: 12;
+  width: 100%;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#learnMore {
+  background: none;
+    border: 1px solid white;
+    color: white;
+    margin-bottom: 30px;
+    font-family: "Teko", sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 10px 20px 7px 20px;
+    transition: background-color 300ms;
+}
+
+#learnMore:hover {
+  background-color: #ffffff5c;
+}
+#learnMore:focus {
+  outline: none;
+}
 
 
 
@@ -240,7 +285,7 @@ a:focus {
   text-align:center;
 
   position: fixed;
-  overflow: hidden;
+  
   top: 0;
   left:0;
 // pointer-events: none;
