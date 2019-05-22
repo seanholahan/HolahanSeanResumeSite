@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {PORTFOLIO} from './portfolio-data';
 import {Project} from './project';
 import GoogleSpreadsheet from 'google-spreadsheet';
-import * as creds from  './client_secret';
+
 @Injectable({
   providedIn: 'root'
 })

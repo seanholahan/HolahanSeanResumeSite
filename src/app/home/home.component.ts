@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   //mobile detection
   iconMarginBottom: string = '0';
-  data: string = '"Look not mournfully into the past. It comes not back again. Wisely improve the present. It is thine. Go forth to meet the shadowy future, without fear." - Henry Wadsworth Longfellow';
+  quoteOfDay: string;
   quote: string; 
   author: string;
 
@@ -90,18 +90,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
         //else
       }
     });
-
-
   }
 
 
   ngOnInit() {
-    console.log("inited");
-    this.twitterService.getDailyTweet();
-    this.quote = this.data.match(/"([^"]*)"/)[0];
-    this.author = this.data.replace(this.quote, "");
+
+    
+    console.log("hallo", this.twitterService.getDailyTweet());
+    this.quoteOfDay = this.twitterService.getDailyTweet();
+    this.quote = this.quoteOfDay.match(/"([^"]*)"/)[0];
+    this.author = this.quoteOfDay.replace(this.quote, "");
     this.innerHeight = (window.screen.height) + "px";
     this.innerWidth = (window.screen.width) + "px";
+    
 
     //toggle to turn off intro animation
 
@@ -115,8 +116,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // //  alert(" this is safiarei");
     //   this.playAnim = false;
     // }
-
-
   goToGit(): void {
     window.open('https://github.com/seanholahan', '_blank')
   }
